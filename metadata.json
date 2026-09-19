@@ -1,0 +1,6 @@
+{
+  "name": "Marina Coaching - Od Dobre Djevojčice do Žene Koja Vodi Svoj Život",
+  "description": "Programi i 1:1 rad za žene koje su cijeli život živjele po tuđim pravilima i žele početi živjeti svoj život.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
