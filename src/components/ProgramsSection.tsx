@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Program } from '../types';
 import { PROGRAMS } from '../data/content';
 
@@ -12,6 +13,8 @@ export default function ProgramsSection({
   onSelectTab,
   onSelectProgram,
 }: ProgramsSectionProps) {
+  const [activeTab, setActiveTab] = useState(selectedTab || 'all');
+
   const tabs = [
     { id: 'all', label: 'Svi programi' },
     { id: 'webinar', label: 'Webinar' },
@@ -20,33 +23,42 @@ export default function ProgramsSection({
     { id: 'premium', label: 'Premium 1:1 program' },
   ];
 
-  // In the reference design, all 4 progression offerings are shown in the overview grid
-  // When a specific tab is selected, we keep all 4 visible to preserve the complete 4-step roadmap
-  const programsToDisplay = PROGRAMS;
+  useEffect(() => {
+    setActiveTab(selectedTab || 'all');
+  }, [selectedTab]);
+
+  const handleSelectTab = (tabId: string) => {
+    setActiveTab(tabId);
+    onSelectTab(tabId);
+  };
+
+  const programsToDisplay = activeTab === 'all' || activeTab === 'webinar'
+    ? PROGRAMS
+    : PROGRAMS.filter((program) => program.category === activeTab);
 
   return (
-    <section id="programi" className="pt-6 sm:pt-10 pb-16 sm:pb-24 container mx-auto px-4 sm:px-6 md:px-8">
+    <section id="programi" className="pt-6 sm:pt-10 pb-16 sm:pb-24 container mx-auto px-3 sm:px-6 md:px-8">
       {/* Section Header */}
       <div className="mb-7 sm:mb-9">
         <span className="text-[#3A9FB3] text-xs sm:text-[16px] font-medium tracking-normal block mb-3.5 border-b pb-2 border-[#DDDDDD]">
           Načini rada
         </span>
 
-        <h2 className=" text-[#4F4640] text-xl sm:text-[23px] md:text-[30px] font-[500]  leading-[160%]">
-          Proces je strukturiran tako da možeš postupno ulaziti u rad — od <br></br> prvog prepoznavanja obrasca do dubinske transformacije  <br></br>  identiteta.
+        <h2 className="text-[#4F4640] text-[19px] sm:text-[23px] md:text-[30px] font-[500] leading-[150%] sm:leading-[160%]">
+          Proces je strukturiran tako da možeš postupno ulaziti u rad — od <br className="hidden sm:block" /> prvog prepoznavanja obrasca do dubinske transformacije <br className="hidden sm:block" /> identiteta.
         </h2>
       </div>
 
       {/* Filter Tabs matching the screenshot */}
       <div className="flex items-center gap-2 sm:gap-4 md:gap-6 overflow-x-auto pb-2 mb-7 sm:mb-9 text-xs sm:text-[13px] no-scrollbar">
         {tabs.map((tab) => {
-          const isActive = selectedTab === tab.id;
+          const isActive = activeTab === tab.id;
           return (
             <button
               key={tab.id}
               id={`tab-${tab.id}`}
-              onClick={() => onSelectTab(tab.id)}
-              className={`transition-all whitespace-nowrap cursor-pointer rounded-md px-3.5 py-1.5 text-[14px] ${isActive
+              onClick={() => handleSelectTab(tab.id)}
+              className={`transition-all whitespace-nowrap cursor-pointer rounded-md px-3 py-1.5 sm:px-3.5 text-[13px] sm:text-[14px] ${isActive
                 ? 'bg-[#eaedef] text-[#3A9FB3] font-medium'
                 : 'text-neutral-600 hover:text-neutral-900 font-normal hover:bg-neutral-100/60'
                 }`}
@@ -59,8 +71,8 @@ export default function ProgramsSection({
 
       {/* 4 Cards Grid matching screenshot */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-        {programsToDisplay.map((program, index) => {
-          const isSelectedTab = selectedTab === program.category || (selectedTab === 'webinar' && index === 0);
+        {programsToDisplay.map((program) => {
+          const isSelectedTab = activeTab === program.category;
 
           return (
             <div

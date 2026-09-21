@@ -173,8 +173,8 @@ export default function Modals({
 
       {/* 3. General Info Modal (for "Tko je dobra djevojčica" & "Kako izgleda proces") */}
       {infoModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
-          <div className="relative w-full max-w-lg bg-white rounded-2xl p-6 sm:p-8 shadow-2xl border border-neutral-100 space-y-5">
+        <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto p-3 sm:p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
+          <div className="relative w-full max-w-lg max-h-[92dvh] overflow-y-auto bg-white rounded-2xl p-5 sm:p-8 shadow-2xl border border-neutral-100 space-y-5">
             <button
               onClick={onCloseInfoModal}
               className="absolute top-4 right-4 w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-700 flex items-center justify-center transition-colors cursor-pointer"
@@ -215,8 +215,8 @@ export default function Modals({
 
       {/* 4. Consultation & Contact Modal */}
       {contactModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
-          <div className="relative w-full max-w-lg bg-white rounded-2xl p-6 sm:p-8 shadow-2xl border border-neutral-100">
+        <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto p-3 sm:p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
+          <div className="relative w-full max-w-lg max-h-[92dvh] overflow-y-auto bg-white rounded-2xl p-5 sm:p-8 shadow-2xl border border-neutral-100">
             <button
               onClick={onCloseContact}
               className="absolute top-4 right-4 w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-700 flex items-center justify-center transition-colors cursor-pointer"
@@ -250,7 +250,7 @@ export default function Modals({
                   </p>
                 </div>
 
-                <form onSubmit={handleContactSubmit} className="space-y-3.5 text-xs sm:text-sm">
+                <form onSubmit={handleContactSubmit} className="space-y-3.5 text-sm sm:text-sm">
                   <div>
                     <label className="block text-neutral-700 font-medium mb-1">Ime i prezime</label>
                     <input
@@ -259,7 +259,7 @@ export default function Modals({
                       placeholder="Npr. Ana Horvat"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#23909d]/30 focus:border-[#23909d] transition-all"
+                      className="w-full px-3.5 py-3 sm:py-2.5 text-base sm:text-sm rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#23909d]/30 focus:border-[#23909d] transition-all"
                     />
                   </div>
 
@@ -272,7 +272,7 @@ export default function Modals({
                         placeholder="tvoj@email.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#23909d]/30 focus:border-[#23909d] transition-all"
+                        className="w-full px-3.5 py-3 sm:py-2.5 text-base sm:text-sm rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#23909d]/30 focus:border-[#23909d] transition-all"
                       />
                     </div>
                     <div>
@@ -282,7 +282,7 @@ export default function Modals({
                         placeholder="+385 9..."
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#23909d]/30 focus:border-[#23909d] transition-all"
+                        className="w-full px-3.5 py-3 sm:py-2.5 text-base sm:text-sm rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#23909d]/30 focus:border-[#23909d] transition-all"
                       />
                     </div>
                   </div>
@@ -292,7 +292,7 @@ export default function Modals({
                     <select
                       value={formData.topic}
                       onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#23909d]/30 focus:border-[#23909d] transition-all bg-white"
+                      className="w-full px-3.5 py-3 sm:py-2.5 text-base sm:text-sm rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#23909d]/30 focus:border-[#23909d] transition-all bg-white"
                     >
                       <option value="Konzultacije 1:1">Premium 1:1 rad</option>
                       <option value="Sindrom dobre djevojčice">Webinar: Sindrom dobre djevojčice</option>
@@ -309,7 +309,7 @@ export default function Modals({
                       placeholder="Ukratko opiši u kojem području života osjećaš najveći pritisak očekivanja..."
                       value={formData.note}
                       onChange={(e) => setFormData({ ...formData, note: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#23909d]/30 focus:border-[#23909d] transition-all resize-none"
+                      className="w-full px-3.5 py-3 sm:py-2.5 text-base sm:text-sm rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#23909d]/30 focus:border-[#23909d] transition-all resize-none"
                     />
                   </div>
 

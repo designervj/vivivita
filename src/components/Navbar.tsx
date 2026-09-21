@@ -109,7 +109,7 @@ export default function Navbar({ onOpenContact, onSelectProgramTab, onScrollTo }
           <button
             id="nav-contact-btn"
             onClick={onOpenContact}
-            className="flex items-center gap-2 hover:text-[#3A9FB3] transition-colors cursor-pointer group"
+            className="flex h-10 w-10 sm:h-auto sm:w-auto items-center justify-center sm:justify-start gap-2 hover:text-[#3A9FB3] transition-colors cursor-pointer group"
           >
             <Phone className="w-3.5 h-3.5 text-neutral-600 group-hover:text-[#3A9FB3] transition-colors" />
             <span className="hidden sm:inline">Kontaktirajte me</span>
@@ -120,7 +120,7 @@ export default function Navbar({ onOpenContact, onSelectProgramTab, onScrollTo }
             <button
               id="lang-selector-btn"
               onClick={() => setIsLangOpen(!isLangOpen)}
-              className="flex items-center gap-1 hover:text-[#3A9FB3] transition-colors py-1 cursor-pointer text-[14px]"
+              className="flex h-10 items-center gap-1 hover:text-[#3A9FB3] transition-colors py-1 cursor-pointer text-[14px]"
             >
               <span>{currentLang}</span>
               <ChevronDown className={`w-3 h-3 text-neutral-600 transition-transform ${isLangOpen ? 'rotate-180' : ''}`} />
@@ -150,7 +150,7 @@ export default function Navbar({ onOpenContact, onSelectProgramTab, onScrollTo }
           <button
             id="mobile-menu-toggle"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-neutral-700 hover:text-[#3A9FB3]"
+            className="md:hidden h-10 w-10 flex items-center justify-center text-neutral-700 hover:text-[#3A9FB3]"
             aria-label="Izbornik"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
