@@ -16,7 +16,7 @@ export default function AboutSection({ onBookCall }: AboutSectionProps) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
         {/* Left Column: Landscape Portrait matching screenshot */}
         <div className="lg:col-span-6">
-          <div className="rounded-[22px] sm:rounded-[26px] overflow-hidden bg-[#edf3f4] aspect-[16/10] shadow-xs border border-neutral-200/50">
+          <div className="rounded-[20px] sm:rounded-[20px] overflow-hidden bg-[#edf3f4] aspect-[16/10] shadow-xs border border-neutral-200/50">
             <img
               src="/image/marini-img.png"
               alt="Marina Novaković"

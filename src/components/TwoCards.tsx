@@ -14,7 +14,7 @@ export default function TwoCards({ onLearnMoreGoodGirl, onExploreProcess }: TwoC
         {/* Card 1: Left Dark Card */}
         <div
           id="card-good-girl"
-          className="relative rounded-[20px] sm:rounded-[26px] overflow-hidden min-h-[340px] sm:min-h-[410px] p-5 sm:p-8 flex flex-col justify-between text-white shadow-xs bg-neutral-900 group"
+          className="relative rounded-[20px] sm:rounded-[20px] overflow-hidden min-h-[340px] sm:min-h-[410px] p-5 sm:p-8 flex flex-col justify-between text-white shadow-xs bg-neutral-900 group"
         >
           {/* Background image: hands writing with pen in open notebook */}
           <img
@@ -69,7 +69,7 @@ export default function TwoCards({ onLearnMoreGoodGirl, onExploreProcess }: TwoC
 
         <div
           id="card-how-it-works"
-          className="relative rounded-[20px] sm:rounded-[26px] overflow-hidden min-h-[340px] sm:min-h-[410px] p-5 sm:p-8 flex flex-col justify-between bg-[#f0f3f4] text-neutral-800 shadow-xs border border-[#e2e8ea] group"
+          className="relative rounded-[20px] sm:rounded-[20px] overflow-hidden min-h-[340px] sm:min-h-[410px] p-5 sm:p-8 flex flex-col justify-between bg-[#f0f3f4] text-neutral-800 shadow-xs border border-[#e2e8ea] group"
 
         >
 
