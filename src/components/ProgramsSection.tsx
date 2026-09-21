@@ -28,12 +28,12 @@ export default function ProgramsSection({
     <section id="programi" className="pt-6 sm:pt-10 pb-16 sm:pb-24 container mx-auto px-4 sm:px-6 md:px-8">
       {/* Section Header */}
       <div className="mb-7 sm:mb-9">
-        <span className="text-[#2397a6] text-xs sm:text-[13px] font-medium tracking-normal block mb-3.5">
+        <span className="text-[#3A9FB3] text-xs sm:text-[16px] font-medium tracking-normal block mb-3.5 border-b pb-2 border-[#DDDDDD]">
           Načini rada
         </span>
 
-        <h2 className="text-[#2c3338] text-xl sm:text-[23px] md:text-[26px] font-semibold max-w-3xl leading-[1.34]">
-          Proces je strukturiran tako da možeš postupno ulaziti u rad — od prvog prepoznavanja obrasca do dubinske transformacije identiteta.
+        <h2 className=" text-[#4F4640] text-xl sm:text-[23px] md:text-[30px] font-[500]  leading-[160%]">
+          Proces je strukturiran tako da možeš postupno ulaziti u rad — od <br></br> prvog prepoznavanja obrasca do dubinske transformacije  <br></br>  identiteta.
         </h2>
       </div>
 
@@ -46,11 +46,10 @@ export default function ProgramsSection({
               key={tab.id}
               id={`tab-${tab.id}`}
               onClick={() => onSelectTab(tab.id)}
-              className={`transition-all whitespace-nowrap cursor-pointer rounded-md px-3.5 py-1.5 ${
-                isActive
-                  ? 'bg-[#eaedef] text-[#2397a6] font-medium'
-                  : 'text-neutral-600 hover:text-neutral-900 font-normal hover:bg-neutral-100/60'
-              }`}
+              className={`transition-all whitespace-nowrap cursor-pointer rounded-md px-3.5 py-1.5 text-[14px] ${isActive
+                ? 'bg-[#eaedef] text-[#3A9FB3] font-medium'
+                : 'text-neutral-600 hover:text-neutral-900 font-normal hover:bg-neutral-100/60'
+                }`}
             >
               {tab.label}
             </button>
@@ -68,11 +67,10 @@ export default function ProgramsSection({
               key={program.id}
               id={`program-card-${program.id}`}
               onClick={() => onSelectProgram(program)}
-              className={`group bg-[#f4f6f7] rounded-[20px] overflow-hidden border transition-all duration-300 flex flex-col justify-between cursor-pointer ${
-                isSelectedTab
-                  ? 'border-[#dbe3e5] shadow-xs'
-                  : 'border-[#eaedee] hover:border-[#d9e1e3] hover:shadow-xs'
-              }`}
+              className={`group bg-[#f4f6f7] rounded-[20px] overflow-hidden border transition-all duration-300 flex flex-col justify-between cursor-pointer ${isSelectedTab
+                ? 'border-[#dbe3e5] shadow-xs'
+                : 'border-[#eaedee] hover:border-[#d9e1e3] hover:shadow-xs'
+                }`}
             >
               {/* Image Container with high visual fidelity to screenshot */}
               <div className="relative aspect-[1/1] sm:aspect-[4/3.8] bg-[#e6eaec] overflow-hidden">
@@ -84,7 +82,7 @@ export default function ProgramsSection({
                 />
 
                 {/* Specific mockup overlay for Card 3: "Izlaz iz sindroma dobre djevojčice" */}
-              
+
 
                 {/* Specific mockup overlay for Card 4: "Žena koja vodi svoj život" (Wheel of Life diagram) */}
                 {program.id === 'zena-koja-vodi-svoj-zivot' && (
@@ -109,14 +107,14 @@ export default function ProgramsSection({
               {/* Content Body at Bottom */}
               <div className="p-4 sm:p-5 bg-[#f4f6f7] flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-semibold text-neutral-800 text-[13.5px] sm:text-[14.5px] leading-snug group-hover:text-[#2397a6] transition-colors">
+                  <h3 className=" font-semibold text-neutral-800 text-[13.5px] sm:text-[16px] leading-snug group-hover:text-[#6CC0E3] transition-colors border-b border-[#E2E2E2] pb-3">
                     {program.title}
                   </h3>
                 </div>
 
                 {/* Action Link at Bottom matching screenshot */}
-                <div className="pt-3.5 mt-auto">
-                  <span className="inline-block text-xs sm:text-[12.5px] text-[#2397a6] font-medium group-hover:underline underline-offset-4">
+                <div className="pt-2 mt-auto">
+                  <span className="inline-block text-xs sm:text-[14px] text-[#6CC0E3] font-medium ">
                     {program.actionText}
                   </span>
                 </div>

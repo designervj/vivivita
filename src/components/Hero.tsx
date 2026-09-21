@@ -22,11 +22,11 @@ export default function Hero({ onStartProcess, onPlayVideo }: HeroProps) {
         />
 
         {/* Soft luminous overlays that keep the daylight feel while ensuring white text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/28 via-black/14 to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.22)_0%,rgba(0,0,0,0.08)_65%,transparent_100%)] pointer-events-none" />
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-black/28 via-black/14 to-transparent pointer-events-none" /> */}
+        {/* <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.22)_0%,rgba(0,0,0,0.08)_65%,transparent_100%)] pointer-events-none" /> */}
 
         {/* Content Container */}
-        <div className="relative z-10 max-w-2xl mx-auto px-6 py-10 sm:pt-24 flex flex-col items-center text-center">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 py-10 sm:pt-24 flex flex-col items-center text-center">
           {/* Circular Frosted Play Button */}
           <button
             id="hero-play-button"
@@ -38,13 +38,13 @@ export default function Hero({ onStartProcess, onPlayVideo }: HeroProps) {
           </button>
 
           {/* Main Title in Serif Capitalized */}
-          <h1 className="font-serif-hero font-normal sm:font-medium text-white tracking-[0.04em] text-[25px] sm:text-[32px] md:text-[38px] lg:text-[43px] leading-[1.22] max-w-2xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]">
+          <h1 className="font-serif-hero font-normal sm:font-medium text-white tracking-[0.04em] text-[25px] sm:text-[32px] md:text-[38px] lg:text-[43px] leading-[1.22]  drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]">
             OD “DOBRE DJEVOJČICE”<br />
             DO ŽENE KOJA VODI SVOJ ŽIVOT.
           </h1>
 
           {/* Subtitle */}
-          <p className="font-serif-hero italic text-white/95 text-xs sm:text-[13.5px] md:text-[15px] font-light max-w-xl mx-auto mt-3 sm:mt-4 leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.35)]">
+          <p className="font-sans italic text-white/95 text-xs sm:text-[13.5px] md:text-[16px] font-[500] mx-auto mt-3 sm:mt-4 leading-[260%] drop-shadow-[2px_2px_2px_#00000040]">
             {HERO_CONTENT.subtitle}
           </p>
 
@@ -52,7 +52,7 @@ export default function Hero({ onStartProcess, onPlayVideo }: HeroProps) {
           <button
             id="hero-cta-button"
             onClick={onStartProcess}
-            className="mt-5 sm:mt-6 px-6 sm:px-7 py-2 sm:py-2.5 rounded-full bg-[#2397a6] hover:bg-[#1f8795] active:scale-98 text-white font-medium text-xs sm:text-[13.5px] tracking-normal transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer"
+            className="btn-primary mt-5 sm:mt-6 shadow-sm hover:shadow-md"
           >
             {HERO_CONTENT.ctaButton}
           </button>

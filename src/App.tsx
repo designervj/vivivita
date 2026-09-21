@@ -111,10 +111,10 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer
+      {/* <Footer
         onOpenContact={() => setContactModalOpen(true)}
         onScrollTo={scrollToSection}
-      />
+      /> */}
 
       {/* Interactive Modals */}
       <Modals

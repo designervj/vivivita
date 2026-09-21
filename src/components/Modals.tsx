@@ -155,7 +155,7 @@ export default function Modals({
                     setFormData((prev) => ({ ...prev, topic: selectedProgram.title }));
                     // open contact modal
                   }}
-                  className="flex-1 py-3 rounded-full bg-[#23909d] hover:bg-[#1d7984] text-white text-sm font-medium transition-colors text-center shadow-sm cursor-pointer"
+                  className="btn-primary flex-1 justify-center"
                 >
                   {selectedProgram.actionText}
                 </button>
@@ -204,7 +204,7 @@ export default function Modals({
             <div className="pt-2">
               <button
                 onClick={onCloseInfoModal}
-                className="w-full py-2.5 rounded-full bg-[#23909d] hover:bg-[#1d7984] text-white text-sm font-medium transition-colors cursor-pointer"
+                className="btn-primary w-full justify-center"
               >
                 Razumijem
               </button>
@@ -315,7 +315,7 @@ export default function Modals({
 
                   <button
                     type="submit"
-                    className="w-full mt-2 py-3 rounded-full bg-[#23909d] hover:bg-[#1d7984] text-white text-sm font-medium transition-colors shadow-sm flex items-center justify-center gap-2 cursor-pointer"
+                    className="btn-primary w-full mt-2 justify-center"
                   >
                     <Send className="w-4 h-4" />
                     <span>Pošalji upit</span>

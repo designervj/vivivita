@@ -20,23 +20,23 @@ export default function TestimonialsSection() {
     <section id="iskustva" className="pt-8 sm:pt-12 pb-16 sm:pb-24 container mx-auto px-4 sm:px-6 md:px-8">
       {/* Top Category Tag & Horizontal Divider matching screenshot */}
       <div className="mb-12 sm:mb-[58px]">
-        <span className="text-[#2397a6] text-[11px] sm:text-[12px] font-medium tracking-normal block mb-3">
+        <span className="text-[#3A9FB3] text-[11px] sm:text-[16px] font-medium tracking-normal block mb-3">
           Što žene kažu nakon rada sa mnom
         </span>
         <div className="w-full border-b border-neutral-200/90" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start max-w-[1120px] mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start max-w-6xl mx-auto">
         {/* Left Column: Quotes & Carousel Controls */}
-        <div className="lg:col-span-5 flex flex-col justify-between min-h-[300px] sm:min-h-[340px] pt-1 lg:pl-8">
+        <div className="lg:col-span-6 flex flex-col justify-between min-h-[300px] sm:min-h-[340px] pt-1 lg:pl-8">
           {/* Active Quotes */}
           <div className="space-y-8 sm:space-y-9 animate-in fade-in duration-300" key={currentSlide.id}>
             {currentSlide.quotes.map((item) => (
-              <div key={item.id} className="max-w-[420px]">
-                <blockquote className="text-neutral-800 text-[11px] sm:text-[12px] leading-[1.55] font-sans font-semibold">
+              <div key={item.id} className="max-w-4xl">
+                <blockquote className="text-neutral-800 text-[11px] sm:text-[16px] leading-[1.55] font-sans font-semibold">
                   “{item.quote}”
                 </blockquote>
-                <div className="text-[10px] sm:text-[11px] text-neutral-500 font-sans mt-4">
+                <div className="text-[10px] sm:text-[16px] text-neutral-500 font-sans mt-4">
                   {item.author}, {item.age}
                 </div>
               </div>
@@ -50,28 +50,28 @@ export default function TestimonialsSection() {
                 id="testimonial-prev-btn"
                 onClick={handlePrev}
                 aria-label="Prethodna iskustva"
-                className="w-[76px] h-[20px] rounded-full bg-[#eaedef] hover:bg-[#dfe3e6] active:scale-95 flex items-center justify-center text-[#2397a6] transition-colors cursor-pointer"
+                className=" px-[40px] py-[10px] rounded-full bg-[#eaedef] hover:bg-[#dfe3e6] active:scale-95 flex items-center justify-center text-[#3A9FB3] transition-colors cursor-pointer"
               >
-                <ChevronLeft className="w-3 h-3" />
+                <ChevronLeft className="w-4 h-4" />
               </button>
               <button
                 id="testimonial-next-btn"
                 onClick={handleNext}
                 aria-label="Sljedeća iskustva"
-                className="w-[76px] h-[20px] rounded-full bg-[#eaedef] hover:bg-[#dfe3e6] active:scale-95 flex items-center justify-center text-[#2397a6] transition-colors cursor-pointer"
+                className="px-[40px] py-[10px] rounded-full bg-[#eaedef] hover:bg-[#dfe3e6] active:scale-95 flex items-center justify-center text-[#3A9FB3] transition-colors cursor-pointer"
               >
-                <ChevronRight className="w-3 h-3" />
+                <ChevronRight className="w-4 h-4" />
               </button>
             </div>
 
-            <span className="text-[9px] font-sans text-neutral-400 mt-2">
+            <span className="text-[11px] font-sans italic text-neutral-600 mt-2  font-[600] text-[#636B78]">
               {currentSlideIdx + 1} / {totalSlides}
             </span>
           </div>
         </div>
 
         {/* Right Column: 3-Photo Collage with Quotation Mark matching screenshot */}
-        <div className="lg:col-span-7 flex justify-center lg:justify-end">
+        <div className="lg:col-span-6 flex justify-center lg:justify-end">
           <div className="flex items-end justify-center gap-3 sm:gap-4 max-w-[560px] w-full">
             {/* Column 1: Tall Vertical Photo (spans full height) */}
             <div className="w-[31%] aspect-[7/12] rounded-[12px] overflow-hidden bg-neutral-100 shadow-2xs shrink-0">
@@ -86,9 +86,8 @@ export default function TestimonialsSection() {
             <div className="w-[31%] aspect-[7/12] flex flex-col justify-between shrink-0">
               {/* Large subtle quote mark */}
               <div className="flex items-center justify-center h-1/2 select-none">
-                <span className="font-serif text-5xl sm:text-6xl md:text-[82px] text-[#d5dcdd] leading-none select-none">
-                  “
-                </span>
+
+                <img src="../image/Union.svg" alt='Union Icon'></img>
               </div>
 
               {/* Photo 2: Young girl/woman looking up */}
