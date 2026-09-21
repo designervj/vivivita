@@ -42,7 +42,7 @@ export default function TwoCards({ onLearnMoreGoodGirl, onExploreProcess }: TwoC
               {TWO_CARDS_CONTENT.leftCard.bullets.map((bullet, idx) => (
                 <div key={idx} className="flex items-center gap-2 text-xs sm:text-[12.5px] text-white/95">
                   {/* <User className="w-3.5 h-3.5 text-[#6ec9d7] shrink-0" /> */}
-                  <img src="../image/icon.svg" alt='User Icon'></img>
+                  <img src="../image/Icon.svg" alt='User Icon'></img>
                   <span className='text-[14px] sm:text-[16px] font-semibold text-white leading-[22px] sm:leading-[24px]'>{bullet}</span>
                 </div>
               ))}
@@ -98,7 +98,7 @@ export default function TwoCards({ onLearnMoreGoodGirl, onExploreProcess }: TwoC
               {TWO_CARDS_CONTENT.rightCard.bullets.map((bullet, idx) => (
                 <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-[13px] text-neutral-700">
                   {/* <User className="w-3.5 h-3.5 text-[#3A9FB3] shrink-0" /> */}
-                  <img src="../image/icon.svg" alt='User Icon'></img>
+                  <img src="../image/Icon.svg" alt='User Icon'></img>
 
                   <span className='text-[14px] sm:text-[16px] font-semibold leading-[22px] sm:leading-[24px] tracking-[0%]'>{bullet}</span>
                 </div>
