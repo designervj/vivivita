@@ -25,7 +25,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section id="iskustva" className="pt-8 sm:pt-12 pb-16 sm:pb-24 container mx-auto px-3 sm:px-6 md:px-8">
+    <section id="iskustva" className="pt-8 sm:pt-12 pb-16 sm:pb-20 container mx-auto px-3 sm:px-6 md:px-8">
       {/* Top Category Tag & Horizontal Divider matching screenshot */}
       <div className="mb-12 sm:mb-[58px]">
         <span className="text-[#3A9FB3] text-[11px] sm:text-[16px] font-medium tracking-normal block mb-3">
@@ -36,7 +36,7 @@ export default function TestimonialsSection() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 sm:gap-8 lg:gap-10 items-start max-w-6xl mx-auto">
         {/* Left Column: Quotes */}
-        <div className="lg:col-span-6 flex flex-col justify-between min-h-[300px] sm:min-h-[340px] pt-1 lg:pl-8">
+        <div className="lg:col-span-6 flex flex-col justify-between min-h-[250px] sm:min-h-[340px] pt-1 lg:pl-8">
           {/* Active Quotes */}
           <div className="space-y-8 sm:space-y-9 animate-in fade-in duration-300" key={currentSlide.id}>
             {currentSlide.quotes.map((item) => (
