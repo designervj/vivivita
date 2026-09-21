@@ -122,6 +122,11 @@ export const PROGRAMS: Program[] = [
 export const TESTIMONIAL_SLIDES: TestimonialSlide[] = [
   {
     id: 1,
+    images: [
+      '/image/Marin Medak 1.png',
+      '/image/Marin Medak 2.png',
+      '/image/Marin Medak 3.png',
+    ],
     quotes: [
       {
         id: 't1',
@@ -139,6 +144,11 @@ export const TESTIMONIAL_SLIDES: TestimonialSlide[] = [
   },
   {
     id: 2,
+    images: [
+      '/image/Marin Medak 2.png',
+      '/image/Marin Medak 3.png',
+      '/image/marini-img.png',
+    ],
     quotes: [
       {
         id: 't3',
@@ -156,6 +166,11 @@ export const TESTIMONIAL_SLIDES: TestimonialSlide[] = [
   },
   {
     id: 3,
+    images: [
+      '/image/Marin Medak 3.png',
+      '/image/marini-img.png',
+      '/image/about-img.png',
+    ],
     quotes: [
       {
         id: 't5',
@@ -173,6 +188,11 @@ export const TESTIMONIAL_SLIDES: TestimonialSlide[] = [
   },
   {
     id: 4,
+    images: [
+      '/image/marini-img.png',
+      '/image/about-img.png',
+      '/image/Marin Medak 1.png',
+    ],
     quotes: [
       {
         id: 't7',
@@ -190,6 +210,11 @@ export const TESTIMONIAL_SLIDES: TestimonialSlide[] = [
   },
   {
     id: 5,
+    images: [
+      '/image/about-img.png',
+      '/image/Marin Medak 1.png',
+      '/image/Marin Medak 2.png',
+    ],
     quotes: [
       {
         id: 't9',

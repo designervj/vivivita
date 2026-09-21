@@ -34,11 +34,11 @@ export default function TwoCards({ onLearnMoreGoodGirl, onExploreProcess }: TwoC
             </h2>
 
             <div className=" text-neutral-200 whitespace-pre-line font-sans">
-              <p className='text-[14px] sm:text-[16px] font-semibold text-white leading-[22px] sm:leading-[24px] tracking-[0%]'> {TWO_CARDS_CONTENT.leftCard.description}</p>
+              <p className='pt-4 text-[14px] sm:text-[16px] font-semibold text-white leading-[22px] sm:leading-[24px] tracking-[0%]'> {TWO_CARDS_CONTENT.leftCard.description}</p>
             </div>
 
             {/* 2x2 grid of bullet points */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-3 pt-2 font-sans">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-6 pt-6 font-sans">
               {TWO_CARDS_CONTENT.leftCard.bullets.map((bullet, idx) => (
                 <div key={idx} className="flex items-center gap-2 text-xs sm:text-[12.5px] text-white/95">
                   {/* <User className="w-3.5 h-3.5 text-[#6ec9d7] shrink-0" /> */}
@@ -89,12 +89,12 @@ export default function TwoCards({ onLearnMoreGoodGirl, onExploreProcess }: TwoC
               {TWO_CARDS_CONTENT.rightCard.title}
             </h2>
 
-            <p className='text-[14px] sm:text-[16px] font-semibold leading-[22px] sm:leading-[24px] tracking-[0%]'>
+            <p className='pt-4 text-[14px] sm:text-[16px] font-semibold leading-[22px] sm:leading-[24px] tracking-[0%]'>
               {TWO_CARDS_CONTENT.rightCard.subtitle}
             </p>
 
             {/* Vertical list of points */}
-            <div className="space-y-2.5 pt-1 font-sans">
+            <div className="space-y-3.5 pt-6 font-sans">
               {TWO_CARDS_CONTENT.rightCard.bullets.map((bullet, idx) => (
                 <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-[13px] text-neutral-700">
                   {/* <User className="w-3.5 h-3.5 text-[#3A9FB3] shrink-0" /> */}

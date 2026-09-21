@@ -21,5 +21,6 @@ export interface Testimonial {
 
 export interface TestimonialSlide {
   id: number;
+  images: [string, string, string];
   quotes: Testimonial[];
 }

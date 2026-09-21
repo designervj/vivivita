@@ -2,6 +2,14 @@ import { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { TESTIMONIAL_SLIDES } from '../data/content';
 
+const getImagePositionClass = (image: string) => {
+  if (image.includes('about-img')) {
+    return 'object-[82%_center]';
+  }
+
+  return 'object-center';
+};
+
 export default function TestimonialsSection() {
   const [currentSlideIdx, setCurrentSlideIdx] = useState(0);
 
@@ -52,9 +60,10 @@ export default function TestimonialsSection() {
               {/* Column 1: Tall Vertical Photo (spans full height) */}
               <div className="w-[31%] aspect-[7/12] rounded-[12px] overflow-hidden bg-neutral-100 shadow-2xs shrink-0">
                 <img
-                  src="/image/Marin Medak 1.png"
+                  key={currentSlide.images[0]}
+                  src={currentSlide.images[0]}
                   alt="Polaznica"
-                  className="w-full h-full object-cover object-center filter contrast-[0.98]"
+                  className={`w-full h-full object-cover ${getImagePositionClass(currentSlide.images[0])} filter contrast-[0.98]`}
                 />
               </div>
 
@@ -63,15 +72,16 @@ export default function TestimonialsSection() {
                 {/* Large subtle quote mark */}
                 <div className="flex items-center justify-center h-1/2 select-none">
 
-                  <img src="../image/Union.svg" alt='Union Icon'></img>
+                  <img src="/image/Union.svg" alt='Union Icon'></img>
                 </div>
 
                 {/* Photo 2: Young girl/woman looking up */}
                 <div className="aspect-[4/3.35] rounded-[12px] overflow-hidden bg-neutral-100 shadow-2xs">
                   <img
-                    src="/image/Marin Medak 2.png"
+                    key={currentSlide.images[1]}
+                    src={currentSlide.images[1]}
                     alt="Iskustvo rada"
-                    className="w-full h-full object-cover object-center filter contrast-[0.95]"
+                    className={`w-full h-full object-cover ${getImagePositionClass(currentSlide.images[1])} filter contrast-[0.95]`}
                   />
                 </div>
               </div>
@@ -81,9 +91,10 @@ export default function TestimonialsSection() {
                 {/* Photo 3: Smiling woman resting chin on hand */}
                 <div className="aspect-[4/3.35] rounded-[12px] overflow-hidden bg-neutral-100 shadow-2xs">
                   <img
-                    src="/image/Marin Medak 3.png"
+                    key={currentSlide.images[2]}
+                    src={currentSlide.images[2]}
                     alt="Zadovoljna klijentica"
-                    className="w-full h-full object-cover object-center"
+                    className={`w-full h-full object-cover ${getImagePositionClass(currentSlide.images[2])}`}
                   />
                 </div>
               </div>
