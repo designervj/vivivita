@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Database, Edit3, Eye, EyeOff, LayoutDashboard, MessageSquare, Sparkles } from 'lucide-react';
+import { Database, Edit3, Eye, EyeOff, LayoutDashboard, LogOut, MessageSquare, Sparkles } from 'lucide-react';
+import { logout } from '../../app/actions/auth';
 
 const tenantDb = process.env.NEXT_PUBLIC_TENANT_DB || 'kp_vivivita';
 const adminUrl = process.env.NEXT_PUBLIC_KALP_ADMIN_URL || 'https://zero.kalptree.xyz';
@@ -116,6 +117,15 @@ export default function AdminBar() {
             title="Hide Admin Bar"
           >
             <EyeOff className="h-3.5 w-3.5" />
+          </button>
+
+          <button
+            onClick={() => logout()}
+            className="flex h-7 shrink-0 items-center gap-1.5 rounded-full border border-red-500/40 bg-red-500/10 px-2 text-[11px] font-semibold text-red-400 transition-all hover:bg-red-500/20 hover:text-red-300 sm:px-3"
+            title="Logout"
+          >
+            <LogOut className="h-3.5 w-3.5 shrink-0" />
+            <span className="hidden sm:inline">Logout</span>
           </button>
         </div>
       </div>
