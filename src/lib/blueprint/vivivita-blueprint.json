@@ -1,0 +1,274 @@
+{
+  "document_key": "vivivita-blueprint-v1",
+  "tenant_slug": "vivivita",
+  "tenant_db": "kp_vivivita",
+  "payload": {
+    "tenant_slug": "vivivita",
+    "tenant_db": "kp_vivivita",
+    "business_profile": {
+      "name": { "hr": "Vivivita", "en": "Vivivita" },
+      "tagline": {
+        "primary": {
+          "hr": "Od dobre djevojcice do zene koja vodi svoj zivot",
+          "en": "From good girl to a woman who leads her life"
+        },
+        "secondary": {
+          "hr": "Transformacijski coaching za zene",
+          "en": "Transformational coaching for women"
+        }
+      },
+      "logo": "MARINA",
+      "favicon": "/favicon.ico",
+      "description": {
+        "hr": "Programi i 1:1 rad za zene koje su cijeli zivot zivjele po tudim pravilima i zele poceti zivjeti svoj zivot.",
+        "en": "Programs and 1:1 work for women ready to stop living by other people's rules."
+      },
+      "values": [
+        {
+          "title": { "hr": "Unutarnji autoritet", "en": "Inner authority" },
+          "description": { "hr": "Vracanje povjerenja u sebe i vlastite odluke.", "en": "Restoring trust in yourself and your decisions." }
+        },
+        {
+          "title": { "hr": "Granice", "en": "Boundaries" },
+          "description": { "hr": "Postavljanje granica bez krivnje i opravdavanja.", "en": "Setting boundaries without guilt or over-explaining." }
+        }
+      ],
+      "socialLinks": []
+    },
+    "public_navigation": {
+      "public": [
+        {
+          "label": { "hr": "Programi", "en": "Programs" },
+          "href": "#programi",
+          "dropdownItems": [
+            { "label": { "hr": "Svi programi", "en": "All programs" }, "href": "#programi" },
+            { "label": { "hr": "Webinar", "en": "Webinar" }, "href": "#programi" },
+            { "label": { "hr": "Mini trening", "en": "Mini training" }, "href": "#programi" },
+            { "label": { "hr": "Mini program", "en": "Mini program" }, "href": "#programi" },
+            { "label": { "hr": "Premium 1:1 rad", "en": "Premium 1:1 work" }, "href": "#programi" }
+          ]
+        },
+        { "label": { "hr": "O Marini", "en": "About Marina" }, "href": "#o-marini" },
+        { "label": { "hr": "Sto drugi kazu", "en": "Testimonials" }, "href": "#iskustva" },
+        { "label": { "hr": "Kontakt", "en": "Contact" }, "href": "#kontakt" }
+      ]
+    },
+    "routes": [
+      { "path": "/", "component": "HomePage", "isProtected": false },
+      { "path": "/studio", "component": "StudioPage", "isProtected": false },
+      { "path": "/api/cms/pages", "component": "CmsPagesApi", "isProtected": false },
+      { "path": "/api/platform/business-blueprint", "component": "BlueprintApi", "isProtected": false }
+    ],
+    "enabled_modules": ["cms", "theme", "forms", "comments", "media"],
+    "localization": {
+      "defaultLocale": "hr",
+      "locales": ["hr", "en"]
+    },
+    "public_theme": {
+      "colors": {
+        "primary": "#3A9FB3",
+        "primaryLight": "#8ED3DF",
+        "primaryDark": "#196B75",
+        "primaryHover": "#328D9F",
+        "primarySoft": "#EAF5F7",
+        "primaryForeground": "#FFFFFF",
+        "secondary": "#EAedef",
+        "secondaryForeground": "#2C3338",
+        "accent": "#6CC0E3",
+        "accentForeground": "#196B75",
+        "background": "#FAFAFA",
+        "surface": "#FFFFFF",
+        "surfaceMuted": "#F4F6F7",
+        "card": "#FFFFFF",
+        "text": "#2C3338",
+        "textSecondary": "#4F4640",
+        "textMuted": "#636B78",
+        "border": "#DDDDDD",
+        "borderHover": "#D9E1E3",
+        "success": "#3A9F72",
+        "warning": "#D9A441",
+        "danger": "#DC2626",
+        "info": "#3A9FB3",
+        "selectionBackground": "rgba(35, 144, 157, 0.2)",
+        "selectionText": "#196B75",
+        "adminBackground": "#1C1917",
+        "adminAccent": "#3A9FB3"
+      },
+      "typography": {
+        "bodyFont": "Inter",
+        "headingFont": "Georgia",
+        "displayFont": "Cormorant Garamond",
+        "monoFont": "JetBrains Mono",
+        "text": {
+          "xs": "0.75rem",
+          "sm": "0.875rem",
+          "base": "1rem",
+          "md": "1.125rem",
+          "lg": "1.25rem",
+          "xl": "1.5rem",
+          "2xl": "1.875rem",
+          "3xl": "2.5rem",
+          "4xl": "3.5rem",
+          "5xl": "4.5rem",
+          "p": "1rem",
+          "h1": "2.6875rem",
+          "h2": "1.875rem",
+          "h3": "1.875rem",
+          "h4": "1.5rem",
+          "h5": "1.25rem",
+          "h6": "1rem",
+          "a": "0.875rem"
+        },
+        "fw": {
+          "light": 300,
+          "normal": 400,
+          "medium": 500,
+          "semibold": 600,
+          "bold": 700,
+          "extrabold": 800
+        },
+        "lineHeight": {
+          "tight": 1.2,
+          "normal": 1.5,
+          "relaxed": 1.8
+        }
+      },
+      "spacing": {
+        "1": "4px",
+        "2": "8px",
+        "3": "12px",
+        "4": "16px",
+        "5": "20px",
+        "6": "24px",
+        "8": "32px",
+        "10": "40px",
+        "12": "48px",
+        "16": "64px",
+        "20": "80px",
+        "24": "96px"
+      },
+      "radius": {
+        "sm": "10px",
+        "md": "14px",
+        "lg": "20px",
+        "xl": "24px",
+        "2xl": "32px",
+        "full": "9999px"
+      },
+      "shadow": {
+        "sm": "0 6px 18px rgba(0, 0, 0, 0.06)",
+        "md": "0 16px 40px rgba(0, 0, 0, 0.1)",
+        "lg": "0 24px 60px rgba(0, 0, 0, 0.15)",
+        "hover": "0 18px 50px rgba(0, 0, 0, 0.12)"
+      },
+      "layout": {
+        "container": "95%",
+        "navbarHeight": "80px",
+        "sectionPadding": "96px"
+      },
+      "buttons": {
+        "height": "48px",
+        "paddingX": "28px",
+        "radius": "9999px",
+        "primaryBackground": "#3A9FB3",
+        "primaryText": "#FFFFFF",
+        "primaryHover": "#328D9F",
+        "secondaryBackground": "#EAedef",
+        "secondaryText": "#196B75",
+        "secondaryHover": "#DFE3E6"
+      },
+      "forms": {
+        "inputHeight": "48px",
+        "inputPaddingX": "16px",
+        "inputPaddingY": "12px",
+        "inputRadius": "14px",
+        "inputBackground": "#FFFFFF",
+        "inputText": "#2C3338",
+        "inputBorder": "#DDDDDD",
+        "inputBorderHover": "#D9E1E3",
+        "inputPlaceholder": "#636B78",
+        "inputFocusBorder": "#3A9FB3",
+        "inputFocusShadow": "0 0 0 4px rgba(58, 159, 179, 0.15)",
+        "inputDisabledBackground": "#F4F6F7",
+        "inputDisabledText": "#636B78",
+        "textareaMinHeight": "140px"
+      },
+      "modal": {
+        "sm": "360px",
+        "md": "500px",
+        "lg": "700px"
+      },
+      "darkMode": {
+        "background": "#111827",
+        "surface": "#1F2937",
+        "card": "#1F2937",
+        "text": "#F8FAFC",
+        "textSecondary": "#CBD5E1",
+        "textMuted": "#94A3B8",
+        "border": "rgba(255,255,255,0.14)",
+        "inputBackground": "#1F2937",
+        "inputText": "#F8FAFC",
+        "inputBorder": "rgba(255,255,255,0.14)",
+        "inputPlaceholder": "#94A3B8",
+        "inputDisabledBackground": "#111827"
+      }
+    },
+    "admin_theme": {
+      "colors": {
+        "primary": "#3A9FB3",
+        "primaryLight": "#8ED3DF",
+        "primaryDark": "#196B75",
+        "primaryHover": "#328D9F",
+        "secondary": "#EAedef",
+        "accent": "#6CC0E3",
+        "background": "#FAFAFA",
+        "surface": "#FFFFFF",
+        "card": "#FFFFFF",
+        "text": "#2C3338",
+        "textSecondary": "#4F4640",
+        "textMuted": "#636B78",
+        "border": "#DDDDDD",
+        "borderHover": "#D9E1E3",
+        "success": "#3A9F72",
+        "warning": "#D9A441",
+        "danger": "#DC2626",
+        "info": "#3A9FB3"
+      },
+      "typography": {
+        "bodyFont": "Inter",
+        "headingFont": "Georgia",
+        "monoFont": "JetBrains Mono",
+        "text": {
+          "xs": "0.75rem",
+          "sm": "0.875rem",
+          "base": "1rem",
+          "md": "1.125rem",
+          "lg": "1.25rem",
+          "xl": "1.5rem",
+          "2xl": "1.875rem",
+          "3xl": "2.5rem",
+          "4xl": "3.5rem",
+          "5xl": "4.5rem",
+          "p": "1rem",
+          "h1": "3.5rem",
+          "h2": "2.5rem",
+          "h3": "1.875rem",
+          "h4": "1.5rem",
+          "h5": "1.25rem",
+          "h6": "1rem",
+          "a": "1rem"
+        },
+        "fw": { "light": 300, "normal": 400, "medium": 500, "semibold": 600, "bold": 700, "extrabold": 800 },
+        "lineHeight": { "tight": 1.2, "normal": 1.5, "relaxed": 1.8 }
+      },
+      "spacing": { "1": "4px", "2": "8px", "3": "12px", "4": "16px", "5": "20px", "6": "24px", "8": "32px", "10": "40px", "12": "48px", "16": "64px", "20": "80px", "24": "96px" },
+      "radius": { "sm": "10px", "md": "14px", "lg": "20px", "xl": "24px", "2xl": "32px", "full": "9999px" },
+      "shadow": { "sm": "0 6px 18px rgba(0, 0, 0, 0.06)", "md": "0 16px 40px rgba(0, 0, 0, 0.1)", "lg": "0 24px 60px rgba(0, 0, 0, 0.15)", "hover": "0 18px 50px rgba(0, 0, 0, 0.12)" },
+      "layout": { "container": "95%", "navbarHeight": "80px", "sectionPadding": "96px" },
+      "buttons": { "height": "48px", "paddingX": "28px", "radius": "9999px", "primaryBackground": "#3A9FB3", "primaryText": "#FFFFFF", "primaryHover": "#328D9F", "secondaryBackground": "#EAedef", "secondaryText": "#196B75", "secondaryHover": "#DFE3E6" },
+      "forms": { "inputHeight": "48px", "inputPaddingX": "16px", "inputPaddingY": "12px", "inputRadius": "14px", "inputBackground": "#FFFFFF", "inputText": "#2C3338", "inputBorder": "#DDDDDD", "inputBorderHover": "#D9E1E3", "inputPlaceholder": "#636B78", "inputFocusBorder": "#3A9FB3", "inputFocusShadow": "0 0 0 4px rgba(58, 159, 179, 0.15)", "inputDisabledBackground": "#F4F6F7", "inputDisabledText": "#636B78", "textareaMinHeight": "140px" },
+      "modal": { "sm": "360px", "md": "500px", "lg": "700px" },
+      "darkMode": { "background": "#111827", "surface": "#1F2937", "card": "#1F2937", "text": "#F8FAFC", "textSecondary": "#CBD5E1", "textMuted": "#94A3B8", "border": "rgba(255,255,255,0.14)", "inputBackground": "#1F2937", "inputText": "#F8FAFC", "inputBorder": "rgba(255,255,255,0.14)", "inputPlaceholder": "#94A3B8", "inputDisabledBackground": "#111827" }
+    }
+  }
+}

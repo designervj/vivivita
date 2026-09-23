@@ -17,7 +17,7 @@
     "jsx": "preserve",
     "paths": {
       "@/*": [
-        "./*"
+        "./src/*"
       ]
     },
     "allowImportingTsExtensions": true,
@@ -39,6 +39,7 @@
     ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "kalphelp"
   ]
 }
