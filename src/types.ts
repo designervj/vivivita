@@ -1,7 +1,7 @@
 export interface Program {
   id: string;
   title: string;
-  category: 'webinar' | 'mini-trening' | 'mini-program' | 'premium';
+  category: string;
   categoryLabel: string;
   description: string;
   duration: string;
@@ -9,6 +9,12 @@ export interface Program {
   image: string;
   bullets?: string[];
   price?: string;
+  meta?: string;
+  popupDescription?: string;
+  popupInfo?: string;
+  popupBullets?: string[];
+  popupActionText?: string;
+  url?: string;
 }
 
 export interface Testimonial {

@@ -42,6 +42,7 @@ export function buildHomeContent(page?: PageLike) {
     philosophy: {
       part1: textList(philosophySection.part1),
       part2: textList(philosophySection.part2),
+      paragraphs: textList(philosophySection.paragraphs || [...(philosophySection.part1 || []), ...(philosophySection.part2 || [])]),
     },
     twoCards: {
       leftCard: {
@@ -69,6 +70,15 @@ export function buildHomeContent(page?: PageLike) {
         id: tab.id,
         label: text(tab.label),
       })),
+      customProgram: {
+        heading: text(programsSection.customProgram?.heading) || 'Ne pronalaziš se potpuno ni u jednom programu?',
+        paragraphs: textList(programsSection.customProgram?.paragraphs) || [
+          'Ne moraš se uklopiti u unaprijed zadani format.',
+          'Ako znaš da želiš promjenu, ali tvoja situacija traži drugačiji fokus ili kombinaciju tema, možemo kreirati individualni program prema onome što ti je trenutno potrebno.',
+          'Prvo razgovaramo o tome gdje si sada i kamo želiš doći. Zatim zajedno definiramo format i dinamiku rada.',
+        ],
+        ctaText: text(programsSection.customProgram?.cta?.label || programsSection.customProgram?.ctaText) || 'Dogovori uvodni razgovor',
+      },
     },
     testimonialSlides: (testimonialsSection.slides || []) as TestimonialSlide[],
     testimonialsContent: {
@@ -79,8 +89,10 @@ export function buildHomeContent(page?: PageLike) {
       title: text(aboutSection.title),
       intro: text(aboutSection.intro),
       p1: text(aboutSection.p1),
+      paragraphs: textList(aboutSection.paragraphs || [aboutSection.intro, aboutSection.p1]),
       credentials: textList(aboutSection.credentials),
       image: aboutSection.image || '/image/marini-img.png',
+      ctaText: text(aboutSection.cta?.label) || 'Dogovori uvodni razgovor',
     },
   };
 }

@@ -20,7 +20,7 @@ import { DEFAULT_HOME_CONTENT, type HomeContent } from '../../lib/pages/content'
 
 export default function HomePage({ initialContent = DEFAULT_HOME_CONTENT }: { initialContent?: HomeContent }) {
   const homeContent = initialContent;
-  const [selectedTab, setSelectedTab] = useState<string>('webinar');
+  const [selectedTab, setSelectedTab] = useState<string>('all');
   const [videoModalOpen, setVideoModalOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
   const [selectedProgram, setSelectedProgram] = useState<Program | null>(null);
@@ -106,6 +106,7 @@ export default function HomePage({ initialContent = DEFAULT_HOME_CONTENT }: { in
           selectedTab={selectedTab}
           onSelectTab={setSelectedTab}
           onSelectProgram={(program) => setSelectedProgram(program)}
+          onOpenContact={() => setContactModalOpen(true)}
         />
 
         {/* 5. Testimonials & Client Stories */}
@@ -127,6 +128,7 @@ export default function HomePage({ initialContent = DEFAULT_HOME_CONTENT }: { in
         onCloseVideo={() => setVideoModalOpen(false)}
         contactModalOpen={contactModalOpen}
         onCloseContact={() => setContactModalOpen(false)}
+        onOpenContact={() => setContactModalOpen(true)}
         selectedProgram={selectedProgram}
         onCloseProgram={() => setSelectedProgram(null)}
         infoModal={infoModal}

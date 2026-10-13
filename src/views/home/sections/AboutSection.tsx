@@ -1,6 +1,46 @@
 import EditableText from '../../../components/shared/EditableText';
 import { ABOUT_MARINA, type HomeContent } from '../../../lib/pages/content';
 
+const aboutBio = [
+  {
+    text: 'Godina je 2017. Zatvorila sam jedno životno poglavlje, a novo nikako nisam uspijevala započeti.',
+    bold: true,
+  },
+  {
+    text: 'Bila sam u međuprostoru — s osjećajem neuspjeha, bez jasnog smjera i sa zidom ispred sebe.',
+  },
+  {
+    text: 'Tražeći pomoć za sebe, upisala sam NLP.',
+  },
+  {
+    text: 'I tada sam prvi put stvarno shvatila koliko se toga može promijeniti kada razumiješ vlastite obrasce i dobiješ prave alate, znanje i vodstvo.',
+  },
+  {
+    text: 'Poželjela sam drugima prenijeti ono što sam sama iskusila.',
+  },
+  {
+    text: 'Danas radim sa ženama koje izvana djeluju sposobno, odgovorno i uspješno, a iznutra osjećaju da već predugo žive prema pravilima koja nisu njihova.',
+  },
+  {
+    text: 'Moj talent je prepoznati tko možeš postati — i što te još drži na mjestu.',
+    bold: true,
+  },
+  {
+    text: 'Zato nisam coach koji će ti samo postavljati pitanja.',
+  },
+  {
+    text: 'Ja sam tvoj mentor kroz proces.',
+    bold: true,
+  },
+  {
+    text: 'Dajem ti alate, znanje, strukturu i podršku, ali cilj nije da ovisiš o meni. Cilj je upravo suprotan:',
+  },
+  {
+    text: 'da ponovno vjeruješ sebi.',
+    bold: true,
+  },
+];
+
 interface AboutSectionProps {
   onBookCall: () => void;
   content?: HomeContent['about'];
@@ -33,27 +73,15 @@ export default function AboutSection({ onBookCall, content = ABOUT_MARINA }: Abo
         {/* Right Column: Bio & Call to action matching screenshot */}
         <div className="lg:col-span-6 flex flex-col justify-between">
           <div>
-            <h3 className="font-serif-hero text-2xl sm:text-[var(--text-h3)] font-bold  tracking-wide mb-4 sm:mb-5">
-              <EditableText className='text-[var(--primary)]' sectionId="about-marina-001" fieldPath="title.hr" value={content.title} />
+            <h3 className="font-serif-hero text-2xl sm:text-[var(--text-h3)] font-bold tracking-wide mb-4 sm:mb-5">
+              <EditableText className='text-[var(--primary)]' sectionId="about-marina-001" fieldPath="title.hr" value="O Marini" />
             </h3>
 
-            <p className="text-neutral-600 text-[14px] sm:text-[13px] md:text-[16px] leading-[1.65] font-sans mb-3.5 sm:mb-4">
-              <EditableText sectionId="about-marina-001" fieldPath="intro.hr" value={content.intro} multiline />
-            </p>
-
-            <p className="text-neutral-600 text-[14px] sm:text-[13px] md:text-[16px] leading-[1.65] font-sans mb-4 sm:mb-5">
-              <EditableText sectionId="about-marina-001" fieldPath="p1.hr" value={content.p1} multiline />
-            </p>
-
-            <div className="text-neutral-800 text-[14px] sm:text-[13px] md:text-[16px] font-semibold leading-relaxed font-sans space-y-0.5 mb-5 sm:mb-6">
-              {content.credentials.slice(0, 2).map((credential, index) => (
-                <EditableText
-                  key={index}
-                  tag="p"
-                  sectionId="about-marina-001"
-                  fieldPath={`credentials.${index}.hr`}
-                  value={credential}
-                />
+            <div className="space-y-2.5 text-[14px] leading-[1.65] text-neutral-600 sm:text-[13px] md:text-[16px]">
+              {aboutBio.map((item, idx) => (
+                <p key={idx} className={item.bold ? 'font-semibold text-neutral-800' : undefined}>
+                  {item.text}
+                </p>
               ))}
             </div>
           </div>
@@ -63,9 +91,9 @@ export default function AboutSection({ onBookCall, content = ABOUT_MARINA }: Abo
             <button
               id="about-book-call-btn"
               onClick={onBookCall}
-              className="btn-primary sm:w-auto"
+              className="btn-primary sm:w-auto py-4"
             >
-              <EditableText sectionId="about-marina-001" fieldPath="cta.label.hr" value="Dogovori uvodni razgovor" />
+              <EditableText sectionId="about-marina-001" fieldPath="cta.label.hr" value={content.ctaText || "Dogovori uvodni razgovor"} />
             </button>
           </div>
         </div>

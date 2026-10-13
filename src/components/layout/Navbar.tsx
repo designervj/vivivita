@@ -50,28 +50,22 @@ export default function Navbar({ onOpenContact, onSelectProgramTab, onScrollTo }
                   <span className="text-xs text-neutral-400">Pregled</span>
                 </button>
                 <button
-                  onClick={() => handleProgramClick('webinar')}
+                  onClick={() => handleProgramClick('mentalni-reset')}
                   className="w-full text-left px-4 py-2 text-xs sm:text-sm hover:bg-[var(--primary-soft)] hover:text-[var(--primary)] transition-colors cursor-pointer"
                 >
-                  Webinar: Sindrom dobre djevojčice
+                  Mentalni reset
                 </button>
                 <button
-                  onClick={() => handleProgramClick('mini-trening')}
+                  onClick={() => handleProgramClick('intenziv')}
                   className="w-full text-left px-4 py-2 text-xs sm:text-sm hover:bg-[var(--primary-soft)] hover:text-[var(--primary)] transition-colors cursor-pointer"
                 >
-                  Mini trening: Otpor prema promjeni
-                </button>
-                <button
-                  onClick={() => handleProgramClick('mini-program')}
-                  className="w-full text-left px-4 py-2 text-xs sm:text-sm hover:bg-[var(--primary-soft)] hover:text-[var(--primary)] transition-colors cursor-pointer"
-                >
-                  Mini program: Izlaz iz sindroma
+                  Intenziv
                 </button>
                 <button
                   onClick={() => handleProgramClick('premium')}
                   className="w-full text-left px-4 py-2 text-xs sm:text-sm hover:bg-[var(--primary-soft)] hover:text-[var(--primary)] transition-colors cursor-pointer font-medium text-[var(--primary)]"
                 >
-                  Premium 1:1 rad
+                  Premium 1:1 program
                 </button>
               </div>
             )}
@@ -168,10 +162,10 @@ export default function Navbar({ onOpenContact, onSelectProgramTab, onScrollTo }
             Programi
           </button>
           <div className="pl-4 space-y-2 border-l-2 border-[#23909d]/30 text-sm text-neutral-600">
-            <button onClick={() => handleProgramClick('webinar')} className="block py-1">Webinar</button>
-            <button onClick={() => handleProgramClick('mini-trening')} className="block py-1">Mini trening</button>
-            <button onClick={() => handleProgramClick('mini-program')} className="block py-1">Mini program</button>
-            <button onClick={() => handleProgramClick('premium')} className="block py-1">Premium 1:1 rad</button>
+            <button onClick={() => handleProgramClick('all')} className="block py-1">Svi programi</button>
+            <button onClick={() => handleProgramClick('mentalni-reset')} className="block py-1">Mentalni reset</button>
+            <button onClick={() => handleProgramClick('intenziv')} className="block py-1">Intenziv</button>
+            <button onClick={() => handleProgramClick('premium')} className="block py-1">Premium 1:1 program</button>
           </div>
           <button
             onClick={() => { onScrollTo('o-marini'); setMobileMenuOpen(false); }}

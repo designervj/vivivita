@@ -27,8 +27,7 @@
             "en": "FROM THE \"GOOD GIRL\"\nTO A WOMAN WHO LEADS HER LIFE."
           },
           "subheading": {
-            "hr": "Za žene koje su cijeli život živjele po tuđim pravilima i sada žele početi živjeti svoj život.",
-            "en": "For women who have spent their lives living by other people’s rules and now want to begin living their own life."
+            "hr": "Za nas koje smo živjele tuđe MORAŠ, a sada biramo svoje ŽELIM i vlastita pravila života."
           },
           "cta": {
             "label": {
@@ -56,30 +55,50 @@
         "props": {
           "part1": [
             {
-              "hr": "Postoji trenutak kada žena shvati da više ne želi živjeti život koji je izgradila oko očekivanja drugih."
+              "hr": "Postoji trenutak kada shvatiš da ti je dosta toga da svi oko tebe budu zadovoljni tobom — osim tebe same."
             },
             {
-              "hr": "Izvana sve može izgledati dobro: karijera, odnosi, funkcionalnost."
+              "hr": "Izvana sve može izgledati dobro: karijera, odnosi, život koji funkcionira. A iznutra osjećaš umor od prilagođavanja, prazninu i osjećaj da samo odrađuješ dane umjesto da živiš svoj život."
             }
           ],
           "part2": [
             {
-              "hr": "Ali iznutra osjeća: umor od prilagođavanja, unutarnji konflikt i osjećaj da ne živi svoj život."
+              "hr": "Znam taj osjećaj. I sama sam godinama živjela kroz tuđa očekivanja, tražeći potvrdu da sam dovoljno dobra."
             },
             {
-              "hr": "Moj rad temelji se na prepoznavanju i transformaciji identiteta "
+              "hr": "Moj rad temelji se na osvještavanju i transformaciji nesvjesnih obrazaca koji te drže u identitetu „dobre djevojčice“ — kako bi prestala živjeti iz onoga što moraš i počela birati ono što stvarno želiš."
             },
             {
-              "hr": "dobre djevojčice"
+              "hr": "Našim zajedničkim radom vraćaš sebi unutarnji autoritet i gradiš život koji više nije vođen tuđim očekivanjima, nego tvojim vlastitim izborima."
             },
             {
-              "hr": " - obrasca zbog kojeg žena prestaje vjerovati sebi i počinje živjeti prema tuđim pravilima."
+              "hr": "Ne gradimo bolju verziju tebe. Vraćamo se onoj koja je oduvijek bila tvoja."
             }
           ],
           "highlight": {
             "hr": "dobre djevojčice",
             "en": "good girl"
-          }
+          },
+          "paragraphs": [
+            {
+              "hr": "Postoji trenutak kada shvatiš da ti je dosta toga da svi oko tebe budu zadovoljni tobom — osim tebe same."
+            },
+            {
+              "hr": "Izvana sve može izgledati dobro: karijera, odnosi, život koji funkcionira. A iznutra osjećaš umor od prilagođavanja, prazninu i osjećaj da samo odrađuješ dane umjesto da živiš svoj život."
+            },
+            {
+              "hr": "Znam taj osjećaj. I sama sam godinama živjela kroz tuđa očekivanja, tražeći potvrdu da sam dovoljno dobra."
+            },
+            {
+              "hr": "Moj rad temelji se na osvještavanju i transformaciji nesvjesnih obrazaca koji te drže u identitetu „dobre djevojčice“ — kako bi prestala živjeti iz onoga što moraš i počela birati ono što stvarno želiš."
+            },
+            {
+              "hr": "Našim zajedničkim radom vraćaš sebi unutarnji autoritet i gradiš život koji više nije vođen tuđim očekivanjima, nego tvojim vlastitim izborima."
+            },
+            {
+              "hr": "Ne gradimo bolju verziju tebe. Vraćamo se onoj koja je oduvijek bila tvoja."
+            }
+          ]
         }
       },
       {
@@ -90,27 +109,27 @@
         "props": {
           "leftCard": {
             "title": {
-              "hr": "TKO JE \"DOBRA DJEVOJČICA\"?"
+              "hr": "TKO JE „DOBRA DJEVOJČICA“?"
             },
             "description": {
-              "hr": "\"Dobra djevojčica\" nije osobnost.\nTo je obrazac ponašanja razvijen kroz:"
+              "hr": "„Dobra djevojčica“ nije tvoja osobnost. To je obrazac koji si naučila."
             },
             "bullets": [
               {
-                "hr": "Prilagođavanje"
+                "hr": "Živi u stalnom MORAŠ\nVlastite želje uvijek stavlja na posljednje mjesto."
               },
               {
-                "hr": "Traženje odobrenja"
+                "hr": "Bježi od kritike i neuspjeha\nPokreće je strah da će razočarati druge."
               },
               {
-                "hr": "Izbjegavanje konflikta"
+                "hr": "Traži vanjsku potvrdu\nTeško vjeruje sebi bez tuđeg odobravanja."
               },
               {
-                "hr": "Potiskivanje vlastitih želja"
+                "hr": "Šuti kada želi reći NE\nPotiskuje svoje potrebe kako bi sačuvala mir."
               }
             ],
             "bottomText": {
-              "hr": "I zbog toga žena često ne donosi odluke koje zna da želi donijeti."
+              "hr": "I zato često ne donosiš odluke koje znaš da želiš donijeti."
             },
             "buttonText": {
               "hr": "Saznaj više"
@@ -119,7 +138,7 @@
           },
           "rightCard": {
             "title": {
-              "hr": "KAKO IZGLEDA RAD SA MNOM?"
+              "hr": "KAKO TI JA POMAŽEM?"
             },
             "subtitle": {
               "hr": "U radu 1:1 zajedno otkrivamo:"
@@ -129,15 +148,18 @@
                 "hr": "gdje si izgubila vlastiti autoritet"
               },
               {
-                "hr": "zašto ostaješ na istom mjestu"
+                "hr": "zašto ostaješ na istom mjestu iako želiš promjenu"
               },
               {
                 "hr": "što te vraća starim obrascima"
+              },
+              {
+                "hr": "što je zaista tvoja želja, a što još jedno „moram“"
               }
             ],
             "closingLines": [
               {
-                "hr": "Cilj nije postati \"bolja\"."
+                "hr": "Cilj nije postati „bolja“."
               },
               {
                 "hr": "Cilj je postati svoja."
@@ -157,11 +179,10 @@
         "adminTitle": "Programs",
         "props": {
           "tag": {
-            "hr": "Načini rada",
-            "en": "Ways of working"
+            "hr": "Načini rada"
           },
           "heading": {
-            "hr": "Proces je strukturiran tako da možeš postupno ulaziti u rad - od prvog prepoznavanja obrasca do dubinske transformacije identiteta."
+            "hr": "Ne moraš odmah znati koliko duboko želiš ići.\nMožeš krenuti od jednog konkretnog problema, intenzivno raditi na onome što te trenutno koči ili ući u dubinski individualni proces. Odaberi mjesto na kojem si sada."
           },
           "tabs": [
             {
@@ -171,21 +192,15 @@
               }
             },
             {
-              "id": "webinar",
+              "id": "mentalni-reset",
               "label": {
-                "hr": "Webinar"
+                "hr": "Mentalni reset"
               }
             },
             {
-              "id": "mini-trening",
+              "id": "intenziv",
               "label": {
-                "hr": "Mini trening"
-              }
-            },
-            {
-              "id": "mini-program",
-              "label": {
-                "hr": "Mini program"
+                "hr": "Intenziv"
               }
             },
             {
@@ -197,73 +212,118 @@
           ],
           "items": [
             {
-              "id": "sindrom-dobre-djevojcice",
-              "title": "Sindrom dobre djevojčice",
-              "category": "webinar",
-              "categoryLabel": "Webinar",
-              "description": "Online predavanje i interaktivna radionica o korijenima potrebe za udovoljavanjem, strahu od tuđeg neodobravanja i prvim koracima postavljanja granica.",
-              "duration": "2 sata predavanje + Q&A",
+              "id": "kljucevi-zivota",
+              "category": "mentalni-reset",
+              "categoryLabel": "MENTALNI RESET",
+              "title": "Ključevi života",
+              "description": "Za trenutke kada shvatiš da već predugo živiš prema tuđim očekivanjima.",
+              "duration": "60 min",
+              "price": "39 €",
+              "meta": "60 min · 39 €",
               "actionText": "Saznaj više",
+              "url": "/programi/kljucevi-zivota",
               "image": "/image/Pety - 17cm 1.png",
-              "price": "45 €",
+              "popupDescription": "Za žene koje su cijeli život bile uzorne, odgovorne i „dobre“, a danas osjećaju da samo odrađuju dane.\n\nU ovom 60-minutnom radu otkrivamo čija očekivanja još uvijek upravljaju tvojim odlukama i vraćamo ti pravo na pogrešku, granice i vlastiti izbor.",
+              "popupInfo": "60 min · Cijena: 39 €",
               "bullets": [
-                "Prepoznavanje nesvjesnih okidača udovoljavanja",
-                "Zašto riječ NE stvara osjećaj krivnje",
-                "Praktične vježbe za svakodnevne situacije",
-                "Snimka dostupna 6 mjeseci"
-              ]
+                "Mapiranje situacija u kojima osjećaš najveći pritisak",
+                "Osvještavanje čija očekivanja pokušavaš ispuniti",
+                "Vježba „Vraćanje ključeva“",
+                "Vraćanje prava na pogrešku, NE i vlastiti izbor"
+              ],
+              "popupActionText": "Saznaj više"
             },
             {
-              "id": "otpor-prema-promjeni",
-              "title": "Otpor prema promjeni",
-              "category": "mini-trening",
-              "categoryLabel": "Mini trening",
-              "description": "Intenzivan 3-dnevni vođeni trening za razumijevanje sabotirajuih mehanizama mozga kada pokušavamo izaći iz poznate uloge.",
-              "duration": "3 dana radnih materijala i vježbi",
-              "actionText": "Prijavi se",
+              "id": "iskljuci-moram-ukljuci-zelim",
+              "category": "mentalni-reset",
+              "categoryLabel": "MENTALNI RESET",
+              "title": "Isključi MORAM. Uključi ŽELIM.",
+              "description": "Za trenutke kada ti je život postao beskrajan popis obaveza.",
+              "duration": "90 min",
+              "price": "49 €",
+              "meta": "90 min · 49 €",
+              "actionText": "Saznaj više",
+              "url": "/programi/iskljuci-moram-ukljuci-zelim",
               "image": "/image/Pety - 17cm 1 (1).png",
-              "price": "95 €",
+              "popupDescription": "Za žene koje su stalno pod unutarnjim pritiskom i imaju osjećaj da je sve u životu obaveza.\n\nU 90 minuta otkrivamo kako „moram“ utječe na tvoju energiju i svakodnevne odluke te učimo prebaciti fokus na ono što želiš i biraš.",
+              "popupInfo": "90 min · Cijena: 49 €",
               "bullets": [
-                "Alati za savladavanje anksioznosti pri postavljanju granica",
-                "Dnevnički upiti za otkrivanje autentičnih potreba",
-                "Audio vođene refleksije"
-              ]
+                "Osvještavanje vlastitih „moram“ obrazaca",
+                "Prepoznavanje kako tijelo reagira na pritisak",
+                "Prebacivanje iz „moram“ u „želim / biram“",
+                "Definiranje jednog konkretnog koraka prema onome što želiš"
+              ],
+              "popupActionText": "Saznaj više"
             },
             {
-              "id": "izlaz-iz-sindroma",
-              "title": "Izlaz iz sindroma dobre djevojčice",
-              "category": "mini-program",
-              "categoryLabel": "Mini program",
-              "description": "4-tjedni strukturirani grupni program s tjednim modulima: uvjerenja, obrasci, reakcije i izbor. Promijeni automatizme u svjesne odluke.",
-              "duration": "4 tjedna / 4 modula",
+              "id": "ukloni-kocnice-kreni-u-akciju",
+              "category": "intenziv",
+              "categoryLabel": "INTENZIV",
+              "title": "Ukloni kočnice. Kreni u akciju.",
+              "description": "Znaš što želiš. Ali svaki put kada treba krenuti — nešto te zaustavi.",
+              "duration": "2 dana × 120 min",
+              "price": "250 €",
+              "meta": "2 dana × 120 min · 250 €",
               "actionText": "Detalji programa",
+              "url": "/programi/ukloni-kocnice-kreni-u-akciju",
               "image": "/image/Pety - 17cm 1 (2).png",
-              "price": "280 €",
+              "popupDescription": "Znaš što želiš, ali se svaki put kada trebaš krenuti pojave strah, sumnja, prokrastinacija ili „opravdani“ razlozi zašto još nije vrijeme.\n\nKroz dvodnevni intenziv radimo na pozadini tih otpora i stvaramo prostor za konkretnu akciju.",
+              "popupInfo": "2 dana × 120 min · Cijena: 250 €",
               "bullets": [
-                "4 tjedna video lekcija i radnih bilježnica",
-                "Tjedni live pozivi za pitanja i podršku",
-                "Zatvorena sigurna zajednica polaznica",
-                "Certificirani alati kognitivno-bihevioralnog pristupa"
-              ]
+                "Prepoznavanje i razgradnja ključnih otpora",
+                "Rad na pozadini samosabotaže",
+                "Perspektiva buduće verzije sebe",
+                "Vježba za normalizaciju željenog stanja",
+                "Konkretan prvi korak prema cilju"
+              ],
+              "popupActionText": "Detalji programa"
             },
             {
               "id": "zena-koja-vodi-svoj-zivot",
-              "title": "Žena koja vodi svoj život",
               "category": "premium",
-              "categoryLabel": "Premium 1:1 program",
-              "description": "Duboki, individualni 3-mjesečni mentorski rad. Potpuno prilagođen tvojoj životnoj situaciji, dinamici obitelji i karijernim ciljevima.",
-              "duration": "3 mjeseca / 12 susreta 1:1",
+              "categoryLabel": "PREMIUM 1:1 PROGRAM",
+              "title": "Žena koja vodi svoj život",
+              "description": "Za trenutak kada više ne želiš popravljati pojedinačne simptome. Želiš promijeniti obrazac iz kojeg živiš.",
+              "duration": "9 × 90 min + bonus susret 60 min",
+              "price": "1.500 €",
+              "meta": "9 × 90 min + bonus susret 60 min · 1.500 €",
               "actionText": "Rezerviraj razgovor",
+              "url": "/programi/zena-koja-vodi-svoj-zivot",
               "image": "/image/Pety - 17cm 1 (3).png",
-              "price": "Na upit (ograničen broj mjesta)",
+              "popupDescription": "Dubinski individualni proces za ženu koja više ne želi samo riješiti jedan problem, nego promijeniti obrazac iz kojeg živi.\n\nZajedno prolazimo put od osvještavanja „dobre djevojčice“ do unutarnjeg autoriteta, jasnog smjera i novog identiteta.",
+              "popupInfo": "9 × 90 min + bonus susret 60 min · Cijena: 1.500 €",
               "bullets": [
-                "12 individualnih sesija po 60 minuta (Zoom ili uživo)",
-                "Kontinuirana WhatsApp/glasovna podrška između susreta",
-                "Izgradnja nepokolebljivog unutarnjeg autoriteta",
-                "Integracija u sve sfere svakodnevnog zivota"
-              ]
+                "Individualni rad 1:1",
+                "Osvještavanje i transformacija starih obrazaca",
+                "Rad na uvjerenjima, otporima i samosabotaži",
+                "Izgradnja unutarnje sigurnosti i autoriteta",
+                "Definiranje i integracija novog identiteta",
+                "Alati za samostalan nastavak rada"
+              ],
+              "popupActionText": "Rezerviraj uvodni razgovor"
             }
-          ]
+          ],
+          "customProgram": {
+            "heading": {
+              "hr": "Ne pronalaziš se potpuno ni u jednom programu?"
+            },
+            "paragraphs": [
+              {
+                "hr": "Ne moraš se uklopiti u unaprijed zadani format."
+              },
+              {
+                "hr": "Ako znaš da želiš promjenu, ali tvoja situacija traži drugačiji fokus ili kombinaciju tema, možemo kreirati individualni program prema onome što ti je trenutno potrebno."
+              },
+              {
+                "hr": "Prvo razgovaramo o tome gdje si sada i kamo želiš doći. Zatim zajedno definiramo format i dinamiku rada."
+              }
+            ],
+            "cta": {
+              "label": {
+                "hr": "Dogovori uvodni razgovor"
+              }
+            }
+          }
         }
       },
       {
@@ -399,20 +459,19 @@
             "hr": "O Marini"
           },
           "title": {
-            "hr": "Marina Novakovic, mag. psych. & Transformacijski coach"
+            "hr": "O Marini"
           },
           "intro": {
-            "hr": "Nakon vise od 12 godina rada s vise od 600 zena, vidjela sam isti obrazac koji se ponavlja: iznimno sposobne, tople i marljive zene koje duboko u sebi nose iscrpljujuci teret biti dobra svima."
+            "hr": "Godina je 2017. Zatvorila sam jedno životno poglavlje, a novo nikako nisam uspijevala započeti.\nBila sam u međuprostoru — s osjećajem neuspjeha, bez jasnog smjera i sa zidom ispred sebe."
           },
           "p1": {
-            "hr": "Odrastanje u okruzenju gdje je ljubav bila uvjetovana poslusnoscu stvara nevidljivi kavez. Moja misija nije nauciti te novim tehnikama manipulacije ili hladnoce, vec ti pomoci da izgradis unutarnju snagu iz koje prirodno proizlazi postovanje prema sebi."
+            "hr": "Tražeći pomoć za sebe, upisala sam NLP.\nI tada sam prvi put stvarno shvatila koliko se toga može promijeniti kada razumiješ vlastite obrasce i dobiješ prave alate, znanje i vodstvo.\nPoželjela sam drugima prenijeti ono što sam sama iskusila."
           },
           "image": "/image/marini-img.png",
           "cta": {
             "label": {
               "hr": "Dogovori uvodni razgovor"
-            },
-            "href": "#kontakt"
+            }
           },
           "credentials": [
             {
@@ -426,6 +485,20 @@
             },
             {
               "hr": "Autorica programa Zena koja vodi svoj zivot"
+            }
+          ],
+          "paragraphs": [
+            {
+              "hr": "Godina je 2017. Zatvorila sam jedno životno poglavlje, a novo nikako nisam uspijevala započeti.\nBila sam u međuprostoru — s osjećajem neuspjeha, bez jasnog smjera i sa zidom ispred sebe."
+            },
+            {
+              "hr": "Tražeći pomoć za sebe, upisala sam NLP.\nI tada sam prvi put stvarno shvatila koliko se toga može promijeniti kada razumiješ vlastite obrasce i dobiješ prave alate, znanje i vodstvo.\nPoželjela sam drugima prenijeti ono što sam sama iskusila."
+            },
+            {
+              "hr": "Danas radim sa ženama koje izvana djeluju sposobno, odgovorno i uspješno, a iznutra osjećaju da već predugo žive prema pravilima koja nisu njihova.\nMoj talent je prepoznati tko možeš postati — i što te još drži na mjestu."
+            },
+            {
+              "hr": "Zato nisam coach koji će ti samo postavljati pitanja.\nJa sam tvoj mentor kroz proces.\nDajem ti alate, znanje, strukturu i podršku, ali cilj nije da ovisiš o meni. Cilj je upravo suprotan:\nda ponovno vjeruješ sebi."
             }
           ]
         }

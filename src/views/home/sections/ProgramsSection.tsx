@@ -1,5 +1,6 @@
 import EditableText from '../../../components/shared/EditableText';
 import { useEffect, useState } from 'react';
+import { ArrowRight } from 'lucide-react';
 import { Program } from '../../../types';
 import { PROGRAMS, PROGRAMS_CONTENT, type HomeContent } from '../../../lib/pages/content';
 
@@ -7,6 +8,7 @@ interface ProgramsSectionProps {
   selectedTab: string;
   onSelectTab: (tab: string) => void;
   onSelectProgram: (program: Program) => void;
+  onOpenContact?: () => void;
   programs?: HomeContent['programs'];
   content?: HomeContent['programsContent'];
 }
@@ -15,6 +17,7 @@ export default function ProgramsSection({
   selectedTab,
   onSelectTab,
   onSelectProgram,
+  onOpenContact,
   programs = PROGRAMS,
   content = PROGRAMS_CONTENT,
 }: ProgramsSectionProps) {
@@ -31,11 +34,12 @@ export default function ProgramsSection({
     onSelectTab(tabId);
   };
 
-  const programsToDisplay = activeTab === 'all' || activeTab === 'webinar'
+  const programsToDisplay = activeTab === 'all'
     ? programs
     : programs.filter((program) => program.category === activeTab);
 
   return (
+    <>
     <section id="programi" className="pt-6 sm:pt-10 pb-16 sm:pb-24 container mx-auto px-3 sm:px-6 md:px-8">
       {/* Section Header */}
       <div className="mb-7 sm:mb-9">
@@ -43,7 +47,7 @@ export default function ProgramsSection({
           <EditableText sectionId="programs-001" fieldPath="tag.hr" value={content.tag} />
         </span>
 
-        <h2 className="text-[var(--muted)] text-[19px] sm:text-[23px] md:text-[var(--text-h3)] font-[500] leading-[150%] sm:leading-[160%] max-w-3xl md:pr-8">
+        <h2 className="text-[var(--muted)] text-[19px] sm:text-[23px] md:text-[var(--text-h3)] font-[500] leading-[150%] sm:leading-[160%] max-w-3xl md:pr-8 whitespace-pre-line">
           <EditableText
             sectionId="programs-001"
             fieldPath="heading.hr"
@@ -53,8 +57,8 @@ export default function ProgramsSection({
         </h2>
       </div>
 
-      {/* Filter Tabs matching the screenshot */}
-      <div className="flex items-center gap-2 sm:gap-4 md:gap-0 overflow-x-auto pb-2 mb-7 sm:mb-9 text-xs sm:text-[13px] no-scrollbar">
+      {/* Filter Tabs matching the categories */}
+      <div className="flex items-center gap-2 sm:gap-4 overflow-x-auto pb-2 mb-5 sm:mb-6 text-[11px] no-scrollbar">
         {tabs.map((tab) => {
           const isActive = activeTab === tab.id;
           return (
@@ -62,9 +66,9 @@ export default function ProgramsSection({
               key={tab.id}
               id={`tab-${tab.id}`}
               onClick={() => handleSelectTab(tab.id)}
-              className={`transition-all whitespace-nowrap cursor-pointer rounded-[6px] px-3 py-1.5 sm:px-10 text-[13px] sm:text-[14px] ${isActive
-                ? 'bg-[var(--secondary)] text-[var(--primary)] font-medium'
-                : 'text-[#4F4640] hover:text-neutral-900 font-normal hover:bg-neutral-100/60'
+              className={`min-w-[92px] sm:min-w-[150px] transition-all whitespace-nowrap cursor-pointer rounded-[3px] px-3 py-2 text-[15px] rounded-[6px] text-center leading-none ${isActive
+                ? 'bg-[#eef2f3] text-[var(--primary)] font-medium font-semibold'
+                : 'text-[#1f1f1f] hover:bg-[#f5f5f5] hover:text-[var(--primary)] font-normal'
                 }`}
             >
               <EditableText sectionId="programs-001" fieldPath={`tabs.${content.tabs.findIndex((item) => item.id === tab.id)}.label.hr`} value={tab.label} />
@@ -77,68 +81,99 @@ export default function ProgramsSection({
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
         {programsToDisplay.map((program) => {
           const isSelectedTab = activeTab === program.category;
+          const programIndex = programs.findIndex((item) => item.id === program.id);
 
           return (
             <div
               key={program.id}
               id={`program-card-${program.id}`}
-              onClick={() => onSelectProgram(program)}
-              className={`group bg-[#f4f6f7] rounded-[20px] overflow-hidden border transition-all duration-300 flex flex-col justify-between cursor-pointer ${isSelectedTab
-                ? 'border-[#dbe3e5] shadow-xs'
-                : 'border-[#eaedee] hover:border-[#d9e1e3] hover:shadow-xs'
+              className={`group bg-[#f4f5f5] rounded-[14px] overflow-hidden transition-all duration-300 flex flex-col ${isSelectedTab
+                ? 'shadow-[0_0_0_1px_#dce5e7]'
+                : 'shadow-[0_0_0_1px_#ebeeee] hover:shadow-[0_10px_26px_rgba(28,25,23,0.08),0_0_0_1px_#dce5e7]'
                 }`}
             >
               {/* Image Container with high visual fidelity to screenshot */}
-              <div className="relative aspect-[1/1] sm:aspect-[4/3.8] bg-[#e6eaec] overflow-hidden">
+              <div className="relative aspect-[1/0.9] bg-[#e6eaec] overflow-hidden">
                 <img
                   src={program.image}
                   alt={program.title}
-                  className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                   referrerPolicy="no-referrer"
                 />
-
-                {/* Specific mockup overlay for Card 3: "Izlaz iz sindroma dobre djevojčice" */}
-
-
-                {/* Specific mockup overlay for Card 4: "Žena koja vodi svoj život" (Wheel of Life diagram) */}
-                {program.id === 'zena-koja-vodi-svoj-zivot' && (
-                  <div className="absolute inset-0 flex items-center justify-center p-3 pointer-events-none">
-                    <div className="relative w-28 h-28 opacity-75">
-                      <svg viewBox="0 0 100 100" className="w-full h-full stroke-neutral-700 fill-none" strokeWidth="1.2">
-                        {/* Concentric circles */}
-                        <circle cx="50" cy="50" r="42" strokeDasharray="1.5 1.5" />
-                        <circle cx="50" cy="50" r="28" strokeDasharray="1 1" />
-                        <circle cx="50" cy="50" r="14" />
-                        {/* Radial spokes */}
-                        <line x1="50" y1="8" x2="50" y2="92" />
-                        <line x1="8" y1="50" x2="92" y2="50" />
-                        <line x1="20" y1="20" x2="80" y2="80" />
-                        <line x1="20" y1="80" x2="80" y2="20" />
-                      </svg>
-                    </div>
-                  </div>
-                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent opacity-80" />
+                <span className="absolute left-3 top-3 rounded-full bg-white/85 px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.14em] text-[#196b75] backdrop-blur-sm">
+                  <EditableText sectionId="programs-001" fieldPath={`items.${programIndex}.categoryLabel`} value={program.categoryLabel} />
+                </span>
               </div>
 
               {/* Content Body at Bottom */}
-              <div className="p-4 sm:p-5 bg-[#f4f6f7] flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className=" font-semibold text-neutral-800 text-[13.5px] sm:text-[16px] leading-snug group-hover:text-[var(--accent)] transition-colors border-b border-[var(--border)] pb-3">
-                    <EditableText sectionId="programs-001" fieldPath={`items.${programs.findIndex((item) => item.id === program.id)}.title`} value={program.title} />
+              <div className="min-h-[196px] p-4 bg-[#f4f5f5] flex flex-col justify-between">
+                <div className="space-y-2.5">
+                  <h3 className="font-semibold text-[#2f2b27] text-[15px] leading-snug group-hover:text-[var(--primary)] transition-colors">
+                    <EditableText sectionId="programs-001" fieldPath={`items.${programIndex}.title`} value={program.title} />
                   </h3>
+                  <p className="text-[12.5px] leading-[1.55] text-neutral-600">
+                    <EditableText sectionId="programs-001" fieldPath={`items.${programIndex}.description`} value={program.description} multiline />
+                  </p>
                 </div>
 
                 {/* Action Link at Bottom matching screenshot */}
-                <div className="pt-2 mt-auto">
-                  <span className="inline-block text-xs sm:text-[14px] text-[var(--accent)] font-medium ">
-                    <EditableText sectionId="programs-001" fieldPath={`items.${programs.findIndex((item) => item.id === program.id)}.actionText`} value={program.actionText} />
-                  </span>
+                <div className="pt-4 mt-auto space-y-3 md:">
+                  <div className="border-t border-[#dde3e5] pb-0 mb-0 pt-4 text-[12px] font-medium text-[#514b45] ">
+                    <EditableText className='bg-[#fff] rounded-md px-4 py-1.5' sectionId="programs-001" fieldPath={`items.${programIndex}.meta`} value={program.meta || `${program.duration} · ${program.price || ''}`.trim()} />
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => onSelectProgram(program)}
+                    className="group/action inline-flex min-h-8 items-center gap-1.5 rounded-full pt-4 text-[12px] font-semibold text-[var(--primary)] transition-colors hover:text-[#196b75] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 cursor-pointer"
+                  >
+                    <span className="border-b border-transparent transition-colors group-hover/action:border-current">
+                    <EditableText sectionId="programs-001" fieldPath={`items.${programIndex}.actionText`} value={program.actionText} />
+                    </span>
+                    <ArrowRight className="mt-0.5 h-3.5 w-3.5 transition-transform group-hover/action:translate-x-0.5" aria-hidden="true" />
+                  </button>
                 </div>
               </div>
             </div>
           );
         })}
       </div>
+
+      {/* 7. Custom Program Banner */}
+    
     </section>
+
+    <section  className="pt-6 sm:pt-10 pb-16 sm:pb-24 container mx-auto px-3 sm:px-6 md:px-8">
+        <div className="mt-10 sm:mt-12 bg-[#f4f6f7] rounded-[18px] p-6 sm:p-10 border border-[#eaedee] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="space-y-2 max-w-2xl">
+          <h3 className="font-serif-hero text-2xl sm:text-[var(--text-h3)] font-bold tracking-wide mb-4 sm:mb-5">
+            <EditableText
+            className='text-[var(--primary)] '
+              sectionId="programs-001"
+              fieldPath="customProgram.heading.hr"
+              value={content.customProgram?.heading || 'Ne pronalaziš se potpuno ni u jednom programu?'}
+            />
+          </h3>
+          <div className="text-[13px] sm:text-[16px] text-neutral-600 leading-relaxed space-y-1.5">
+            {(content.customProgram?.paragraphs || [
+              'Ne moraš se uklopiti u unaprijed zadani format.',
+              'Ako znaš da želiš promjenu, ali tvoja situacija traži drugačiji fokus ili kombinaciju tema, možemo kreirati individualni program prema onome što ti je trenutno potrebno.',
+              'Prvo razgovaramo o tome gdje si sada i kamo želiš doći. Zatim zajedno definiramo format i dinamiku rada.',
+            ]).map((paragraphText, idx) => (
+              <p key={idx}>{paragraphText}</p>
+            ))}
+          </div>
+        </div>
+        <div className="shrink-0 w-full md:w-auto">
+          <button
+            onClick={onOpenContact}
+            className="btn-primary w-full md:w-auto py-4 text-center justify-center whitespace-nowrap shadow-sm hover:shadow"
+          >
+            {content.customProgram?.ctaText || 'Dogovori uvodni razgovor'}
+          </button>
+        </div>
+      </div>
+    </section>
+    </>
   );
 }

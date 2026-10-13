@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useState } from 'react';
 import { X, CheckCircle2, Clock, Calendar, Sparkles, Send, Play } from 'lucide-react';
 import { Program } from '../../types';
@@ -7,6 +8,7 @@ interface ModalsProps {
   onCloseVideo: () => void;
   contactModalOpen: boolean;
   onCloseContact: () => void;
+  onOpenContact?: () => void;
   selectedProgram: Program | null;
   onCloseProgram: () => void;
   infoModal: { title: string; content: string; bullets?: string[] } | null;
@@ -18,17 +20,19 @@ export default function Modals({
   onCloseVideo,
   contactModalOpen,
   onCloseContact,
+  onOpenContact,
   selectedProgram,
   onCloseProgram,
   infoModal,
   onCloseInfoModal,
 }: ModalsProps) {
   const [contactSubmitted, setContactSubmitted] = useState(false);
+  const programDescription = selectedProgram?.popupDescription || selectedProgram?.description || '';
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    topic: 'Konzultacije 1:1',
+    topic: 'Žena koja vodi svoj život',
     note: '',
   });
 
@@ -38,7 +42,7 @@ export default function Modals({
     setTimeout(() => {
       setContactSubmitted(false);
       onCloseContact();
-      setFormData({ name: '', email: '', phone: '', topic: 'Konzultacije 1:1', note: '' });
+      setFormData({ name: '', email: '', phone: '', topic: 'Žena koja vodi svoj život', note: '' });
     }, 2800);
   };
 
@@ -86,7 +90,7 @@ export default function Modals({
       {/* 2. Program Details Modal */}
       {selectedProgram && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
-          <div className="relative w-full max-w-xl bg-white rounded-2xl overflow-hidden shadow-2xl border border-neutral-100 max-h-[90vh] flex flex-col">
+          <div className="relative w-full max-w-4xl bg-white rounded-2xl overflow-y-auto shadow-2xl border border-neutral-100 max-h-[90vh]">
             <button
               onClick={onCloseProgram}
               className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-white/80 hover:bg-white text-neutral-700 flex items-center justify-center shadow transition-colors cursor-pointer"
@@ -95,7 +99,7 @@ export default function Modals({
             </button>
 
             {/* Header Image */}
-            <div className="relative h-44 sm:h-52 bg-neutral-900 shrink-0">
+            <div className="relative h-32 sm:h-40 bg-neutral-900">
               <img
                 src={selectedProgram.image}
                 alt={selectedProgram.title}
@@ -114,51 +118,50 @@ export default function Modals({
             </div>
 
             {/* Body */}
-            <div className="p-6 overflow-y-auto space-y-5 text-neutral-700 text-sm">
-              <p className="text-neutral-600 leading-relaxed">
-                {selectedProgram.description}
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4 py-2 border-y border-neutral-100 text-xs text-neutral-600">
-                <div className="flex items-center gap-1.5">
-                  <Clock className="w-4 h-4 text-[#23909d]" />
-                  <span>{selectedProgram.duration}</span>
-                </div>
-                {selectedProgram.price && (
-                  <div className="flex items-center gap-1.5 font-medium text-neutral-900">
-                    <Sparkles className="w-4 h-4 text-[#23909d]" />
-                    <span>Cijena: {selectedProgram.price}</span>
-                  </div>
-                )}
+            <div className="p-6 space-y-5 text-neutral-700 text-sm">
+              <div className="space-y-1.5 text-neutral-700 leading-relaxed text-[14px]">
+                {programDescription.split(/\n\s*\n/).map((paragraph, idx) => (
+                  <p key={idx} className="whitespace-pre-line">
+                    {paragraph}
+                  </p>
+                ))}
               </div>
 
-              {selectedProgram.bullets && (
+              <div className="flex flex-wrap items-center gap-4 py-2 border-y border-neutral-100 text-xs text-neutral-600">
+                <div className="flex items-center gap-1.5 font-medium text-neutral-900">
+                  <Clock className="w-4 h-4 text-[#23909d]" />
+                  <span>
+                    {selectedProgram.popupInfo || (
+                      selectedProgram.meta || `${selectedProgram.duration} · Cijena: ${selectedProgram.price}`
+                    )}
+                  </span>
+                </div>
+              </div>
+
+              {(selectedProgram.popupBullets || selectedProgram.bullets) && (
                 <div className="space-y-2.5">
                   <div className="text-xs font-semibold uppercase tracking-wider text-neutral-900">
-                    Što obuhvaća ovaj program:
+                    ŠTO OBUHVAĆA OVAJ PROGRAM:
                   </div>
                   <ul className="space-y-2">
-                    {selectedProgram.bullets.map((item, idx) => (
+                    {(selectedProgram.popupBullets || selectedProgram.bullets)!.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-600">
                         <CheckCircle2 className="w-4 h-4 text-[#23909d] shrink-0 mt-0.5" />
-                        <span>{item}</span>
+                        <span>{item.replace(/^✓\s*/, '')}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               )}
 
-              <div className="pt-3 flex gap-3">
-                <button
-                  onClick={() => {
-                    onCloseProgram();
-                    setFormData((prev) => ({ ...prev, topic: selectedProgram.title }));
-                    // open contact modal
-                  }}
-                  className="btn-primary flex-1 justify-center"
+              <div className="mt-3 flex justify-end gap-3 border-t border-neutral-200 pt-4">
+                <Link
+                  href={selectedProgram.url || `/programi/${selectedProgram.id}`}
+                  onClick={onCloseProgram}
+                  className="btn-primary min-w-[190px] justify-center px-8 py-0"
                 >
-                  {selectedProgram.actionText}
-                </button>
+                  {selectedProgram.popupActionText || selectedProgram.actionText}
+                </Link>
                 <button
                   onClick={onCloseProgram}
                   className="px-5 py-3 rounded-full border border-neutral-200 hover:bg-neutral-50 text-neutral-700 text-sm font-medium transition-colors cursor-pointer"
@@ -294,10 +297,11 @@ export default function Modals({
                       onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
                       className="w-full px-3.5 py-3 sm:py-2.5 text-base sm:text-sm rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#23909d]/30 focus:border-[#23909d] transition-all bg-white"
                     >
-                      <option value="Konzultacije 1:1">Premium 1:1 rad</option>
-                      <option value="Sindrom dobre djevojčice">Webinar: Sindrom dobre djevojčice</option>
-                      <option value="Otpor prema promjeni">Mini trening: Otpor prema promjeni</option>
-                      <option value="Izlaz iz sindroma">Mini program: Izlaz iz sindroma</option>
+                      <option value="Žena koja vodi svoj život">Žena koja vodi svoj život (Premium 1:1)</option>
+                      <option value="Ključevi života">Ključevi života (Mentalni reset)</option>
+                      <option value="Isključi MORAM. Uključi ŽELIM.">Isključi MORAM. Uključi ŽELIM. (Mentalni reset)</option>
+                      <option value="Ukloni kočnice. Kreni u akciju.">Ukloni kočnice. Kreni u akciju. (Intenziv)</option>
+                      <option value="Individualni program">Individualni program (po mjeri)</option>
                       <option value="Opći upit">Opći upit / Savjet</option>
                     </select>
                   </div>

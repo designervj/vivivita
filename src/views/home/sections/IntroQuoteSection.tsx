@@ -1,68 +1,61 @@
-import EditableText from '../../../components/shared/EditableText';
 import { PHILOSOPHY_CONTENT, type HomeContent } from '../../../lib/pages/content';
 
+const highlightedPhrases = ['dobre djevojčice', 'moraš', 'želiš', 'vlastitim izborima'];
+
+const renderHighlightedText = (text: string) => {
+  const parts: Array<{ text: string; highlighted: boolean }> = [];
+  let remaining = text;
+
+  while (remaining) {
+    const nextMatch = highlightedPhrases
+      .map((phrase) => ({ phrase, index: remaining.indexOf(phrase) }))
+      .filter((match) => match.index >= 0)
+      .sort((a, b) => a.index - b.index)[0];
+
+    if (!nextMatch) {
+      parts.push({ text: remaining, highlighted: false });
+      break;
+    }
+
+    if (nextMatch.index > 0) {
+      parts.push({ text: remaining.slice(0, nextMatch.index), highlighted: false });
+    }
+
+    parts.push({ text: nextMatch.phrase, highlighted: true });
+    remaining = remaining.slice(nextMatch.index + nextMatch.phrase.length);
+  }
+
+  return parts.map((part, idx) => (
+    part.highlighted ? (
+      <span key={idx} className="font-bold text-[#3A9FB3]">
+        {part.text}
+      </span>
+    ) : part.text
+  ));
+};
+
 export default function IntroQuote({ content = PHILOSOPHY_CONTENT }: { content?: HomeContent['philosophy'] }) {
+  const boldParagraphs = new Set([0, 2, 5]);
+  const paragraphs = content.paragraphs && content.paragraphs.length > 0
+    ? content.paragraphs
+    : [
+        content.part1[0],
+        content.part1[1],
+        content.part2[0],
+        content.part2[1],
+        content.part2[2],
+        content.part2[3],
+      ].filter(Boolean);
+
   return (
-    <section className="py-14 sm:py-20 md:py-24 px-4 sm:px-6">
+    <section className="py-14 sm:py-20 mb:py-24 px-4 sm:px-6 md:pt-20">
       <div className="max-w-5xl mx-auto text-center space-y-6 sm:space-y-7">
-        {/* First Paragraph Group */}
-        <div className="space-y-1.5 text-[var(--muted)] text-[16px] sm:text-[16px] md:text-[21px] leading-[160%] font-medium tracking-[0%]">
-          <EditableText
-            tag="p"
-            sectionId="philosophy-001"
-            fieldPath="part1.0.hr"
-            value={content.part1[0]}
-            multiline
-          />
-
-          <EditableText
-            tag="p"
-            sectionId="philosophy-001"
-            fieldPath="part1.1.hr"
-            value={content.part1[1]}
-            multiline
-          />
-
-          <EditableText
-            tag="p"
-            sectionId="philosophy-001"
-            fieldPath="part2.0.hr"
-            value={content.part2[0]}
-            multiline
-            className="text-center pt-6"
-          />
-          <p>
-            <EditableText
-              sectionId="philosophy-001"
-              fieldPath="part2.1.hr"
-                value={content.part2[1]}
-            />{' '}
-
-            <span className="text-[var(--primary)] font-semibold">
-              <EditableText
-                sectionId="philosophy-001"
-                fieldPath="part2.2.hr"
-                value={`“${content.part2[2]}”`}
-              />
-            </span>
-            {' '}
-            <EditableText
-              sectionId="philosophy-001"
-              fieldPath="part2.3.hr"
-              value={content.part2[3]}
-            />
-
-          </p>
-        </div>
-
-        {/* Second Paragraph Group with teal highlighted phrase */}
-        <div className="space-y-1.5 text-[var(--foreground)] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.65] font-normal pt-1">
-          <p>
-
-          </p>
-          <p>
-
-          </p>
+        <div className="space-y-3.5 text-[var(--muted)] text-[16px] sm:text-[16px] md:text-[16px] leading-[160%] font-medium tracking-[0%]">
+          {paragraphs.map((p, idx) => (
+            <p key={idx} className={boldParagraphs.has(idx) ? 'font-semibold' : undefined}>
+              {renderHighlightedText(p)}
+            </p>
+          ))}
         </div>
       </div>
     </section>
