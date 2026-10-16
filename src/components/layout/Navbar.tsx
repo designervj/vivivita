@@ -1,5 +1,8 @@
+'use client';
+
 import { useState } from 'react';
 import { ChevronDown, Phone, Menu, X, Check } from 'lucide-react';
+import { useLanguage, useCopy } from '../../context/LanguageContext';
 
 interface NavbarProps {
   onOpenContact: () => void;
@@ -8,9 +11,10 @@ interface NavbarProps {
 }
 
 export default function Navbar({ onOpenContact, onSelectProgramTab, onScrollTo }: NavbarProps) {
+  const { lang, setLang } = useLanguage();
+  const copy = useCopy();
   const [isProgramsOpen, setIsProgramsOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState<'Hr' | 'En'>('Hr');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleProgramClick = (category: string) => {
@@ -36,7 +40,7 @@ export default function Navbar({ onOpenContact, onSelectProgramTab, onScrollTo }
               onClick={() => onScrollTo('programi')}
               className="flex items-center gap-1 hover:text-[var(--primary)] transition-colors py-2 cursor-pointer"
             >
-              <span>Programi</span>
+              <span>{copy.nav.programs}</span>
               <ChevronDown className={`w-3 h-3 text-neutral-600 transition-transform duration-200 ${isProgramsOpen ? 'rotate-180' : ''}`} />
             </button>
 
@@ -46,26 +50,26 @@ export default function Navbar({ onOpenContact, onSelectProgramTab, onScrollTo }
                   onClick={() => handleProgramClick('all')}
                   className="w-full text-left px-4 py-2.5 text-xs sm:text-sm hover:bg-[var(--primary-soft)] hover:text-[var(--primary)] transition-colors flex items-center justify-between cursor-pointer"
                 >
-                  <span>Svi programi</span>
-                  <span className="text-xs text-neutral-400">Pregled</span>
+                  <span>{copy.nav.allPrograms}</span>
+                  <span className="text-xs text-neutral-400">{copy.nav.overview}</span>
                 </button>
                 <button
                   onClick={() => handleProgramClick('mentalni-reset')}
                   className="w-full text-left px-4 py-2 text-xs sm:text-sm hover:bg-[var(--primary-soft)] hover:text-[var(--primary)] transition-colors cursor-pointer"
                 >
-                  Mentalni reset
+                  {copy.nav.mentalReset}
                 </button>
                 <button
                   onClick={() => handleProgramClick('intenziv')}
                   className="w-full text-left px-4 py-2 text-xs sm:text-sm hover:bg-[var(--primary-soft)] hover:text-[var(--primary)] transition-colors cursor-pointer"
                 >
-                  Intenziv
+                  {copy.nav.intensive}
                 </button>
                 <button
                   onClick={() => handleProgramClick('premium')}
                   className="w-full text-left px-4 py-2 text-xs sm:text-sm hover:bg-[var(--primary-soft)] hover:text-[var(--primary)] transition-colors cursor-pointer font-medium text-[var(--primary)]"
                 >
-                  Premium 1:1 program
+                  {copy.nav.premium}
                 </button>
               </div>
             )}
@@ -76,7 +80,7 @@ export default function Navbar({ onOpenContact, onSelectProgramTab, onScrollTo }
             onClick={() => onScrollTo('o-marini')}
             className="hover:text-[var(--primary)] transition-colors cursor-pointer"
           >
-            O Marini
+            {copy.nav.about}
           </button>
 
           <button
@@ -84,7 +88,7 @@ export default function Navbar({ onOpenContact, onSelectProgramTab, onScrollTo }
             onClick={() => onScrollTo('iskustva')}
             className="hover:text-[var(--primary)] transition-colors cursor-pointer"
           >
-            Što drugi kažu
+            {copy.nav.testimonials}
           </button>
         </nav>
 
@@ -106,7 +110,7 @@ export default function Navbar({ onOpenContact, onSelectProgramTab, onScrollTo }
             className="flex h-10 w-10 sm:h-auto sm:w-auto items-center justify-center sm:justify-start gap-2 hover:text-[var(--primary)] transition-colors cursor-pointer group"
           >
             <Phone className="w-3.5 h-3.5 text-neutral-600 group-hover:text-[var(--primary)] transition-colors" />
-            <span className="hidden sm:inline">Kontaktirajte me</span>
+            <span className="hidden sm:inline">{copy.nav.contact}</span>
           </button>
 
           {/* Language Switcher */}
@@ -116,25 +120,25 @@ export default function Navbar({ onOpenContact, onSelectProgramTab, onScrollTo }
               onClick={() => setIsLangOpen(!isLangOpen)}
               className="flex h-10 items-center gap-1 hover:text-[var(--primary)] transition-colors py-1 cursor-pointer text-[14px]"
             >
-              <span>{currentLang}</span>
+              <span className="font-semibold uppercase">{lang}</span>
               <ChevronDown className={`w-3 h-3 text-neutral-600 transition-transform ${isLangOpen ? 'rotate-180' : ''}`} />
             </button>
 
             {isLangOpen && (
               <div className="absolute right-0 top-full mt-2 w-28 bg-white rounded-lg shadow-md border border-neutral-100 py-1.5 z-50">
                 <button
-                  onClick={() => { setCurrentLang('Hr'); setIsLangOpen(false); }}
-                  className="w-full text-left px-3 py-1.5 text-xs hover:bg-[var(--primary-soft)] hover:text-[var(--primary)] flex items-center justify-between"
+                  onClick={() => { setLang('hr'); setIsLangOpen(false); }}
+                  className={`w-full text-left px-3 py-1.5 text-xs hover:bg-[var(--primary-soft)] hover:text-[var(--primary)] flex items-center justify-between cursor-pointer ${lang === 'hr' ? 'font-semibold text-[var(--primary)]' : 'text-neutral-700'}`}
                 >
                   <span>Hrvatski</span>
-                  {currentLang === 'Hr' && <Check className="w-3.5 h-3.5 text-[var(--primary)]" />}
+                  {lang === 'hr' && <Check className="w-3.5 h-3.5 text-[var(--primary)]" />}
                 </button>
                 <button
-                  onClick={() => { setCurrentLang('En'); setIsLangOpen(false); }}
-                  className="w-full text-left px-3 py-1.5 text-xs hover:bg-[var(--primary-soft)] hover:text-[var(--primary)] flex items-center justify-between"
+                  onClick={() => { setLang('en'); setIsLangOpen(false); }}
+                  className={`w-full text-left px-3 py-1.5 text-xs hover:bg-[var(--primary-soft)] hover:text-[var(--primary)] flex items-center justify-between cursor-pointer ${lang === 'en' ? 'font-semibold text-[var(--primary)]' : 'text-neutral-700'}`}
                 >
                   <span>English</span>
-                  {currentLang === 'En' && <Check className="w-3.5 h-3.5 text-[var(--primary)]" />}
+                  {lang === 'en' && <Check className="w-3.5 h-3.5 text-[var(--primary)]" />}
                 </button>
               </div>
             )}
@@ -145,7 +149,7 @@ export default function Navbar({ onOpenContact, onSelectProgramTab, onScrollTo }
             id="mobile-menu-toggle"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden h-10 w-10 flex items-center justify-center text-neutral-700 hover:text-[var(--primary)]"
-            aria-label="Izbornik"
+            aria-label={copy.nav.menu}
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -159,33 +163,33 @@ export default function Navbar({ onOpenContact, onSelectProgramTab, onScrollTo }
             onClick={() => { onScrollTo('programi'); setMobileMenuOpen(false); }}
             className="block w-full text-left py-2 text-base font-medium text-neutral-800 hover:text-[#23909d]"
           >
-            Programi
+            {copy.nav.programs}
           </button>
           <div className="pl-4 space-y-2 border-l-2 border-[#23909d]/30 text-sm text-neutral-600">
-            <button onClick={() => handleProgramClick('all')} className="block py-1">Svi programi</button>
-            <button onClick={() => handleProgramClick('mentalni-reset')} className="block py-1">Mentalni reset</button>
-            <button onClick={() => handleProgramClick('intenziv')} className="block py-1">Intenziv</button>
-            <button onClick={() => handleProgramClick('premium')} className="block py-1">Premium 1:1 program</button>
+            <button onClick={() => handleProgramClick('all')} className="block py-1 text-left w-full">{copy.nav.allPrograms}</button>
+            <button onClick={() => handleProgramClick('mentalni-reset')} className="block py-1 text-left w-full">{copy.nav.mentalReset}</button>
+            <button onClick={() => handleProgramClick('intenziv')} className="block py-1 text-left w-full">{copy.nav.intensive}</button>
+            <button onClick={() => handleProgramClick('premium')} className="block py-1 text-left w-full">{copy.nav.premium}</button>
           </div>
           <button
             onClick={() => { onScrollTo('o-marini'); setMobileMenuOpen(false); }}
             className="block w-full text-left py-2 text-base font-medium text-neutral-800 hover:text-[#23909d]"
           >
-            O Marini
+            {copy.nav.about}
           </button>
           <button
             onClick={() => { onScrollTo('iskustva'); setMobileMenuOpen(false); }}
             className="block w-full text-left py-2 text-base font-medium text-neutral-800 hover:text-[#23909d]"
           >
-            Što drugi kažu
+            {copy.nav.testimonials}
           </button>
           <div className="pt-2 border-t border-neutral-100">
             <button
               onClick={() => { onOpenContact(); setMobileMenuOpen(false); }}
-              className="w-full bg-[#23909d] text-white py-3 rounded-full text-sm font-medium flex items-center justify-center gap-2"
+              className="w-full bg-[#23909d] text-white py-3 rounded-full text-sm font-medium flex items-center justify-center gap-2 cursor-pointer"
             >
               <Phone className="w-4 h-4" />
-              <span>Kontaktirajte me</span>
+              <span>{copy.nav.contact}</span>
             </button>
           </div>
         </div>

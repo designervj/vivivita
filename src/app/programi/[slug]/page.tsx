@@ -25,8 +25,9 @@ export async function generateMetadata({ params }: ProgramRouteProps) {
 }
 
 export default async function ProgramPage({ params }: ProgramRouteProps) {
-  const { slug } = await params;
-  const program = getProgramPage(slug);
+  const resolvedParams = params && typeof (params as any).then === 'function' ? await params : params;
+  const slug = resolvedParams?.slug;
+  const program = slug ? getProgramPage(slug) : undefined;
 
   if (!program) {
     notFound();

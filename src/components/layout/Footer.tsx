@@ -1,4 +1,7 @@
-import { Phone, Mail, Instagram, Linkedin, Heart } from 'lucide-react';
+'use client';
+
+import { Mail, Instagram, Linkedin } from 'lucide-react';
+import { useCopy } from '../../context/LanguageContext';
 
 interface FooterProps {
   onOpenContact: () => void;
@@ -6,6 +9,8 @@ interface FooterProps {
 }
 
 export default function Footer({ onOpenContact, onScrollTo }: FooterProps) {
+  const copy = useCopy();
+
   return (
     <footer className="bg-white border-t border-neutral-200/80 mt-16 text-neutral-600 text-xs sm:text-sm">
       <div className="container mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16">
@@ -13,30 +18,30 @@ export default function Footer({ onOpenContact, onScrollTo }: FooterProps) {
           {/* Brand Col */}
           <div className="md:col-span-5 space-y-4">
             <span className="font-serif-hero text-xl font-semibold text-neutral-900 tracking-wider block">
-              MARINA NOVAKOVIĆ
+              {copy.footer.brandName}
             </span>
             <p className="text-neutral-500 text-xs sm:text-sm max-w-sm leading-relaxed">
-              Programi i individualni rad za žene koje su spremne napustiti ulogu udovoljavanja i početi živjeti slobodno, autentično i po svojim pravilima.
+              {copy.footer.tagline}
             </p>
             <div className="flex items-center gap-3 pt-2 text-neutral-400">
               <a
                 href="#instagram"
                 className="w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center hover:text-[#23909d] hover:border-[#23909d] transition-colors"
-                aria-label="Instagram profil"
+                aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4" />
               </a>
               <a
                 href="#linkedin"
                 className="w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center hover:text-[#23909d] hover:border-[#23909d] transition-colors"
-                aria-label="LinkedIn profil"
+                aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
               <button
                 onClick={onOpenContact}
-                className="w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center hover:text-[#23909d] hover:border-[#23909d] transition-colors"
-                aria-label="Pošalji poruku"
+                className="w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center hover:text-[#23909d] hover:border-[#23909d] transition-colors cursor-pointer"
+                aria-label="Email"
               >
                 <Mail className="w-4 h-4" />
               </button>
@@ -46,47 +51,47 @@ export default function Footer({ onOpenContact, onScrollTo }: FooterProps) {
           {/* Quick links */}
           <div className="md:col-span-3 space-y-3">
             <div className="text-xs font-semibold text-neutral-900 uppercase tracking-wider">
-              Brzi linkovi
+              {copy.footer.quickLinks}
             </div>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
                 <button
                   onClick={() => onScrollTo('hero-banner-card')}
-                  className="hover:text-[#23909d] transition-colors"
+                  className="hover:text-[#23909d] transition-colors cursor-pointer"
                 >
-                  Naslovnica
+                  {copy.footer.links.home}
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => onScrollTo('card-good-girl')}
-                  className="hover:text-[#23909d] transition-colors"
+                  className="hover:text-[#23909d] transition-colors cursor-pointer"
                 >
-                  Tko je dobra djevojčica
+                  {copy.footer.links.goodGirl}
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => onScrollTo('programi')}
-                  className="hover:text-[#23909d] transition-colors"
+                  className="hover:text-[#23909d] transition-colors cursor-pointer"
                 >
-                  Programi i radionice
+                  {copy.footer.links.programs}
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => onScrollTo('iskustva')}
-                  className="hover:text-[#23909d] transition-colors"
+                  className="hover:text-[#23909d] transition-colors cursor-pointer"
                 >
-                  Iskustva klijentica
+                  {copy.footer.links.testimonials}
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => onScrollTo('o-marini')}
-                  className="hover:text-[#23909d] transition-colors"
+                  className="hover:text-[#23909d] transition-colors cursor-pointer"
                 >
-                  O meni
+                  {copy.footer.links.about}
                 </button>
               </li>
             </ul>
@@ -95,33 +100,16 @@ export default function Footer({ onOpenContact, onScrollTo }: FooterProps) {
           {/* Contact Col */}
           <div className="md:col-span-4 space-y-3">
             <div className="text-xs font-semibold text-neutral-900 uppercase tracking-wider">
-              Kontakt & Konzultacije
+              {copy.footer.contactTitle}
             </div>
             <p className="text-xs sm:text-sm text-neutral-500 leading-relaxed">
-              Zanima te koji format rada bi bio najprikladniji za tvoju trenutnu fazu?
+              marinacoaching@gmail.com
             </p>
-            <div className="pt-1">
-              <button
-                id="footer-contact-btn"
-                onClick={onOpenContact}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#edf3f4] hover:bg-[#e2eced] text-[#23909d] font-medium text-xs sm:text-sm transition-colors cursor-pointer"
-              >
-                <Phone className="w-3.5 h-3.5" />
-                <span>Dogovori uvodni poziv</span>
-              </button>
-            </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-neutral-100 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-400 gap-4">
-          <div>
-            © {new Date().getFullYear()} Marina Novaković. Sva prava pridržana.
-          </div>
-          <div className="flex items-center gap-1 text-neutral-400">
-            <span>Život po vlastitim pravilima</span>
-            <Heart className="w-3 h-3 text-[#23909d] fill-[#23909d]" />
-          </div>
+        <div className="border-t border-neutral-100 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between text-neutral-400 text-xs">
+          <p>© {new Date().getFullYear()} {copy.footer.brandName}. {copy.footer.rights}</p>
         </div>
       </div>
     </footer>

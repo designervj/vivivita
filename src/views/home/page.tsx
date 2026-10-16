@@ -13,13 +13,16 @@ import TwoCards from './sections/TwoCardsSection';
 import ProgramsSection from './sections/ProgramsSection';
 import TestimonialsSection from './sections/TestimonialsSection';
 import AboutSection from './sections/AboutSection';
-import Footer from '../../components/layout/Footer';
 import Modals from '../../components/shared/Modals';
 import { Program } from '../../types';
 import { DEFAULT_HOME_CONTENT, type HomeContent } from '../../lib/pages/content';
+import { useCopy, useLanguage } from '../../context/LanguageContext';
 
 export default function HomePage({ initialContent = DEFAULT_HOME_CONTENT }: { initialContent?: HomeContent }) {
   const homeContent = initialContent;
+  const { lang } = useLanguage();
+  const copy = useCopy();
+
   const [selectedTab, setSelectedTab] = useState<string>('all');
   const [videoModalOpen, setVideoModalOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
@@ -43,28 +46,17 @@ export default function HomePage({ initialContent = DEFAULT_HOME_CONTENT }: { in
 
   const handleLearnMoreGoodGirl = () => {
     setInfoModal({
-      title: 'Tko je "dobra djevojčica"?',
-      content:
-        'Sindrom "dobre djevojčice" nastaje u ranom djetinjstvu kada djevojčica nauči da su ljubav, pohvala i sigurnost uvjetovani poslušnošću, predviđanjem tuđih potreba i nepravljenjem "problema".\n\nU odrasloj dobi, ovaj obrazac se manifestira kao nemogućnost odbijanja, stalni osjećaj krivnje kad stavimo sebe na prvo mjesto, perfekcionizam i duboki strah od konflikta.',
-      bullets: [
-        'Kronično preuzimanje tuđe odgovornosti',
-        'Strah od izražavanja neslaganja ili ljutnje',
-        'Zanemarivanje vlastitog tijela, odmora i snova',
-        'Potraga za vanjskim odobrenjem prije donošenja odluka',
-      ],
+      title: copy.modals.goodGirlInfo.title,
+      content: copy.modals.goodGirlInfo.content,
+      bullets: copy.modals.goodGirlInfo.bullets,
     });
   };
 
   const handleExploreProcess = () => {
     setInfoModal({
-      title: 'Kako izgleda proces transformacije?',
-      content:
-        'Proces se ne bavi samo površinskim savjetima poput "samo reci ne". Umjesto toga, radimo na razini regulacije živčanog sustava i transformacije temeljnih uvjerenja.\n\nKroz 3 faze rada prolazimo put od uočavanja automatske reakcije do potpunog unutarnjeg mira i slobode izbora.',
-      bullets: [
-        '1. Faza svijesti: mapiranje tvojih specifičnih okidača i obrazaca',
-        '2. Faza regulacije: smirivanje tjelesnog osjećaja straha od odbačenosti',
-        '3. Faza integracije: postavljanje granica s ljubavlju i jasnoćom',
-      ],
+      title: copy.modals.processInfo.title,
+      content: copy.modals.processInfo.content,
+      bullets: copy.modals.processInfo.bullets,
     });
   };
 
@@ -115,12 +107,6 @@ export default function HomePage({ initialContent = DEFAULT_HOME_CONTENT }: { in
         {/* 6. About Marina */}
         <AboutSection content={homeContent.about} onBookCall={() => setContactModalOpen(true)} />
       </main>
-
-      {/* Footer */}
-      {/* <Footer
-        onOpenContact={() => setContactModalOpen(true)}
-        onScrollTo={scrollToSection}
-      /> */}
 
       {/* Interactive Modals */}
       <Modals

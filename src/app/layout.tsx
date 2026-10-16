@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { LanguageProvider } from '../context/LanguageContext';
+
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const cookieStore = await cookies();
   const isAdmin = cookieStore.get('admin_token')?.value === 'true';
@@ -26,9 +28,11 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   return (
     <html lang="hr">
       <body className="vivivita-body">
-        <ThemeProvider />
-        {isAdmin && <AdminBar />}
-        {children}
+        <LanguageProvider>
+          <ThemeProvider />
+          {isAdmin && <AdminBar />}
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

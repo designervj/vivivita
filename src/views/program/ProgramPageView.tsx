@@ -6,14 +6,29 @@ import { ArrowRight, CheckCircle2, Clock } from 'lucide-react';
 import Navbar from '../../components/layout/Navbar';
 import Modals from '../../components/shared/Modals';
 import { ProgramPageData } from '../../lib/programPages';
+import { useLanguage, useCopy } from '../../context/LanguageContext';
+import { getLocalizedProgram } from '../../lib/language/programPagesI18n';
 
 interface ProgramPageViewProps {
   program: ProgramPageData;
   otherPrograms: ProgramPageData[];
 }
 
-export default function ProgramPageView({ program, otherPrograms }: ProgramPageViewProps) {
+export default function ProgramPageView({ program: initialProgram, otherPrograms: initialOtherPrograms }: ProgramPageViewProps) {
+  const { lang } = useLanguage();
+  const copy = useCopy();
   const [contactModalOpen, setContactModalOpen] = useState(false);
+
+  // Active localized program
+  const activeProgram = (lang === 'en' ? getLocalizedProgram(initialProgram.slug, 'en') : null) || initialProgram;
+
+  // Active localized other programs
+  const activeOtherPrograms = initialOtherPrograms.map((p) => {
+    if (lang === 'en') {
+      return getLocalizedProgram(p.slug, 'en') || p;
+    }
+    return p;
+  });
 
   const goToHomeSection = (id: string) => {
     window.location.href = id === 'top' ? '/' : `/#${id}`;
@@ -23,14 +38,14 @@ export default function ProgramPageView({ program, otherPrograms }: ProgramPageV
     <>
       {section.copy && (
         <div className={`mt-5 max-w-3xl space-y-3 text-[14px] leading-[1.75] sm:text-[16px] ${dark ? 'text-white/90' : 'text-neutral-700'}`}>
-          {section.copy.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          {section.copy.map((paragraph, idx) => <p key={idx}>{paragraph}</p>)}
         </div>
       )}
 
       {section.bullets && (
         <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-          {section.bullets.map((item) => (
-            <li key={item} className={`flex items-start gap-2.5 rounded-[14px] p-4 text-[14px] leading-relaxed sm:text-[15px] ${dark ? 'bg-white/12 text-white ring-1 ring-white/15' : 'bg-white text-neutral-700 ring-1 ring-[#ebeeee]'}`}>
+          {section.bullets.map((item, idx) => (
+            <li key={idx} className={`flex items-start gap-2.5 rounded-[14px] p-4 text-[14px] leading-relaxed sm:text-[15px] ${dark ? 'bg-white/12 text-white ring-1 ring-white/15' : 'bg-white text-neutral-700 ring-1 ring-[#ebeeee]'}`}>
               <CheckCircle2 className={`mt-0.5 h-4 w-4 shrink-0 ${dark ? 'text-white' : 'text-[var(--primary)]'}`} />
               <span>{item}</span>
             </li>
@@ -41,18 +56,18 @@ export default function ProgramPageView({ program, otherPrograms }: ProgramPageV
       {section.steps && (
         <div className="mt-7 grid gap-4 md:grid-cols-2">
           {section.steps.map((step, stepIndex) => (
-            <div key={step.title} className="rounded-[14px] bg-white p-5 ring-1 ring-[#ebeeee]">
+            <div key={stepIndex} className="rounded-[14px] bg-white p-5 ring-1 ring-[#ebeeee]">
               <div className="mb-4 flex items-center gap-3">
                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#23909d] text-sm font-semibold text-white">
                   {String(stepIndex + 1).padStart(2, '0')}
                 </span>
                 <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--primary)]">
-                  Korak
+                  {copy.programDetailPages.stepLabel}
                 </span>
               </div>
               <h3 className="text-base font-semibold text-[#2f2b27]">{step.title}</h3>
               <div className="mt-2 space-y-2 text-[14px] leading-relaxed text-neutral-700">
-                {step.copy.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                {step.copy.map((paragraph, pIdx) => <p key={pIdx}>{paragraph}</p>)}
               </div>
             </div>
           ))}
@@ -62,14 +77,14 @@ export default function ProgramPageView({ program, otherPrograms }: ProgramPageV
       {section.timeline && (
         <div className="mt-7 grid gap-3">
           {section.timeline.map((item, timelineIndex) => (
-            <div key={item.title} className="grid gap-3 rounded-[14px] bg-white p-4 ring-1 ring-[#ebeeee] sm:grid-cols-[54px_1fr] sm:gap-5">
+            <div key={timelineIndex} className="grid gap-3 rounded-[14px] bg-white p-4 ring-1 ring-[#ebeeee] sm:grid-cols-[54px_1fr] sm:gap-5">
               <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#edf3f4] text-[12px] font-semibold text-[var(--primary)]">
                 {String(timelineIndex + 1).padStart(2, '0')}
               </span>
               <div>
                 <h3 className="font-semibold text-[#2f2b27]">{item.title}</h3>
                 <div className="mt-2 space-y-2 text-[14px] leading-relaxed text-neutral-700 sm:text-[15px]">
-                  {item.copy.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                  {item.copy.map((paragraph, pIdx) => <p key={pIdx}>{paragraph}</p>)}
                 </div>
               </div>
             </div>
@@ -84,7 +99,7 @@ export default function ProgramPageView({ program, otherPrograms }: ProgramPageV
             {section.supportingText && <p className="mt-1">{section.supportingText}</p>}
           </div>
           {section.cta && (
-            <button type="button" onClick={() => setContactModalOpen(true)} className="btn-primary justify-center sm:w-auto">
+            <button type="button" onClick={() => setContactModalOpen(true)} className="btn-primary justify-center sm:w-auto cursor-pointer">
               {section.cta}
             </button>
           )}
@@ -102,11 +117,12 @@ export default function ProgramPageView({ program, otherPrograms }: ProgramPageV
       />
 
       <main>
+        {/* Hero Section of Program */}
         <section className="container mx-auto px-3 sm:px-6 md:px-8 pt-2 sm:pt-3 pb-16 sm:pb-24">
           <div className="relative flex min-h-[430px] items-center justify-center overflow-hidden rounded-[15px] bg-neutral-200 sm:min-h-[500px] md:min-h-[540px]">
             <img
-              src={program.image}
-              alt={program.title}
+              src={activeProgram.image}
+              alt={activeProgram.title}
               className="absolute inset-0 h-full w-full object-cover brightness-[0.82] contrast-[1.02]"
               referrerPolicy="no-referrer"
             />
@@ -114,39 +130,40 @@ export default function ProgramPageView({ program, otherPrograms }: ProgramPageV
 
             <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-4 py-8 text-center sm:px-6">
               <span className="inline-flex rounded-full bg-white/85 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#196b75] backdrop-blur-sm">
-                {program.category}
+                {activeProgram.category}
               </span>
               <h1 className="font-serif-hero mt-5 max-w-3xl text-[23px] font-medium uppercase leading-[1.18] tracking-[0.04em] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)] sm:text-[32px] md:text-[38px] lg:text-[43px]">
-                {program.title}
+                {activeProgram.title}
               </h1>
               <p className="mt-4 max-w-2xl text-[14px] font-semibold leading-snug text-white/95 drop-shadow-[0_2px_5px_rgba(0,0,0,0.35)] sm:text-[17px] md:text-[20px]">
-                {program.subtitle}
+                {activeProgram.subtitle}
               </p>
               <p className="mt-4 max-w-2xl text-[13px] leading-[1.75] text-white/90 drop-shadow-[0_2px_5px_rgba(0,0,0,0.35)] sm:text-[15px] md:text-[16px]">
-                {program.intro}
+                {activeProgram.intro}
               </p>
 
               <div className="mt-6 flex w-full max-w-xl flex-col items-center justify-center gap-3 sm:flex-row">
                 <button
                   type="button"
                   onClick={() => setContactModalOpen(true)}
-                  className="hero-btn-primary justify-center sm:w-auto"
+                  className="hero-btn-primary justify-center sm:w-auto cursor-pointer"
                 >
-                  {program.cta}
+                  {activeProgram.cta}
                 </button>
                 <div className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-white/80 px-5 text-sm font-semibold text-[#2f2b27] backdrop-blur-sm">
                   <Clock className="h-4 w-4 text-[var(--primary)]" />
-                  <span>{program.meta}</span>
+                  <span>{activeProgram.meta}</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
+        {/* Feature Sections */}
         <section className="container mx-auto px-3 sm:px-6 md:px-8 pt-6 sm:pt-10 pb-16 sm:pb-24">
-          {program.sections.length > 0 && (
+          {activeProgram.sections.length > 0 && (
             <div className="grid gap-4 sm:gap-5 lg:grid-cols-2">
-              {program.sections.slice(0, 2).map((section, index) => {
+              {activeProgram.sections.slice(0, 2).map((section, index) => {
                 const isDarkFeature = index === 0;
                 return (
                   <article
@@ -154,7 +171,7 @@ export default function ProgramPageView({ program, otherPrograms }: ProgramPageV
                     className={`relative min-h-[360px] overflow-hidden rounded-[20px] p-5 sm:p-8 ${isDarkFeature ? 'bg-neutral-900 text-white' : 'border border-[#eaedee] bg-[#f4f6f7] text-neutral-800'}`}
                   >
                     <img
-                      src={program.image}
+                      src={activeProgram.image}
                       alt=""
                       aria-hidden="true"
                       className={`absolute inset-0 h-full w-full object-cover ${isDarkFeature ? 'opacity-55' : 'opacity-25'}`}
@@ -181,7 +198,7 @@ export default function ProgramPageView({ program, otherPrograms }: ProgramPageV
           )}
 
           <div className="mt-5 grid gap-4 sm:gap-5">
-            {program.sections.slice(2).map((section, index) => (
+            {activeProgram.sections.slice(2).map((section, index) => (
               <article
                 key={`${section.heading}-${index + 2}`}
                 className="rounded-[18px] border border-[#eaedee] bg-[#f4f6f7] p-5 sm:p-7 lg:p-8"
@@ -208,22 +225,23 @@ export default function ProgramPageView({ program, otherPrograms }: ProgramPageV
           </div>
         </section>
 
+        {/* Other Programs Navigation */}
         <section className="container mx-auto px-3 sm:px-6 md:px-8 pt-6 sm:pt-10 pb-16 sm:pb-24">
           <div>
             <div className="max-w-2xl">
               <p className="border-b border-[#dde3e5] pb-2 text-[11px] font-medium tracking-normal text-[var(--primary)] sm:text-[16px]">
-                Navigacija između programa
+                {copy.programDetailPages.otherProgramsTag}
               </p>
               <h2 className="font-serif-title mt-3 text-[24px] font-semibold leading-tight text-neutral-950 sm:text-[30px]">
-                Želiš istražiti i druge opcije?
+                {copy.programDetailPages.otherProgramsTitle}
               </h2>
               <p className="mt-3 text-sm leading-7 text-neutral-600 sm:text-base">
-                Usporedi ostale formate rada i odaberi program koji trenutno najbolje odgovara tvojoj situaciji.
+                {copy.programDetailPages.otherProgramsSubtitle}
               </p>
             </div>
 
             <div className="mt-7 grid gap-4 md:grid-cols-3">
-              {otherPrograms.map((item) => (
+              {activeOtherPrograms.map((item) => (
                 <Link
                   key={item.slug}
                   href={`/programi/${item.slug}`}
@@ -254,7 +272,7 @@ export default function ProgramPageView({ program, otherPrograms }: ProgramPageV
                         {item.meta}
                       </span>
                       <span className="flex items-center gap-1.5 text-[12px] font-semibold text-[var(--primary)]">
-                        Otvori program
+                        {copy.programDetailPages.openProgram}
                         <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                       </span>
                     </div>
@@ -265,28 +283,29 @@ export default function ProgramPageView({ program, otherPrograms }: ProgramPageV
 
             <div className="mt-8 flex flex-col gap-4 border-t border-[#dde3e5] pt-6 sm:flex-row sm:items-center sm:justify-between">
               <p className="font-serif-title text-xl font-semibold text-neutral-950 sm:text-2xl">
-                Ili kreni od razgovora.
+                {copy.programDetailPages.orStartWithChat}
               </p>
-              <button type="button" onClick={() => setContactModalOpen(true)} className="btn-primary justify-center sm:w-auto">
-                Dogovori uvodni razgovor
+              <button type="button" onClick={() => setContactModalOpen(true)} className="btn-primary justify-center sm:w-auto cursor-pointer">
+                {copy.programDetailPages.bookCall}
               </button>
             </div>
           </div>
         </section>
 
+        {/* Final CTA Card */}
         <section className="container mx-auto px-3 sm:px-6 md:px-8 pt-6 sm:pt-10 pb-16 sm:pb-24">
           <div className="rounded-[18px] border border-[#eaedee] bg-[#f4f6f7] p-6 sm:p-10">
             <div className="grid gap-7 lg:grid-cols-[1fr_340px] lg:items-center">
               <div>
                 <p className="border-b border-[#dde3e5] pb-2 text-[11px] font-medium tracking-normal text-[var(--primary)] sm:text-[16px]">
-                  Sljedeći korak
+                  {copy.programDetailPages.nextStepTag}
                 </p>
                 <h2 className="font-serif-hero mt-3 max-w-3xl text-[24px] font-semibold leading-tight tracking-wide text-neutral-950 sm:text-[30px]">
-                  {program.finalCta.heading}
+                  {activeProgram.finalCta.heading}
                 </h2>
-                {program.finalCta.copy && (
+                {activeProgram.finalCta.copy && (
                   <p className="mt-5 max-w-3xl text-[14px] leading-[1.75] text-neutral-700 sm:text-[16px]">
-                    {program.finalCta.copy}
+                    {activeProgram.finalCta.copy}
                   </p>
                 )}
               </div>
@@ -294,14 +313,14 @@ export default function ProgramPageView({ program, otherPrograms }: ProgramPageV
               <div className="rounded-[14px] bg-white p-5 ring-1 ring-[#ebeeee]">
                 <div className="flex items-start gap-2 text-sm font-semibold leading-6 text-neutral-800">
                   <Clock className="mt-0.5 h-4 w-4 shrink-0 text-[var(--primary)]" />
-                  <span>{program.finalCta.supportingText}</span>
+                  <span>{activeProgram.finalCta.supportingText}</span>
                 </div>
                 <button
                   type="button"
                   onClick={() => setContactModalOpen(true)}
-                  className="btn-primary mt-5 justify-center sm:w-auto"
+                  className="btn-primary mt-5 justify-center sm:w-auto cursor-pointer"
                 >
-                  {program.finalCta.cta}
+                  {activeProgram.finalCta.cta}
                 </button>
               </div>
             </div>
