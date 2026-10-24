@@ -6,7 +6,7 @@ import { getRequestDbName, serializeDocument } from '@/lib/db-utils';
 export const dynamic = 'force-dynamic';
 
 // Reusable / pooled SMTP Transporter for high-performance sending without handshake lag
-let cachedTransporter: nodemailer.Transporter | null = null;
+let cachedTransporter: ReturnType<typeof nodemailer.createTransport> | null = null;
 
 function getMailTransporter(host: string, port: number, user: string, pass: string) {
   if (cachedTransporter) return cachedTransporter;
