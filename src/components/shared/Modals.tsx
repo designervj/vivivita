@@ -106,7 +106,7 @@ export default function Modals({
 
             <div className="relative aspect-video bg-neutral-900 flex flex-col items-center justify-center p-6 text-center">
               <img
-                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=80"
+                src="/image/Rectangle 1795.png"
                 alt="Marina video"
                 className="absolute inset-0 w-full h-full object-cover filter brightness-40"
                 referrerPolicy="no-referrer"

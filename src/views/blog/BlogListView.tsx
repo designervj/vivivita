@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Search, Clock, Calendar, ArrowRight, BookOpen, Sparkles } from 'lucide-react';
 import Navbar from '../../components/layout/Navbar';
-import Footer from '../../components/layout/Footer';
 import Modals from '../../components/shared/Modals';
 import { BlogPost, blogPosts } from '../../lib/blog/posts';
 import { useLanguage, useCopy } from '../../context/LanguageContext';
@@ -111,7 +110,7 @@ export default function BlogListView() {
               </div>
 
               <div className="group rounded-3xl bg-white border border-neutral-200/80 overflow-hidden shadow-xs hover:shadow-md transition-all duration-300 grid md:grid-cols-12 gap-0">
-                <div className="md:col-span-7 relative aspect-16/10 md:aspect-auto overflow-hidden">
+                <div className="md:col-span-7 relative aspect-16/10 overflow-hidden">
                   <img
                     src={featuredPost.image}
                     alt={featuredPost.title[lang]}
@@ -282,11 +281,7 @@ export default function BlogListView() {
         </section>
       </main>
 
-      {/* Footer */}
-      <Footer
-        onOpenContact={() => setContactModalOpen(true)}
-        onScrollTo={goToHomeSection}
-      />
+
 
       {/* Contact & Modals */}
       <Modals

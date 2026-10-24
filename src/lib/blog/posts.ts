@@ -59,7 +59,7 @@ export const blogPosts: BlogPost[] = [
       hr: 'Certificirani Life Coach',
       en: 'Certified Life Coach',
     },
-    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=80',
+    image: '/image/Rectangle 1795.png',
     tags: ['Dobra djevojčica', 'Autentičnost', 'Promjena', 'Samosvijest'],
     content: {
       hr: [
@@ -106,7 +106,7 @@ export const blogPosts: BlogPost[] = [
       hr: 'Certificirani Life Coach',
       en: 'Certified Life Coach',
     },
-    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80',
+    image: '/image/image 13.png',
     tags: ['Granice', 'Komunikacija', 'Krivnja', 'Odnosi'],
     content: {
       hr: [
@@ -151,7 +151,7 @@ export const blogPosts: BlogPost[] = [
       hr: 'Certificirani Life Coach',
       en: 'Certified Life Coach',
     },
-    image: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=1200&q=80',
+    image: '/image/about-img.png',
     tags: ['Mentalni reset', 'Unutarnji glas', 'Mindset', 'Mir'],
     content: {
       hr: [
@@ -194,7 +194,7 @@ export const blogPosts: BlogPost[] = [
       hr: 'Certificirani Life Coach',
       en: 'Certified Life Coach',
     },
-    image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80',
+    image: '/image/marini-img.png',
     tags: ['Briga o sebi', 'Energija', 'Odmor', 'Ravnoteža'],
     content: {
       hr: [

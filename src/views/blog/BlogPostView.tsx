@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Clock, Calendar, Share2, Check, ArrowRight } from 'lucide-react';
 import Navbar from '../../components/layout/Navbar';
-import Footer from '../../components/layout/Footer';
 import Modals from '../../components/shared/Modals';
 import { BlogPost } from '../../lib/blog/posts';
 import { useLanguage, useCopy } from '../../context/LanguageContext';
@@ -244,11 +243,7 @@ export default function BlogPostView({ post, relatedPosts }: BlogPostViewProps) 
         )}
       </main>
 
-      {/* Footer */}
-      <Footer
-        onOpenContact={() => setContactModalOpen(true)}
-        onScrollTo={goToHomeSection}
-      />
+
 
       {/* Modals */}
       <Modals
