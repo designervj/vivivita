@@ -104,6 +104,16 @@ export async function POST(req: NextRequest) {
       timeStyle: 'short',
     }).format(new Date());
 
+    // Clean, crisp SVG icons to replace emojis
+    const iconUser = `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#788f95" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:7px;"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`;
+    const iconMail = `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#788f95" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:7px;"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>`;
+    const iconPhone = `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#788f95" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:7px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`;
+    const iconTag = `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#788f95" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:7px;"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><circle cx="7.5" cy="7.5" r=".5" fill="#788f95"/></svg>`;
+    const iconMessage = `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#758d92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:6px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`;
+    const iconClock = `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:5px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`;
+    const iconReply = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:8px;"><polyline points="9 17 4 12 9 7"/><path d="M20 18v-2a4 4 0 0 0-4-4H4"/></svg>`;
+    const iconCall = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a6470" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:8px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`;
+
     const htmlContent = `<!DOCTYPE html>
 <html lang="hr" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -172,8 +182,8 @@ export async function POST(req: NextRequest) {
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
                   <td style="vertical-align:middle;">
-                    <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;color:#64748b;">
-                      🕒 Vrijeme: <strong style="color:#0f2b30;">${formattedDate}</strong>
+                    <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;color:#64748b;display:inline-block;">
+                      ${iconClock}Vrijeme: <strong style="color:#0f2b30;">${formattedDate}</strong>
                     </span>
                   </td>
                   <td align="right" style="vertical-align:middle;">
@@ -193,9 +203,9 @@ export async function POST(req: NextRequest) {
                 
                 <!-- ROW 1: IME I PREZIME -->
                 <tr>
-                  <td style="padding:14px 16px;background:#ffffff;border-bottom:1px solid #f1f5f7;width:150px;vertical-align:middle;">
-                    <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:1px;color:#788f95;text-transform:uppercase;">
-                      👤 Ime i prezime
+                  <td style="padding:14px 16px;background:#ffffff;border-bottom:1px solid #f1f5f7;width:160px;vertical-align:middle;">
+                    <span style="display:inline-block;white-space:nowrap;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:1px;color:#788f95;text-transform:uppercase;">
+                      ${iconUser}Ime i prezime
                     </span>
                   </td>
                   <td style="padding:14px 16px;background:#ffffff;border-bottom:1px solid #f1f5f7;vertical-align:middle;">
@@ -207,9 +217,9 @@ export async function POST(req: NextRequest) {
 
                 <!-- ROW 2: EMAIL -->
                 <tr>
-                  <td style="padding:14px 16px;background:#fcfdfd;border-bottom:1px solid #f1f5f7;width:150px;vertical-align:middle;">
-                    <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:1px;color:#788f95;text-transform:uppercase;">
-                      ✉️ Email adresa
+                  <td style="padding:14px 16px;background:#fcfdfd;border-bottom:1px solid #f1f5f7;width:160px;vertical-align:middle;">
+                    <span style="display:inline-block;white-space:nowrap;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:1px;color:#788f95;text-transform:uppercase;">
+                      ${iconMail}Email adresa
                     </span>
                   </td>
                   <td style="padding:14px 16px;background:#fcfdfd;border-bottom:1px solid #f1f5f7;vertical-align:middle;">
@@ -223,9 +233,9 @@ export async function POST(req: NextRequest) {
 
                 <!-- ROW 3: TELEFON -->
                 <tr>
-                  <td style="padding:14px 16px;background:#ffffff;border-bottom:1px solid #f1f5f7;width:150px;vertical-align:middle;">
-                    <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:1px;color:#788f95;text-transform:uppercase;">
-                      📞 Telefon
+                  <td style="padding:14px 16px;background:#ffffff;border-bottom:1px solid #f1f5f7;width:160px;vertical-align:middle;">
+                    <span style="display:inline-block;white-space:nowrap;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:1px;color:#788f95;text-transform:uppercase;">
+                      ${iconPhone}Telefon
                     </span>
                   </td>
                   <td style="padding:14px 16px;background:#ffffff;border-bottom:1px solid #f1f5f7;vertical-align:middle;">
@@ -239,9 +249,9 @@ export async function POST(req: NextRequest) {
 
                 <!-- ROW 4: TEMA / USLUGA -->
                 <tr>
-                  <td style="padding:14px 16px;background:#fcfdfd;width:150px;vertical-align:middle;">
-                    <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:1px;color:#788f95;text-transform:uppercase;">
-                      🏷️ Tema / Usluga
+                  <td style="padding:14px 16px;background:#fcfdfd;width:160px;vertical-align:middle;">
+                    <span style="display:inline-block;white-space:nowrap;font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:1px;color:#788f95;text-transform:uppercase;">
+                      ${iconTag}Tema / Usluga
                     </span>
                   </td>
                   <td style="padding:14px 16px;background:#fcfdfd;vertical-align:middle;">
@@ -256,7 +266,7 @@ export async function POST(req: NextRequest) {
               <!-- MESSAGE BLOCKQUOTE CARD -->
               <div style="margin-top:24px;background:#f9fbfb;border-left:4px solid #145963;border-radius:0 12px 12px 0;padding:20px 22px;border-top:1px solid #ebf1f2;border-right:1px solid #ebf1f2;border-bottom:1px solid #ebf1f2;">
                 <p style="margin:0 0 10px 0;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;color:#758d92;text-transform:uppercase;">
-                  💬 Poruka klijenta
+                  ${iconMessage}Poruka klijenta
                 </p>
                 <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14.5px;line-height:1.75;color:#1e293b;white-space:pre-wrap;">
                   ${safeNote}
@@ -267,12 +277,12 @@ export async function POST(req: NextRequest) {
               <div style="margin-top:32px;text-align:center;">
                 ${
                   safeEmail
-                    ? `<a href="mailto:${safeEmail}" class="btn-reply" style="display:inline-block;background:linear-gradient(135deg, #124a52 0%, #1a6470 100%);color:#ffffff;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;text-decoration:none;padding:14px 34px;border-radius:50px;letter-spacing:0.4px;box-shadow:0 6px 18px rgba(18,74,82,0.25);margin:4px;">↩ Odgovori na upit</a>`
+                    ? `<a href="mailto:${safeEmail}" class="btn-reply" style="display:inline-block;background:linear-gradient(135deg, #124a52 0%, #1a6470 100%);color:#ffffff;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;text-decoration:none;padding:14px 34px;border-radius:50px;letter-spacing:0.4px;box-shadow:0 6px 18px rgba(18,74,82,0.25);margin:4px;">${iconReply}Odgovori na upit</a>`
                     : ''
                 }
                 ${
                   safePhone
-                    ? `<a href="tel:${safePhone.replace(/\s+/g, '')}" style="display:inline-block;background:#ffffff;border:1.5px solid #1a6470;color:#1a6470;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;text-decoration:none;padding:12px 28px;border-radius:50px;letter-spacing:0.4px;margin:4px;">📞 Pozovi klijenta</a>`
+                    ? `<a href="tel:${safePhone.replace(/\s+/g, '')}" style="display:inline-block;background:#ffffff;border:1.5px solid #1a6470;color:#1a6470;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;text-decoration:none;padding:12px 28px;border-radius:50px;letter-spacing:0.4px;margin:4px;">${iconCall}Pozovi klijenta</a>`
                     : ''
                 }
               </div>
