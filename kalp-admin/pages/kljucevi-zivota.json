@@ -1,0 +1,126 @@
+{
+  "slug": "kljucevi-zivota",
+  "title": {
+    "hr": "Ključevi života",
+    "en": "Keys to Life"
+  },
+  "metaTitle": {
+    "hr": "Ključevi života | Mentalni Reset · Marina Coaching",
+    "en": "Keys to Life | Mental Reset · Marina Coaching"
+  },
+  "metaDescription": {
+    "hr": "Vrati sebi pravo na vlastiti izbor. 60 minuta individualnog rada.",
+    "en": "Reclaim your right to your own choices. 60 minutes of transformational work."
+  },
+  "isPublished": true,
+  "category": "MENTALNI RESET",
+  "props": {
+    "category": "MENTALNI RESET",
+    "price": "39 €",
+    "duration": "60 minuta",
+    "meta": "60 minuta · 39 €",
+    "cta": "Prijavi se",
+    "image": "/image/Pety - 17cm 1.png"
+  },
+  "content": [
+    {
+      "id": "hero-kz-001",
+      "type": "programHero",
+      "adminTitle": "Program Hero",
+      "props": {
+        "category": "MENTALNI RESET",
+        "title": {
+          "hr": "Ključevi života",
+          "en": "Keys to Life"
+        },
+        "subtitle": {
+          "hr": "Vrati sebi pravo na vlastiti izbor.",
+          "en": "Reclaim your right to your own choice."
+        },
+        "intro": {
+          "hr": "Cijeli si život bila uzorna, odgovorna i „dobra“. I možda danas shvaćaš da previše toga radiš kako bi drugi bili zadovoljni tobom — dok svoje potrebe stalno stavljaš na čekanje.",
+          "en": "All your life you have been exemplary, responsible, and good. Perhaps today you realize you do too much simply to keep everyone satisfied—while putting your own needs on hold."
+        },
+        "meta": "60 minuta · 39 €",
+        "cta": "Prijavi se"
+      }
+    },
+    {
+      "id": "section-kz-001",
+      "type": "programSection",
+      "adminTitle": "Je li ovo za tebe?",
+      "props": {
+        "eyebrow": "Je li ovo za tebe?",
+        "heading": "Možda ti je vrijeme vratiti ključeve sebi ako…",
+        "bullets": [
+          "često govoriš DA i kada želiš reći NE",
+          "osjećaš grižnju savjesti kada staviš sebe na prvo mjesto",
+          "stalno razmišljaš hoće li se netko razočarati tvojom odlukom",
+          "imaš osjećaj da živiš prema očekivanjima drugih",
+          "znaš da bi nešto napravila drugačije, ali se teško odlučuješ na to",
+          "osjećaš da si odgovorna za tuđe emocije i zadovoljstvo"
+        ]
+      }
+    },
+    {
+      "id": "section-kz-002",
+      "type": "programSection",
+      "adminTitle": "Što se zapravo događa?",
+      "props": {
+        "eyebrow": "Što se zapravo događa?",
+        "heading": "Tko zapravo drži ključeve tvog života?",
+        "copy": [
+          "Kada si dugo živjela prema tuđim očekivanjima, lako je izgubiti osjećaj da ti sama odlučuješ.",
+          "Možda su to roditelji, partner, posao, autoriteti ili jednostavno pravila koja si kroz godine usvojila kao svoja.",
+          "„Moraš biti dobra.“ „Ne smiješ pogriješiti.“ „Nemoj razočarati druge.“ „Budi odgovorna.“",
+          "S vremenom više ni ne primjećuješ da prema tim pravilima donosiš odluke.",
+          "Ovaj rad počinje upravo tamo — osvještavanjem tko danas zapravo upravlja tvojim izborima."
+        ]
+      }
+    },
+    {
+      "id": "section-kz-003",
+      "type": "programSection",
+      "adminTitle": "Što radimo?",
+      "props": {
+        "eyebrow": "Što radimo?",
+        "heading": "U 60 minuta vraćamo ti ono što je tvoje.",
+        "copy": [
+          "Zajedno mapiramo situacije u kojima osjećaš najveći pritisak i otkrivamo čija očekivanja pokušavaš ispuniti.",
+          "Kroz vođeni razgovor i vježbu „Vraćanje ključeva“ razdvajamo tvoju osobnu vrijednost od tuđih očekivanja."
+        ],
+        "bullets": [
+          "pogrešku",
+          "NE",
+          "nesavršenost",
+          "vlastiti izbor",
+          "vlastite odluke"
+        ]
+      }
+    },
+    {
+      "id": "section-kz-004",
+      "type": "programSection",
+      "adminTitle": "Što nosiš sa sobom?",
+      "props": {
+        "eyebrow": "Što nosiš sa sobom?",
+        "heading": "Ne odlaziš samo s uvidom.",
+        "copy": [
+          "Nakon ovog rada jasnije vidiš čija očekivanja nosiš i gdje si svoj život počela prilagođavati drugima.",
+          "Vraćaš sebi dio resursa koje si kroz godine potisnula — pravo na pogrešku, slobodu, hrabrost i mogućnost da kažeš NE.",
+          "I radiš jedan konkretan korak kojim ćeš provjeriti kako izgleda kada ponovno ti držiš ključeve svog života."
+        ]
+      }
+    },
+    {
+      "id": "cta-kz-001",
+      "type": "finalCta",
+      "adminTitle": "Final CTA",
+      "props": {
+        "heading": "Vrijeme je da ključevi ponovno budu kod tebe.",
+        "cta": "Prijavi se na Mentalni Reset",
+        "supportingText": "60 minuta · 39 €"
+      }
+    }
+  ]
+}

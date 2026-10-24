@@ -1,0 +1,141 @@
+{
+  "slug": "ukloni-kocnice-kreni-u-akciju",
+  "title": {
+    "hr": "Ukloni kočnice. Kreni u akciju.",
+    "en": "Release Brakes. Take Action."
+  },
+  "metaTitle": {
+    "hr": "Ukloni kočnice. Kreni u akciju. | Dvodnevni intenziv · Marina Coaching",
+    "en": "Release Brakes. Take Action. | Two-Day Intensive · Marina Coaching"
+  },
+  "metaDescription": {
+    "hr": "Znaš što želiš. Ali nešto te svaki put zaustavi. Dvodnevni intenziv (2 × 120 min).",
+    "en": "You know what you want. But something holds you back. Two-day intensive workshop."
+  },
+  "isPublished": true,
+  "category": "DVODNEVNI INTENZIV",
+  "props": {
+    "category": "DVODNEVNI INTENZIV",
+    "price": "250 €",
+    "duration": "2 dana × 120 minuta",
+    "meta": "2 dana × 120 minuta · 250 €",
+    "cta": "Prijavi se",
+    "image": "/image/Pety - 17cm 1 (2).png"
+  },
+  "content": [
+    {
+      "id": "hero-uk-001",
+      "type": "programHero",
+      "adminTitle": "Program Hero",
+      "props": {
+        "category": "DVODNEVNI INTENZIV",
+        "title": {
+          "hr": "Ukloni kočnice. Kreni u akciju.",
+          "en": "Release Brakes. Take Action."
+        },
+        "subtitle": {
+          "hr": "Znaš što želiš. Ali nešto te svaki put zaustavi.",
+          "en": "You know what you want. But something stops you every time."
+        },
+        "intro": {
+          "hr": "Imaš cilj, ideju ili odluku. Znaš prema čemu želiš krenuti. A onda se pojave strah, sumnja, odgađanje i deset dobrih razloga zašto još nije vrijeme.",
+          "en": "You have a vision and goal. But fear, doubt, and procrastination kick in with ten reasons why now isn't the time."
+        },
+        "meta": "2 dana × 120 minuta · 250 €",
+        "cta": "Prijavi se"
+      }
+    },
+    {
+      "id": "section-uk-001",
+      "type": "programSection",
+      "adminTitle": "Za koga je program?",
+      "props": {
+        "eyebrow": "Za koga je program?",
+        "heading": "Ovaj intenziv je za tebe ako…",
+        "bullets": [
+          "znaš što želiš, ali ne poduzimaš konkretne korake",
+          "stalno odgađaš ono što ti je važno",
+          "čim trebaš krenuti, um ti počinje nuditi prepreke i razloge zašto ne možeš",
+          "osjećaš se zaglavljeno ili paralizirano",
+          "govoriš si „nisam ja za to“, „ne znam odakle krenuti“ ili „što ako ne uspijem?“",
+          "želiš promjenu, ali dio tebe kao da je istovremeno pokušava zaustaviti"
+        ]
+      }
+    },
+    {
+      "id": "section-uk-002",
+      "type": "programSection",
+      "adminTitle": "Što je ispod otpora?",
+      "props": {
+        "eyebrow": "Što je ispod otpora?",
+        "heading": "Možda problem nije u tome što ne znaš što želiš.",
+        "copy": [
+          "Ponekad cilj koji svjesno želiš samo je površina.",
+          "Ispod njega mogu biti druge potrebe, strahovi i očekivanja koja stvaraju otpor.",
+          "Zato nije dovoljno samo reći sebi: „Pokreni se.“",
+          "Prvo treba razumjeti što te zapravo drži na mjestu i čemu taj otpor služi.",
+          "Kada razumiješ pozadinu otpora, možeš početi mijenjati odnos prema njemu."
+        ]
+      }
+    },
+    {
+      "id": "section-uk-003",
+      "type": "programSection",
+      "adminTitle": "Dan 1 — Razbijamo otpore",
+      "props": {
+        "eyebrow": "Day 1",
+        "heading": "DAN 1 — Razbijamo otpore",
+        "copy": [
+          "Prvog dana istražujemo što se događa kada zamisliš da je odluka koju odgađaš već realizirana."
+        ],
+        "bullets": [
+          "Što te trenutno zaustavlja?",
+          "Kako se osjećaš kada ono što želiš nemaš?",
+          "Koje posljedice to ima na tvoj život?",
+          "Kako bi se osjećala kada bi to ostvarila?",
+          "Što bi se pozitivno promijenilo?"
+        ]
+      }
+    },
+    {
+      "id": "section-uk-004",
+      "type": "programSection",
+      "adminTitle": "Dan 2 — Nova verzija postaje poznata",
+      "props": {
+        "eyebrow": "Day 2",
+        "heading": "DAN 2 — Nova verzija postaje poznata",
+        "copy": [
+          "Nije dovoljno samo vizualizirati ono što želiš. Ako ti je željeno stanje potpuno nepoznato, može djelovati daleko i strano.",
+          "Zato drugi dan radimo na tome da novu stvarnost učinimo poznatijom i prirodnijom.",
+          "Kroz vježbu s tri pozicije prolazimo kroz stanje nedostatka → neutralno stanje → stanje ostvarene želje.",
+          "Krećemo se između tih pozicija i kroz vođena pitanja mijenjamo način na koji doživljavaš ono što želiš."
+        ]
+      }
+    },
+    {
+      "id": "section-uk-005",
+      "type": "programSection",
+      "adminTitle": "Format",
+      "props": {
+        "eyebrow": "Format",
+        "heading": "Kako izgleda intenziv?",
+        "copy": [
+          "2 dana rada. 120 minuta dnevno.",
+          "Rad se može odvijati individualno ili u maloj grupi do 8 sudionica.",
+          "Cilj nije samo razumjeti zašto stojiš na mjestu.",
+          "Cilj je napraviti prostor za ono prema čemu želiš krenuti."
+        ]
+      }
+    },
+    {
+      "id": "cta-uk-001",
+      "type": "finalCta",
+      "adminTitle": "Final CTA",
+      "props": {
+        "heading": "Znaš što želiš. Vrijeme je vidjeti što te zaustavlja.",
+        "cta": "Prijavi se na intenziv",
+        "supportingText": "2 dana × 120 minuta · 250 €"
+      }
+    }
+  ]
+}

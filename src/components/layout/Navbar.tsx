@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { ChevronDown, Phone, Menu, X, Check } from 'lucide-react';
 import { useLanguage, useCopy } from '../../context/LanguageContext';
 
@@ -90,6 +91,14 @@ export default function Navbar({ onOpenContact, onSelectProgramTab, onScrollTo }
           >
             {copy.nav.testimonials}
           </button>
+
+          <Link
+            id="nav-blog-btn"
+            href="/blog"
+            className="hover:text-[var(--primary)] transition-colors cursor-pointer"
+          >
+            {copy.nav.blog}
+          </Link>
         </nav>
 
         {/* Mobile Logo / Brand representation */}
@@ -183,6 +192,13 @@ export default function Navbar({ onOpenContact, onSelectProgramTab, onScrollTo }
           >
             {copy.nav.testimonials}
           </button>
+          <Link
+            href="/blog"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block w-full text-left py-2 text-base font-medium text-neutral-800 hover:text-[#23909d]"
+          >
+            {copy.nav.blog}
+          </Link>
           <div className="pt-2 border-t border-neutral-100">
             <button
               onClick={() => { onOpenContact(); setMobileMenuOpen(false); }}

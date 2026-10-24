@@ -1,0 +1,88 @@
+{
+  "slug": "blog",
+  "title": {
+    "hr": "Blog & Inspiracija",
+    "en": "Blog & Insights"
+  },
+  "metaTitle": {
+    "hr": "Blog & Inspiracija | Marina Coaching · Vivi Vita",
+    "en": "Blog & Insights | Marina Coaching · Vivi Vita"
+  },
+  "metaDescription": {
+    "hr": "Članci, savjeti i uvidi o osobnom rastu, zdravim granicama i autentičnom životu bez krivnje.",
+    "en": "Articles, reflections, and guidance on personal growth, healthy boundaries, and leading your life authentically."
+  },
+  "isPublished": true,
+  "content": [
+    {
+      "id": "blog-header-001",
+      "type": "pageHeader",
+      "layout": "centered",
+      "adminTitle": "Blog Header",
+      "props": {
+        "badge": {
+          "hr": "Inspiracija i znanje",
+          "en": "Inspiration & Knowledge"
+        },
+        "heading": {
+          "hr": "Blog & Inspiracija",
+          "en": "Blog & Insights"
+        },
+        "subheading": {
+          "hr": "Članci, savjeti i uvidi o osobnom rastu, zdravim granicama i putu prema autentičnom životu bez krivnje.",
+          "en": "Articles, guidance, and reflections on personal growth, healthy boundaries, and leading your life authentically."
+        }
+      }
+    },
+    {
+      "id": "blog-articles-001",
+      "type": "articlesList",
+      "layout": "grid-with-featured",
+      "adminTitle": "Blog Articles List",
+      "props": {
+        "articles": [
+          {
+            "slug": "od-dobre-djevojcice-do-zene-koja-vodi-svoj-zivot",
+            "title": {
+              "hr": "Od \"dobre djevojčice\" do žene koja vodi svoj život",
+              "en": "From \"Good Girl\" to a Woman Leading Her Life"
+            },
+            "category": "Osobni rast",
+            "readTime": "6 min",
+            "date": "22. listopada 2026"
+          },
+          {
+            "slug": "kako-postaviti-granice-bez-osjecaja-krivnje",
+            "title": {
+              "hr": "Kako postaviti jasne granice bez onog poznatog osjećaja krivnje",
+              "en": "How to Set Clear Boundaries Without Guilt"
+            },
+            "category": "Granice & Odnosi",
+            "readTime": "5 min",
+            "date": "18. listopada 2026"
+          },
+          {
+            "slug": "mentalni-reset-kako-utisati-unutarnjeg-kriticara",
+            "title": {
+              "hr": "Mentalni reset: Kako utišati unutarnjeg kritičara",
+              "en": "Mental Reset: Quieting the Inner Critic"
+            },
+            "category": "Mentalni reset",
+            "readTime": "4 min",
+            "date": "12. listopada 2026"
+          },
+          {
+            "slug": "briga-o-sebi-nije-sebichnost",
+            "title": {
+              "hr": "Briga o sebi nije sebičnost",
+              "en": "Self-Care is Not Selfishness"
+            },
+            "category": "Osobni rast",
+            "readTime": "4 min",
+            "date": "05. listopada 2026"
+          }
+        ]
+      }
+    }
+  ]
+}

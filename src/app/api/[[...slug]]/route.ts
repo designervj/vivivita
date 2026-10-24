@@ -38,6 +38,16 @@ async function handleProxy(req: NextRequest, context: ApiContext) {
 
   if (base === 'commerce') {
     targetPath = `commerce/${rest}`;
+  } else if (base === 'auth') {
+    if (rest === 'login') {
+      const isAdmin = req.headers.get('x-auth-type') === 'admin' || req.headers.get('x-admin-portal') === 'true';
+      targetPath = isAdmin ? 'auth/login' : 'auth/customer/login';
+    } else if (rest === 'me') {
+      const isAdmin = req.headers.get('x-auth-type') === 'admin' || req.headers.get('x-admin-portal') === 'true';
+      targetPath = isAdmin ? 'auth/me' : 'auth/customer/me';
+    } else {
+      targetPath = `auth/${rest}`;
+    }
   } else if (base === 'form-data') {
     targetPath = 'form-data';
   }

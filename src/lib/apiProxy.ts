@@ -23,13 +23,25 @@ export async function proxyRequest(
   const url = `${baseBackendUrl}/${targetPath}${searchParams ? `?${searchParams}` : ''}`;
 
   const headers = new Headers();
-  ['authorization', 'cookie', 'content-type', 'accept', 'tenant-slug', 'tenant_slug', 'auth-token', 'idempotency-key'].forEach(
-    (headerName) => {
-      const value = req.headers.get(headerName);
-      if (value) headers.set(headerName, value);
-    },
-  );
+  [
+    'authorization',
+    'cookie',
+    'content-type',
+    'accept',
+    'tenant-slug',
+    'tenant_slug',
+    'auth-token',
+    'idempotency-key',
+    'x-tenant-db',
+    'x-tenant-slug',
+    'x-auth-type',
+    'x-admin-portal',
+  ].forEach((headerName) => {
+    const value = req.headers.get(headerName);
+    if (value) headers.set(headerName, value);
+  });
   headers.set('x-tenant-db', databaseName);
+
 
   const fetchOptions: RequestInit = {
     method: req.method,

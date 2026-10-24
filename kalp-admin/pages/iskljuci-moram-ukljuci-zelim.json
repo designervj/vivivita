@@ -1,0 +1,153 @@
+{
+  "slug": "iskljuci-moram-ukljuci-zelim",
+  "title": {
+    "hr": "Isključi MORAM. Uključi ŽELIM.",
+    "en": "Turn off HAVE TO. Turn on WANT TO."
+  },
+  "metaTitle": {
+    "hr": "Isključi MORAM. Uključi ŽELIM. | Marina Coaching",
+    "en": "Turn off HAVE TO. Turn on WANT TO. | Marina Coaching"
+  },
+  "metaDescription": {
+    "hr": "Manje pritiska. Više izbora. 90 minuta fokusiranog rada.",
+    "en": "Less pressure. More choice. 90 minutes of coaching."
+  },
+  "isPublished": true,
+  "category": "MENTALNI RESET",
+  "props": {
+    "category": "MENTALNI RESET",
+    "price": "49 €",
+    "duration": "90 minuta",
+    "meta": "90 minuta · 49 €",
+    "cta": "Prijavi se",
+    "image": "/image/Pety - 17cm 1 (1).png"
+  },
+  "content": [
+    {
+      "id": "hero-mz-001",
+      "type": "programHero",
+      "adminTitle": "Program Hero",
+      "props": {
+        "category": "MENTALNI RESET",
+        "title": {
+          "hr": "Isključi MORAM. Uključi ŽELIM.",
+          "en": "Turn off HAVE TO. Turn on WANT TO."
+        },
+        "subtitle": {
+          "hr": "Manje pritiska. Više izbora.",
+          "en": "Less pressure. More choice."
+        },
+        "intro": {
+          "hr": "Ako ti se čini da je cijeli život postao popis stvari koje moraš napraviti, vrijeme je zastati i pogledati koliko ti taj osjećaj pritiska zapravo uzima.",
+          "en": "If life has become a relentless list of things you must do, it is time to pause and examine how much that constant pressure costs you."
+        },
+        "meta": "90 minuta · 49 €",
+        "cta": "Prijavi se"
+      }
+    },
+    {
+      "id": "section-mz-001",
+      "type": "programSection",
+      "adminTitle": "Prepoznaješ li se?",
+      "props": {
+        "eyebrow": "Prepoznaješ li se?",
+        "heading": "Koliko toga u svom životu radiš jer „moraš“?",
+        "copy": [
+          "Moram ustati. Moram na posao. Moram ovo završiti. Moram biti dobra. Moram ispuniti očekivanja. Moram još ovo napraviti.",
+          "Kada se „moram“ nakupi, život počinje izgledati kao beskrajan niz obaveza.",
+          "Pritisak raste, energija pada, a ono što zapravo želiš sve se teže čuje."
+        ]
+      }
+    },
+    {
+      "id": "section-mz-002",
+      "type": "programSection",
+      "adminTitle": "Moram nije samo riječ",
+      "props": {
+        "eyebrow": "Moram nije samo riječ",
+        "heading": "„Moram“ stvara pritisak. „Želim“ vraća izbor.",
+        "copy": [
+          "U ovom radu istražujemo što se događa kada svakodnevne obaveze promatraš kroz jezik „moram“.",
+          "Primjećujemo kako se mijenja tvoje stanje kada istu situaciju formuliraš kao „želim“ ili „biram“.",
+          "Ne radi se o tome da sve što trebaš napraviti odjednom postane zabavno.",
+          "Radi se o tome da ponovno vidiš da imaš izbor."
+        ]
+      }
+    },
+    {
+      "id": "section-mz-003",
+      "type": "programSteps",
+      "adminTitle": "Od MORAŠ prema ŽELIM",
+      "props": {
+        "eyebrow": "Što radimo?",
+        "heading": "Od MORAŠ prema ŽELIM.",
+        "steps": [
+          {
+            "title": "Osvještavamo tvoja „moram“.",
+            "copy": [
+              "Prepoznajemo gdje si sama sebi nametnula pritisak."
+            ]
+          },
+          {
+            "title": "Primjećujemo reakciju tijela.",
+            "copy": [
+              "Istražujemo kako se osjećaš kada kažeš „moram“, a kako kada kažeš „želim“ ili „biram“."
+            ]
+          },
+          {
+            "title": "Mijenjamo fokus.",
+            "copy": [
+              "Umjesto da stalno gledaš ono što ne želiš, definiramo prema čemu se želiš kretati."
+            ]
+          },
+          {
+            "title": "Definiramo konkretan korak.",
+            "copy": [
+              "Iz energije „želim“ biramo jedan mali korak koji možeš napraviti odmah."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "section-mz-004",
+      "type": "programSection",
+      "adminTitle": "Magnetska linija",
+      "props": {
+        "eyebrow": "Magnetska linija",
+        "heading": "Ne ostajemo samo na razgovoru.",
+        "copy": [
+          "Kroz vježbu Magnetska linija povezujemo tvoju sadašnjost s bliskom budućnošću u kojoj živiš više iz „želim“ i „biram“.",
+          "Ne tražimo savršen plan.",
+          "Tražimo ono prema čemu te stvarno privlači krenuti."
+        ]
+      }
+    },
+    {
+      "id": "section-mz-005",
+      "type": "programSection",
+      "adminTitle": "Rezultat",
+      "props": {
+        "eyebrow": "Rezultat",
+        "heading": "Što dobivaš?",
+        "bullets": [
+          "jasniji uvid u to gdje te „moram“ drži u pritisku",
+          "sposobnost prepoznati kada sama sebi stvaraš nepotreban pritisak",
+          "novi način formuliranja izbora",
+          "jasniji fokus na ono što želiš, umjesto na ono što želiš izbjeći",
+          "jedan konkretan korak prema onome što biraš"
+        ]
+      }
+    },
+    {
+      "id": "cta-mz-001",
+      "type": "finalCta",
+      "adminTitle": "Final CTA",
+      "props": {
+        "heading": "Ne moraš još više stisnuti zube. Možda trebaš vratiti sebi izbor.",
+        "cta": "Prijavi se na Mentalni Reset",
+        "supportingText": "90 minuta · 49 €"
+      }
+    }
+  ]
+}

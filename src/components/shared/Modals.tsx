@@ -47,20 +47,47 @@ export default function Modals({
     note: '',
   });
 
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setContactSubmitted(true);
-    setTimeout(() => {
-      setContactSubmitted(false);
-      onCloseContact();
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        topic: copy.modals.contact.topicOptions[0] || '',
-        note: '',
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
-    }, 2800);
+
+      if (!res.ok) {
+        throw new Error('Failed to send');
+      }
+
+      setContactSubmitted(true);
+      setTimeout(() => {
+        setContactSubmitted(false);
+        onCloseContact();
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          topic: copy.modals.contact.topicOptions[0] || '',
+          note: '',
+        });
+      }, 2800);
+    } catch (err) {
+      console.error('Contact submit error:', err);
+      setSubmitError(
+        lang === 'en'
+          ? 'Failed to send message. Please try again or email info@vivi-vita.hr directly.'
+          : 'Došlo je do greške pri slanju poruke. Molimo pokušajte ponovno ili pošaljite email na info@vivi-vita.hr.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -238,18 +265,18 @@ export default function Modals({
 
       {/* 4. Consultation & Contact Modal */}
       {contactModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto p-3 sm:p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
-          <div className="relative w-full max-w-lg max-h-[92dvh] overflow-y-auto bg-white rounded-2xl p-5 sm:p-8 shadow-2xl border border-neutral-100">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
+          <div className="relative w-full max-w-2xl max-h-[95dvh] overflow-y-auto bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-neutral-100">
             <button
               onClick={onCloseContact}
               aria-label={copy.modals.programDetails.closeAria}
-              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-700 flex items-center justify-center transition-colors cursor-pointer"
+              className="absolute top-5 right-5 w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-700 flex items-center justify-center transition-colors cursor-pointer"
             >
               <X className="w-4 h-4" />
             </button>
 
             {contactSubmitted ? (
-              <div className="py-8 text-center space-y-4 animate-in zoom-in-95 duration-200">
+              <div className="py-10 text-center space-y-4 animate-in zoom-in-95 duration-200">
                 <div className="w-14 h-14 rounded-full bg-[#e8f6f7] text-[#23909d] flex items-center justify-center mx-auto">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
@@ -261,35 +288,36 @@ export default function Modals({
                 </p>
               </div>
             ) : (
-              <div className="space-y-5">
+              <div className="space-y-4 sm:space-y-5">
                 <div>
-                  <div className="text-xs font-semibold uppercase tracking-wider text-[#23909d] mb-1">
+                  <div className="text-xs font-semibold uppercase tracking-wider text-[#23909d] mb-0.5">
                     {lang === 'en' ? 'Free introductory consultation' : 'Besplatne uvodne konzultacije'}
                   </div>
-                  <h3 className="font-serif-title text-xl sm:text-2xl text-neutral-900 font-medium">
+                  <h3 className="font-serif-title text-xl sm:text-2xl lg:text-3xl text-neutral-900 font-medium leading-tight">
                     {copy.modals.contact.title}
                   </h3>
-                  <p className="text-xs text-neutral-500 mt-1">
+                  <p className="text-xs sm:text-sm text-neutral-500 mt-1">
                     {copy.modals.contact.subtitle}
                   </p>
                 </div>
 
-                <form onSubmit={handleContactSubmit} className="space-y-3.5 text-sm sm:text-sm">
-                  <div>
-                    <label className="block text-neutral-700 font-medium mb-1">
-                      {copy.modals.contact.nameLabel}
-                    </label>
-                    <input
-                      required
-                      type="text"
-                      placeholder={copy.modals.contact.namePlaceholder}
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3.5 py-3 sm:py-2.5 text-base sm:text-sm rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#23909d]/30 focus:border-[#23909d] transition-all"
-                    />
-                  </div>
+                <form onSubmit={handleContactSubmit} className="space-y-3.5 text-xs sm:text-sm">
+                  {/* Row 1: Name & Email */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    <div>
+                      <label className="block text-neutral-700 font-medium mb-1">
+                        {copy.modals.contact.nameLabel}
+                      </label>
+                      <input
+                        required
+                        type="text"
+                        placeholder={copy.modals.contact.namePlaceholder}
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#23909d]/30 focus:border-[#23909d] transition-all text-sm"
+                      />
+                    </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                       <label className="block text-neutral-700 font-medium mb-1">
                         {copy.modals.contact.emailLabel}
@@ -300,9 +328,13 @@ export default function Modals({
                         placeholder={copy.modals.contact.emailPlaceholder}
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-3.5 py-3 sm:py-2.5 text-base sm:text-sm rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#23909d]/30 focus:border-[#23909d] transition-all"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#23909d]/30 focus:border-[#23909d] transition-all text-sm"
                       />
                     </div>
+                  </div>
+
+                  {/* Row 2: Phone & Topic */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div>
                       <label className="block text-neutral-700 font-medium mb-1">
                         {copy.modals.contact.phoneLabel}
@@ -312,47 +344,55 @@ export default function Modals({
                         placeholder={copy.modals.contact.phonePlaceholder}
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-3.5 py-3 sm:py-2.5 text-base sm:text-sm rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#23909d]/30 focus:border-[#23909d] transition-all"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#23909d]/30 focus:border-[#23909d] transition-all text-sm"
                       />
+                    </div>
+
+                    <div>
+                      <label className="block text-neutral-700 font-medium mb-1">
+                        {copy.modals.contact.topicLabel}
+                      </label>
+                      <select
+                        value={formData.topic}
+                        onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#23909d]/30 focus:border-[#23909d] transition-all bg-white text-sm"
+                      >
+                        {copy.modals.contact.topicOptions.map((opt, idx) => (
+                          <option key={idx} value={opt}>
+                            {opt}
+                          </option>
+                        ))}
+                      </select>
                     </div>
                   </div>
 
-                  <div>
-                    <label className="block text-neutral-700 font-medium mb-1">
-                      {copy.modals.contact.topicLabel}
-                    </label>
-                    <select
-                      value={formData.topic}
-                      onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
-                      className="w-full px-3.5 py-3 sm:py-2.5 text-base sm:text-sm rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#23909d]/30 focus:border-[#23909d] transition-all bg-white"
-                    >
-                      {copy.modals.contact.topicOptions.map((opt, idx) => (
-                        <option key={idx} value={opt}>
-                          {opt}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
+                  {/* Row 3: Message / Note */}
                   <div>
                     <label className="block text-neutral-700 font-medium mb-1">
                       {copy.modals.contact.noteLabel}
                     </label>
                     <textarea
-                      rows={3}
+                      rows={2}
                       placeholder={copy.modals.contact.notePlaceholder}
                       value={formData.note}
                       onChange={(e) => setFormData({ ...formData, note: e.target.value })}
-                      className="w-full px-3.5 py-3 sm:py-2.5 text-base sm:text-sm rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#23909d]/30 focus:border-[#23909d] transition-all resize-none"
+                      className="w-full px-3.5 py-2.5 h-25 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-[#23909d]/30 focus:border-[#23909d] transition-all resize-none text-sm"
                     />
                   </div>
 
+                  {submitError && (
+                    <div className="p-3 bg-red-50 text-red-700 text-xs rounded-xl border border-red-200">
+                      {submitError}
+                    </div>
+                  )}
+
                   <button
                     type="submit"
-                    className="btn-primary w-full mt-2 justify-center cursor-pointer"
+                    disabled={isSubmitting}
+                    className="btn-primary w-full mt-2 py-3 justify-center cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed text-sm"
                   >
-                    <Send className="w-4 h-4" />
-                    <span>{copy.modals.contact.submitButton}</span>
+                    <Send className={`w-4 h-4 ${isSubmitting ? 'animate-pulse' : ''}`} />
+                    <span>{isSubmitting ? copy.modals.contact.submitting : copy.modals.contact.submitButton}</span>
                   </button>
                 </form>
               </div>

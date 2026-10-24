@@ -1,0 +1,50 @@
+{
+  "slug": "testimonials",
+  "title": {
+    "hr": "Iskustva klijentica",
+    "en": "Client Testimonials"
+  },
+  "metaTitle": {
+    "hr": "Iskustva klijentica | Što kažu žene koje su prošle proces",
+    "en": "Testimonials | What women say about the coaching process"
+  },
+  "metaDescription": {
+    "hr": "Iskrene priče i transformacije žena koje su postavile granice, otpustile krivnju i preuzele vodstvo nad svojim životom.",
+    "en": "Honest stories of women who established healthy boundaries, shed guilt, and stepped into their leadership."
+  },
+  "isPublished": true,
+  "content": [
+    {
+      "id": "testimonials-grid-001",
+      "type": "testimonialsGrid",
+      "layout": "grid",
+      "adminTitle": "Testimonials Grid",
+      "props": {
+        "heading": {
+          "hr": "Priče o hrabrosti, granicama i slobodi",
+          "en": "Stories of Courage, Boundaries & Freedom"
+        },
+        "items": [
+          {
+            "name": "Ivana P.",
+            "role": "Poduzetnica & majka",
+            "quote": "Prije rada s Marinom mislila sam da reći NE znači biti loša osoba. Danas postavljam granice s lakoćom i mirnoćom.",
+            "program": "Žena koja vodi svoj život"
+          },
+          {
+            "name": "Maja K.",
+            "role": "Arhitektica",
+            "quote": "Radionica Isključi MORAM mi je doslovno otvorila oči. Shvatila sam koliko sam nepotrebnog stresa sama sebi tovarila na leđa.",
+            "program": "Mentalni Reset"
+          },
+          {
+            "name": "Ana S.",
+            "role": "Marketing menadžerica",
+            "quote": "Nakon dvodnevnog intenziva napokon sam prekinula dvogodišnju prokrastinaciju i pokrenula svoj projekt. Preporučujem od srca!",
+            "program": "Ukloni kočnice"
+          }
+        ]
+      }
+    }
+  ]
+}

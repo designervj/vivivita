@@ -1,0 +1,41 @@
+{
+  "slug": "about",
+  "title": {
+    "hr": "O Marini",
+    "en": "About Marina"
+  },
+  "metaTitle": {
+    "hr": "O Marini Novaković | Certificirani Life Coach · Vivi Vita",
+    "en": "About Marina Novaković | Certified Life Coach · Vivi Vita"
+  },
+  "metaDescription": {
+    "hr": "Moja priča: Od udovoljavanja drugima i tuđih očekivanja do žene koja vodi svoj život i pomaže drugima učiniti isto.",
+    "en": "My story: From people-pleasing to leading my own life authentically and empowering women to do the same."
+  },
+  "isPublished": true,
+  "content": [
+    {
+      "id": "about-hero-001",
+      "type": "profileHero",
+      "layout": "split-image-text",
+      "adminTitle": "About Hero",
+      "props": {
+        "name": "Marina Novaković",
+        "role": {
+          "hr": "Certificirani Life Coach & NLP Trener",
+          "en": "Certified Life Coach & NLP Practitioner"
+        },
+        "tagline": {
+          "hr": "Nisam ovdje da ti kažem kako živjeti. Ovdje sam da ti pomognem čuti tvoj vlastiti glas.",
+          "en": "I am not here to prescribe how to live. I am here to help you hear your own voice."
+        },
+        "image": "/image/Rectangle 1795.png",
+        "bio": [
+          "Godinama sam i sama živjela po nepisanim pravilima dobre djevojčice. Bila sam uspješna, marljiva, uvijek na raspolaganju svima.",
+          "Dok u jednom trenutku nisam osjetila potpunu emocionalnu prazninu i shvatila da u vlastitom životu nemam mjesta za sebe.",
+          "Kroz intenzivan rad na sebi, edukacije i stotine sati rada s klijenticama, stvorila sam metodologiju koja ženama pruža stvarne, trajne alate za oslobađanje od tuđih očekivanja."
+        ]
+      }
+    }
+  ]
+}

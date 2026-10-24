@@ -1,0 +1,121 @@
+{
+  "slug": "programs",
+  "title": {
+    "hr": "Programi i radionice",
+    "en": "Programs & Workshops"
+  },
+  "metaTitle": {
+    "hr": "Programi i radionice | Marina Coaching · Vivi Vita",
+    "en": "Programs & Workshops | Marina Coaching · Vivi Vita"
+  },
+  "metaDescription": {
+    "hr": "Individualni rad i intenzivni programi za žene koje žele prekinuti obrazac dobre djevojčice i vratiti sebi unutarnji autoritet.",
+    "en": "Individual coaching and intensive workshops for women ready to break the good-girl pattern and reclaim inner authority."
+  },
+  "isPublished": true,
+  "category": "OVERVIEW",
+  "content": [
+    {
+      "id": "programs-hero-001",
+      "type": "pageHeader",
+      "layout": "centered",
+      "adminTitle": "Programs Header",
+      "props": {
+        "badge": {
+          "hr": "Strukturirani procesi",
+          "en": "Structured processes"
+        },
+        "heading": {
+          "hr": "Programi i individualni rad",
+          "en": "Programs & Individual Coaching"
+        },
+        "subheading": {
+          "hr": "Od kratkog uvodnog reseta do višemjesečne transformacije. Pronađi format koji najviše odgovara tvojoj trenutnoj točki na putu.",
+          "en": "From a quick mental reset to an extensive multi-month transformation. Find the format best suited to your current journey."
+        }
+      }
+    },
+    {
+      "id": "programs-grid-001",
+      "type": "programCardsGrid",
+      "layout": "cards-grid",
+      "adminTitle": "All Programs Grid",
+      "props": {
+        "items": [
+          {
+            "id": "kljucevi-zivota",
+            "slug": "kljucevi-zivota",
+            "category": "MENTALNI RESET",
+            "title": {
+              "hr": "Ključevi života",
+              "en": "Keys to Life"
+            },
+            "subtitle": {
+              "hr": "Vrati sebi pravo na vlastiti izbor.",
+              "en": "Reclaim your right to your own choice."
+            },
+            "meta": "60 minuta · 39 €",
+            "price": "39 €",
+            "duration": "60 min",
+            "href": "/programi/kljucevi-zivota",
+            "image": "/image/Pety - 17cm 1.png"
+          },
+          {
+            "id": "iskljuci-moram-ukljuci-zelim",
+            "slug": "iskljuci-moram-ukljuci-zelim",
+            "category": "MENTALNI RESET",
+            "title": {
+              "hr": "Isključi MORAM. Uključi ŽELIM.",
+              "en": "Turn off HAVE TO. Turn on WANT TO."
+            },
+            "subtitle": {
+              "hr": "Manje pritiska. Više izbora.",
+              "en": "Less pressure. More choice."
+            },
+            "meta": "90 minuta · 49 €",
+            "price": "49 €",
+            "duration": "90 min",
+            "href": "/programi/iskljuci-moram-ukljuci-zelim",
+            "image": "/image/Pety - 17cm 1 (1).png"
+          },
+          {
+            "id": "ukloni-kocnice-kreni-u-akciju",
+            "slug": "ukloni-kocnice-kreni-u-akciju",
+            "category": "DVODNEVNI INTENZIV",
+            "title": {
+              "hr": "Ukloni kočnice. Kreni u akciju.",
+              "en": "Release Brakes. Take Action."
+            },
+            "subtitle": {
+              "hr": "Znaš što želiš. Ali nešto te svaki put zaustavi.",
+              "en": "You know what you want. But something holds you back."
+            },
+            "meta": "2 dana × 120 minuta · 250 €",
+            "price": "250 €",
+            "duration": "2 dana × 120 min",
+            "href": "/programi/ukloni-kocnice-kreni-u-akciju",
+            "image": "/image/Pety - 17cm 1 (2).png"
+          },
+          {
+            "id": "zena-koja-vodi-svoj-zivot",
+            "slug": "zena-koja-vodi-svoj-zivot",
+            "category": "PREMIUM 1:1 PROGRAM",
+            "title": {
+              "hr": "Žena koja vodi svoj život",
+              "en": "A Woman Leading Her Life"
+            },
+            "subtitle": {
+              "hr": "Od „dobre djevojčice“ do žene koja vjeruje sebi i svojim odlukama.",
+              "en": "From the good girl to a woman who trusts her decisions."
+            },
+            "meta": "Individualni 1:1 program · 1.500 €",
+            "price": "1.500 €",
+            "duration": "3-6 mjeseci",
+            "href": "/programi/zena-koja-vodi-svoj-zivot",
+            "image": "/image/Pety - 17cm 1 (3).png"
+          }
+        ]
+      }
+    }
+  ]
+}

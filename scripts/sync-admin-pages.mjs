@@ -1,39 +1,52 @@
 /**
  * sync-admin-pages.mjs
  *
- * Syncs homepage from kalp-admin/homepage/home.json → src/lib/pages/pages.json
+ * Syncs pages from kalp-admin/pages/*.json & kalp-admin/homepage/home.json → src/lib/pages/pages.json
  *
  * Usage:
  *   node scripts/sync-admin-pages.mjs
- *   # or add to package.json: "sync": "node scripts/sync-admin-pages.mjs"
+ *   npm run sync
  */
 
-import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const ADMIN_HOME = resolve(__dirname, '../kalp-admin/homepage/home.json');
-const PAGES_JSON = resolve(__dirname, '../src/lib/pages/pages.json');
+const PAGES_DIR = resolve(__dirname, '../kalp-admin/pages');
+const HOMEPAGE_JSON = resolve(__dirname, '../kalp-admin/homepage/home.json');
+const MASTER_PAGES_JSON = resolve(__dirname, '../src/lib/pages/pages.json');
 
-if (!existsSync(ADMIN_HOME)) {
-  console.error('❌  Not found:', ADMIN_HOME);
-  process.exit(1);
+const pageMap = new Map();
+
+// 1. Load homepage from kalp-admin/homepage/home.json if exists
+if (existsSync(HOMEPAGE_JSON)) {
+  try {
+    const home = JSON.parse(readFileSync(HOMEPAGE_JSON, 'utf-8'));
+    if (home.slug) pageMap.set(home.slug, home);
+  } catch (e) {
+    console.error('Error reading home.json:', e);
+  }
 }
 
-const adminHome = JSON.parse(readFileSync(ADMIN_HOME, 'utf-8'));
-const pages = JSON.parse(readFileSync(PAGES_JSON, 'utf-8'));
-
-const idx = pages.findIndex((p) => p.slug === 'home');
-if (idx !== -1) {
-  pages[idx] = adminHome;
-  console.log('✅  Replaced home page at index', idx);
-} else {
-  pages.unshift(adminHome);
-  console.log('✅  Inserted home page at index 0');
+// 2. Load all pages from kalp-admin/pages/
+if (existsSync(PAGES_DIR)) {
+  const files = readdirSync(PAGES_DIR).filter((f) => f.endsWith('.json'));
+  for (const file of files) {
+    try {
+      const pageData = JSON.parse(readFileSync(resolve(PAGES_DIR, file), 'utf-8'));
+      if (pageData.slug) {
+        pageMap.set(pageData.slug, pageData);
+        console.log(`Synced page [${pageData.slug}] from kalp-admin/pages/${file}`);
+      }
+    } catch (e) {
+      console.error(`Error reading ${file}:`, e);
+    }
+  }
 }
 
-writeFileSync(PAGES_JSON, JSON.stringify(pages, null, 2) + '\n', 'utf-8');
-console.log('📄  Written:', PAGES_JSON);
-console.log('💡  Hot-reload will pick this up. If not, restart: pnpm dev');
+// 3. Write out to src/lib/pages/pages.json
+const allPages = Array.from(pageMap.values());
+writeFileSync(MASTER_PAGES_JSON, JSON.stringify(allPages, null, 2) + '\n', 'utf-8');
+console.log(`\n✅  Synced ${allPages.length} total page(s) into src/lib/pages/pages.json`);

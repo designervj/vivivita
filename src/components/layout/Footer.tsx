@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { Mail, Instagram, Linkedin } from 'lucide-react';
 import { useCopy } from '../../context/LanguageContext';
 
@@ -94,6 +95,14 @@ export default function Footer({ onOpenContact, onScrollTo }: FooterProps) {
                   {copy.footer.links.about}
                 </button>
               </li>
+              <li>
+                <Link
+                  href="/blog"
+                  className="hover:text-[#23909d] transition-colors cursor-pointer"
+                >
+                  {copy.footer.links.blog}
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -103,7 +112,7 @@ export default function Footer({ onOpenContact, onScrollTo }: FooterProps) {
               {copy.footer.contactTitle}
             </div>
             <p className="text-xs sm:text-sm text-neutral-500 leading-relaxed">
-              marinacoaching@gmail.com
+              <a href="mailto:info@vivi-vita.hr" className="hover:text-[#23909d] transition-colors">info@vivi-vita.hr</a>
             </p>
           </div>
         </div>

@@ -6,6 +6,7 @@ import { redirect } from 'next/navigation';
 export async function login(formData: FormData) {
   const email = formData.get('email');
   const password = formData.get('password');
+  const redirectTo = (formData.get('redirectTo') as string) || 'https://zerolive.kalptree.xyz/canvas/vivivita/home';
 
   // Simple hardcoded check for demonstration
   if (email === 'admin@vivivita.com' && password === 'admin123') {
@@ -17,7 +18,7 @@ export async function login(formData: FormData) {
       path: '/',
     });
     
-    redirect('/');
+    redirect(redirectTo);
   } else {
     return { error: 'Invalid credentials' };
   }

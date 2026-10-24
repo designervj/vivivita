@@ -1,0 +1,185 @@
+{
+  "slug": "zena-koja-vodi-svoj-zivot",
+  "title": {
+    "hr": "Žena koja vodi svoj život",
+    "en": "A Woman Leading Her Life"
+  },
+  "metaTitle": {
+    "hr": "Žena koja vodi svoj život | Premium 1:1 Coaching · Marina",
+    "en": "A Woman Leading Her Life | Premium 1:1 Coaching · Marina"
+  },
+  "metaDescription": {
+    "hr": "Od dobre djevojčice do žene koja vjeruje sebi i svojim odlukama. Cjeloviti višemjesečni mentorski proces.",
+    "en": "From good girl to a woman who trusts herself and her choices. Comprehensive 1:1 mentoring."
+  },
+  "isPublished": true,
+  "category": "PREMIUM 1:1 PROGRAM",
+  "props": {
+    "category": "PREMIUM 1:1 PROGRAM",
+    "price": "1.500 €",
+    "duration": "3-6 mjeseci",
+    "meta": "Individualni 1:1 program · 1.500 €",
+    "cta": "Rezerviraj uvodni razgovor",
+    "image": "/image/Pety - 17cm 1 (3).png"
+  },
+  "content": [
+    {
+      "id": "hero-zv-001",
+      "type": "programHero",
+      "adminTitle": "Program Hero",
+      "props": {
+        "category": "PREMIUM 1:1 PROGRAM",
+        "title": {
+          "hr": "Žena koja vodi svoj život",
+          "en": "A Woman Leading Her Life"
+        },
+        "subtitle": {
+          "hr": "Od „dobre djevojčice“ do žene koja vjeruje sebi i svojim odlukama.",
+          "en": "From the good girl to a woman who trusts her decisions."
+        },
+        "intro": {
+          "hr": "Dubinski individualni proces za ženu koja više ne želi samo riješiti jedan problem, nego razumjeti i promijeniti obrazac iz kojeg živi.",
+          "en": "An in-depth personal process for the woman who desires to fundamentally transform the pattern from which she operates."
+        },
+        "meta": "Individualni 1:1 program · 1.500 €",
+        "cta": "Rezerviraj uvodni razgovor"
+      }
+    },
+    {
+      "id": "section-zv-001",
+      "type": "programSection",
+      "adminTitle": "Prepoznaješ li svoj trenutak?",
+      "props": {
+        "eyebrow": "Prepoznaješ li svoj trenutak?",
+        "heading": "Možda izvana sve izgleda dobro. Ali ti znaš da nešto više nije tvoje.",
+        "copy": [
+          "Možda si obrazovana, sposobna, odgovorna i uspješna.",
+          "Možda si cijeli život bila ona koja će uspjeti, ona koja može više, ona koja ne smije razočarati.",
+          "A danas se pitaš: Što se dogodilo sa mnom? Zašto nemam više ambicije? Zašto samo odrađujem dane? Zašto znam da želim promjenu, ali se ne mogu pokrenuti? Što ja zapravo želim?",
+          "Možda ne nedostaješ sebi zato što si izgubila sposobnost.",
+          "Možda si izgubila kontakt sa sobom dok si pokušavala postati ono što se od tebe očekivalo."
+        ]
+      }
+    },
+    {
+      "id": "section-zv-002",
+      "type": "programSection",
+      "adminTitle": "Što je dobra djevojčica?",
+      "props": {
+        "eyebrow": "Što je „dobra djevojčica“?",
+        "heading": "„Dobra djevojčica“ nije tko jesi. To je obrazac koji si naučila.",
+        "copy": [
+          "To je dio tebe koji je naučio da je sigurnije biti dobra, uspješna, odgovorna, prilagodljiva i prihvaćena.",
+          "Da je bolje ne razočarati druge. Da pogreška može značiti neuspjeh. Da tvoju vrijednost potvrđuju rezultati, pohvale i tuđe zadovoljstvo.",
+          "Taj obrazac možda ti je nekada pomagao.",
+          "Ali ono što ti je nekada pomagalo da budeš prihvaćena, danas može upravljati tvojim životom."
+        ]
+      }
+    },
+    {
+      "id": "section-zv-003",
+      "type": "programSteps",
+      "adminTitle": "Tri stupa procesa",
+      "props": {
+        "eyebrow": "Što radimo?",
+        "heading": "Ne radimo na tome da postaneš „bolja“. Radimo na tome da postaneš svoja.",
+        "steps": [
+          {
+            "title": "01 — Osvještavanje",
+            "copy": [
+              "Prepoznajemo obrasce, okidače, uvjerenja i vanjske autoritete koji su godinama utjecali na tvoje odluke."
+            ]
+          },
+          {
+            "title": "02 — Transformacija",
+            "copy": [
+              "Radimo na strahu od neuspjeha, ograničavajućim uvjerenjima, otporima, samosabotaži i obrascima koji te vraćaju na staro."
+            ]
+          },
+          {
+            "title": "03 — Izgradnja novog identiteta",
+            "copy": [
+              "Definiramo što zaista želiš, vraćamo sigurnost u vlastite odluke i gradimo identitet koji više nije određen tuđim očekivanjima."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "section-zv-004",
+      "type": "programTimeline",
+      "adminTitle": "9 Faza Programa",
+      "props": {
+        "eyebrow": "Put kroz program",
+        "heading": "Od rušenja starog obrasca do nove verzije tebe.",
+        "timeline": [
+          {
+            "title": "Faza 1 — Vraćanje autoriteta sebi",
+            "copy": [
+              "Prepoznaješ čija očekivanja nosiš i vraćamo ključeve tebi."
+            ]
+          },
+          {
+            "title": "Faza 2 — Otpuštanje tereta",
+            "copy": [
+              "Vraćamo pravo na pogrešku, nesavršenost, NE i vlastiti izbor."
+            ]
+          },
+          {
+            "title": "Faza 3 — Novi odnos prema neuspjehu",
+            "copy": [
+              "Neuspjeh kao povratna informacija umjesto dokaza vrijednosti."
+            ]
+          },
+          {
+            "title": "Faza 4 — Razgradnja starih uvjerenja",
+            "copy": [
+              "Transformacija temeljnih ograničavajućih uvjerenja."
+            ]
+          },
+          {
+            "title": "Faza 5 — Od moram prema želim",
+            "copy": [
+              "Fokus na autentične želje i ponovno buđenje motivacije."
+            ]
+          },
+          {
+            "title": "Faza 6 — Rad na otporima",
+            "copy": [
+              "Istraživanje i premošćivanje unutrašnjih kočnica."
+            ]
+          },
+          {
+            "title": "Faza 7 — Sigurnost u sebe",
+            "copy": [
+              "Razvijanje stabilnog unutrašnjeg oslonca bez potrebe za potvrdom."
+            ]
+          },
+          {
+            "title": "Faza 8 — Novi identitet",
+            "copy": [
+              "Integracija nove slike sebe kroz vođeni rad i audio sidra."
+            ]
+          },
+          {
+            "title": "Faza 9 — Cilj i sljedeći korak",
+            "copy": [
+              "Konkretni dugoročni ciljevi i plan za samostalnost."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "cta-zv-001",
+      "type": "finalCta",
+      "adminTitle": "Final CTA",
+      "props": {
+        "heading": "Vrijeme je da prestaneš živjeti prema pravilima koja više nisu tvoja.",
+        "copy": "Ako osjećaš da je vrijeme za dublju promjenu, prvi korak je razgovor.",
+        "cta": "Rezerviraj uvodni razgovor",
+        "supportingText": "Premium 1:1 program · 1.500 €"
+      }
+    }
+  ]
+}

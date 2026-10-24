@@ -6,7 +6,7 @@ import { Database, Edit3, Eye, EyeOff, LayoutDashboard, LogOut, MessageSquare, S
 import { logout } from '../../app/actions/auth';
 
 const tenantDb = process.env.NEXT_PUBLIC_TENANT_DB || 'kp_vivivita';
-const adminUrl = process.env.NEXT_PUBLIC_KALP_ADMIN_URL || 'https://zero.kalptree.xyz';
+const adminUrl = process.env.NEXT_PUBLIC_KALP_ADMIN_URL || 'https://zerolive.kalptree.xyz/canvas/vivivita/home';
 
 export default function AdminBar() {
   const [isVisible, setIsVisible] = useState(true);
