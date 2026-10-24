@@ -52,7 +52,7 @@ export default function Hero({ onStartProcess, onPlayVideo, content = HERO_CONTE
             fieldPath={`heading.${lang}`}
             value={headline}
             multiline
-            className="font-serif-hero uppercase font-normal sm:font-medium text-white tracking-[0.04em] text-[23px] sm:text-[32px] md:text-[38px] lg:text-[43px] leading-[1.18] sm:leading-[1.22] drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)] whitespace-pre-line"
+            className="font-serif-hero uppercase font-normal sm:font-medium text-white tracking-[0.04em] text-[23px] sm:text-[32px] md:text-[38px] lg:text-[43px] leading-[1.18] sm:leading-[1.22] drop-shadow-[0_2px_8px_rgba(0,0,0,0.75)] whitespace-pre-line"
           />
 
           {/* Subtitle */}

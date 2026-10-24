@@ -132,10 +132,10 @@ export default function ProgramsSection({
                   </div>
 
                   {/* Action Link at Bottom */}
-                  <div className="pt-4 mt-auto space-y-3">
-                    <div className="border-t border-[#dde3e5] pb-0 mb-0 pt-4 text-[14px] font-medium text-[#514b45]">
+                  <div className="pt-3 mt-auto space-y-3">
+                    <div className="border-t border-[#dde3e5] pb-0 mb-0 pt-4 text-[14px] font-medium text-[#514b45] ">
                       <EditableText
-                        className="bg-[#fff] rounded-md px-4 py-1.5"
+                        className="bg-[#fff] rounded-sm px-4 py-1.5 border border-[#dde3e5]"
                         sectionId="programs-001"
                         fieldPath={`items.${programIndex}.meta.${lang}`}
                         value={program.meta || `${program.duration} · ${program.price || ''}`.trim()}
@@ -160,8 +160,8 @@ export default function ProgramsSection({
       </section>
 
       {/* Custom Program Banner */}
-      <section className="pt-6 sm:pt-10 pb-16 sm:pb-24 container mx-auto px-3 sm:px-6 md:px-8">
-        <div className="mt-10 sm:mt-12 bg-[#f4f6f7] rounded-[18px] p-6 sm:p-10 border border-[#eaedee] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <section className="pt-6 sm:pt-6 pb-16 sm:pb-20 container mx-auto px-3 sm:px-6 md:px-8">
+        <div className="mt-10 sm:mt-6 bg-[#f4f6f7] rounded-[18px] p-6 sm:p-10 border border-[#eaedee] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl">
             <h3 className="font-serif-hero text-2xl sm:text-[var(--text-h3)] font-bold tracking-wide mb-4 sm:mb-5">
               <EditableText
