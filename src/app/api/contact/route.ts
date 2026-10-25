@@ -153,7 +153,7 @@ export async function POST(req: NextRequest) {
               <!-- Brand Ornament / Badge -->
               <table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 12px auto;">
                 <tr>
-                  <td style="background:rgba(255,255,255,0.12);border:1px solid rgba(212,175,55,0.4);border-radius:30px;padding:5px 16px;">
+                  <td style="background:rgba(255,255,255,0.12);border-radius:30px;padding:5px 16px;">
                     <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;color:#f3e3be;text-transform:uppercase;">
                       ✦ WELLNESS &amp; HEALTH STUDIO ✦
                     </span>
